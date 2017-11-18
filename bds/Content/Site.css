@@ -1347,7 +1347,7 @@ ul.dropdown {
 
         .boxregister .formreg .col-md-4 {
             text-align: right;
-            padding-top: 5px;
+            padding-top: 7px;
         }
 
             .boxregister .formreg .col-md-4 span {
@@ -1361,3 +1361,10 @@ ul.dropdown {
         top: 4px;
         cursor: pointer;
     }
+
+.loginbox span.close {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    cursor: pointer;
+}

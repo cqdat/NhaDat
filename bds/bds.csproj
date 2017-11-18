@@ -837,6 +837,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flexslider.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\stylemenubar.css" />
@@ -928,6 +929,10 @@
     <Content Include="images\home-hover.png" />
     <Content Include="images\home.png" />
     <Content Include="images\hot.gif" />
+    <Content Include="images\kitchen_adventurer_caramel.jpg" />
+    <Content Include="images\kitchen_adventurer_cheesecake_brownie.jpg" />
+    <Content Include="images\kitchen_adventurer_donut.jpg" />
+    <Content Include="images\kitchen_adventurer_lemon.jpg" />
     <Content Include="images\llock.png" />
     <Content Include="images\login.png" />
     <Content Include="images\logo.png" />
@@ -1018,6 +1023,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1060,6 +1066,7 @@
     <Content Include="Views\RaoVat\_rightchothue.cshtml" />
     <Content Include="Views\RaoVat\GetChoThue.cshtml" />
     <Content Include="Views\RaoVat\_tinchothue.cshtml" />
+    <Content Include="Views\Shared\_slide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

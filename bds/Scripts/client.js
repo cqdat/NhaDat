@@ -37,6 +37,14 @@ $(document).ready(function () {
         $(".boxregister").hide();
     });
 
+    $(".loginbox .close").click(function () {
+        $(".loginbox").hide();
+    });
+
+    $('.flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails"
+    });
     
 
 });
