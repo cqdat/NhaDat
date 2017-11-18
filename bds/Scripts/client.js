@@ -27,6 +27,16 @@ $(document).ready(function () {
         $(".loginbox").hide();
     });
 
+    $(".dktv").click(function () {
+
+        $(".boxregister").show();
+
+    });
+
+    $(".boxregister .close").click(function () {
+        $(".boxregister").hide();
+    });
+
     
 
 });
