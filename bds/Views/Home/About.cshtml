@@ -3,11 +3,32 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-<script src="~/ckeditor/ckeditor.js"></script>
-<p>Use this area to provide additional information.</p>
-<textarea id="test_CK">
 
-</textarea>
-<script>
-    CKEDITOR.replace("test_CK");
+@*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $('#Brows').click(function () {
+            var ckfinder = new CKFinder();
+            ckfinder.selectActionFunction = function (Images) {
+                $('#hinhanh').val(Images);
+
+            };
+            ckfinder.popup();
+        });
+    })
+
 </script>
+<script type="text/javascript">
+
+    $(function () {
+        CKEDITOR.replace("mota",{customConfig:"/Content/ckeditor/config.js"});
+    })
+</script>
+Img<br />
+<input type="button" id="Brows" name="Brows" value="Brows images" /><br />
+ND<br />
+<textarea id="mota" name="mota"></textarea>
