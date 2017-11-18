@@ -1,0 +1,35 @@
+﻿@model bds.Areas.Cpanel.Models.BDS_HUONGNHA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BDS_HUONGNHA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenHuongNha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHuongNha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdHuongNha }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<bds.Areas.Cpanel.Models.BDS_HUONGNHA>
+
+@{
+    ViewBag.Title = "Hướng nhà";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<div id="page-heading">
+    <h1>Danh mục Hướng nhà</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a class="btn btn-success" href="/Cpanel/BDS_HUONGNHA/Create"><i class="fa fa-plus-square-o"></i>Thêm mới</a>
+            
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:5px 20px">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Hướng nhà
+                </th>
+                <th>
+                    Số TT
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenHuongNha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STT)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.IdHuongNha })
+                        
+                        |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.IdHuongNha }) |*@
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.IdHuongNha })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+       
+
+    </table>
+</div>
+

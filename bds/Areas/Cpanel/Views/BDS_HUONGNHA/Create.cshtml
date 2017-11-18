@@ -1,0 +1,54 @@
+﻿@model bds.Areas.Cpanel.Models.BDS_HUONGNHA
+
+@{
+    ViewBag.Title = "Thêm mới Hướng nhà";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-heading">
+    <h1>Thêm mới Hướng</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a class="btn btn-success" href="/Cpanel/BDS_HUONGNHA/">Quay lại DM Hướng</a>
+
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:2px">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Hướng nhà", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenHuongNha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenHuongNha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Số Thứ tự", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.STT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.STT, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-8">
+                <label style="font-style:italic; text-align:left" class="control-label col-md-8">Nhập số 1, 2, 3,... theo thứ tự tăng dần</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+

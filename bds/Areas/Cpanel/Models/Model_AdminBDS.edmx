@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_BDSModel_Admin.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BDS_DIENTICH">
+          <Key>
+            <PropertyRef Name="IdDT" />
+          </Key>
+          <Property Name="IdDT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDT" Type="nvarchar" MaxLength="100" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="BDS_DM_GIAODICH">
+          <Key>
+            <PropertyRef Name="idDM" />
+          </Key>
+          <Property Name="idDM" Type="int" Nullable="false" />
+          <Property Name="TenDMGiaoDich" Type="nvarchar" MaxLength="50" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="BDS_GIA">
+          <Key>
+            <PropertyRef Name="IdGia" />
+          </Key>
+          <Property Name="IdGia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGia" Type="nvarchar" MaxLength="100" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="BDS_HUONGNHA">
+          <Key>
+            <PropertyRef Name="IdHuongNha" />
+          </Key>
+          <Property Name="IdHuongNha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHuongNha" Type="nvarchar" MaxLength="50" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="BDS_LOAIBDS">
+          <Key>
+            <PropertyRef Name="IDBDS" />
+          </Key>
+          <Property Name="IDBDS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THUTU" Type="int" />
+          <Property Name="TENBDS" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HIENTHI" Type="int" />
+          <Property Name="HIEULUC" Type="int" />
+        </EntityType>
+        <EntityType Name="DUAN">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDLOAI" Type="int" />
+          <Property Name="THUTU" Type="int" />
+          <Property Name="IDTT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIEUDE" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TOMTAT" Type="nvarchar" MaxLength="4000" />
+          <Property Name="NOIDUNG" Type="ntext" />
+          <Property Name="HINHNHO" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HINHLON" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NGAY" Type="datetime" />
+          <Property Name="TINNOIBAT" Type="int" />
+          <Property Name="HIENTHI" Type="int" />
+          <Property Name="HIEULUC" Type="int" />
+          <Property Name="SOLANXEM" Type="int" />
+        </EntityType>
+        <EntityType Name="DUAN_HINH">
+          <Key>
+            <PropertyRef Name="IDH" />
+          </Key>
+          <Property Name="IDTT" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="THUTU" Type="int" />
+          <Property Name="IDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENHINH" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HINHNHO" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HINHLON" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MOTA" Type="ntext" />
+          <Property Name="HIEULUC" Type="int" />
+          <Property Name="HIENTHI" Type="int" />
+        </EntityType>
+        <EntityType Name="DUAN_LOAI">
+          <Key>
+            <PropertyRef Name="IDLOAI" />
+          </Key>
+          <Property Name="IDLOAI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THUTU" Type="int" />
+          <Property Name="TENLOAI" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HIENTHI" Type="int" />
+          <Property Name="HIEULUC" Type="int" />
+          <Property Name="IDCHA" Type="int" />
+          <Property Name="URL" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NGAY" Type="datetime" />
+          <Property Name="CAP" Type="int" />
+          <Property Name="HINHANH" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NOIDUNG" Type="ntext" />
+          <Property Name="TINNOIBAT" Type="int" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenMenu" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdCha" Type="int" />
+          <Property Name="ThuTu" Type="int" />
+          <Property Name="HienThi" Type="int" />
+          <Property Name="IsMenu" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="THANHVIEN">
+          <Property Name="idTV" Type="int" />
+          <Property Name="TenTruyCap" Type="varchar" MaxLength="20" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="SoDiDong" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailLH" Type="nvarchar" MaxLength="100" />
+          <Property Name="TinhTrang" Type="int" />
+          <Property Name="VIP" Type="int" />
+          <Property Name="LanDangNhapCuoi" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="TINHTHANH">
+          <Key>
+            <PropertyRef Name="IdTT" />
+          </Key>
+          <Property Name="IdTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTT" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDCha" Type="int" />
+          <Property Name="Cap" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DB_BDSModel_AdminStoreContainer">
+          <EntitySet Name="BDS_DIENTICH" EntityType="Self.BDS_DIENTICH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BDS_DM_GIAODICH" EntityType="Self.BDS_DM_GIAODICH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BDS_GIA" EntityType="Self.BDS_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BDS_HUONGNHA" EntityType="Self.BDS_HUONGNHA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BDS_LOAIBDS" EntityType="Self.BDS_LOAIBDS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DUAN" EntityType="Self.DUAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DUAN_HINH" EntityType="Self.DUAN_HINH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINHTHANH" EntityType="Self.TINHTHANH" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_BDSModel_Admin" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BDS_DIENTICH">
+          <Key>
+            <PropertyRef Name="IdDT" />
+          </Key>
+          <Property Name="IdDT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BDS_DM_GIAODICH">
+          <Key>
+            <PropertyRef Name="idDM" />
+          </Key>
+          <Property Name="idDM" Type="Int32" Nullable="false" />
+          <Property Name="TenDMGiaoDich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BDS_GIA">
+          <Key>
+            <PropertyRef Name="IdGia" />
+          </Key>
+          <Property Name="IdGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BDS_HUONGNHA">
+          <Key>
+            <PropertyRef Name="IdHuongNha" />
+          </Key>
+          <Property Name="IdHuongNha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHuongNha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BDS_LOAIBDS">
+          <Key>
+            <PropertyRef Name="IDBDS" />
+          </Key>
+          <Property Name="IDBDS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THUTU" Type="Int32" />
+          <Property Name="TENBDS" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HIENTHI" Type="Int32" />
+          <Property Name="HIEULUC" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DUAN">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDLOAI" Type="Int32" />
+          <Property Name="THUTU" Type="Int32" />
+          <Property Name="IDTT" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIEUDE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="TOMTAT" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINHNHO" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HINHLON" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="TINNOIBAT" Type="Int32" />
+          <Property Name="HIENTHI" Type="Int32" />
+          <Property Name="HIEULUC" Type="Int32" />
+          <Property Name="SOLANXEM" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DUAN_HINH">
+          <Key>
+            <PropertyRef Name="IDH" />
+          </Key>
+          <Property Name="IDTT" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="THUTU" Type="Int32" />
+          <Property Name="IDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENHINH" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HINHNHO" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HINHLON" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HIEULUC" Type="Int32" />
+          <Property Name="HIENTHI" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DUAN_LOAI">
+          <Key>
+            <PropertyRef Name="IDLOAI" />
+          </Key>
+          <Property Name="IDLOAI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THUTU" Type="Int32" />
+          <Property Name="TENLOAI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HIENTHI" Type="Int32" />
+          <Property Name="HIEULUC" Type="Int32" />
+          <Property Name="IDCHA" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="CAP" Type="Int32" />
+          <Property Name="HINHANH" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TINNOIBAT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMenu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCha" Type="Int32" />
+          <Property Name="ThuTu" Type="Int32" />
+          <Property Name="HienThi" Type="Int32" />
+          <Property Name="IsMenu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TINHTHANH">
+          <Key>
+            <PropertyRef Name="IdTT" />
+          </Key>
+          <Property Name="IdTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDCha" Type="Int32" />
+          <Property Name="Cap" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DB_BDSEntitiesAdmin" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BDS_DIENTICH" EntityType="Self.BDS_DIENTICH" />
+          <EntitySet Name="BDS_DM_GIAODICH" EntityType="Self.BDS_DM_GIAODICH" />
+          <EntitySet Name="BDS_GIA" EntityType="Self.BDS_GIA" />
+          <EntitySet Name="BDS_HUONGNHA" EntityType="Self.BDS_HUONGNHA" />
+          <EntitySet Name="BDS_LOAIBDS" EntityType="Self.BDS_LOAIBDS" />
+          <EntitySet Name="DUANs" EntityType="Self.DUAN" />
+          <EntitySet Name="DUAN_HINH" EntityType="Self.DUAN_HINH" />
+          <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" />
+          <EntitySet Name="MENUs" EntityType="Self.MENU" />
+          <EntitySet Name="TINHTHANHs" EntityType="Self.TINHTHANH" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_BDSModel_AdminStoreContainer" CdmEntityContainer="DB_BDSEntitiesAdmin">
+          <EntitySetMapping Name="BDS_DIENTICH">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_DIENTICH">
+              <MappingFragment StoreEntitySet="BDS_DIENTICH">
+                <ScalarProperty Name="IdDT" ColumnName="IdDT" />
+                <ScalarProperty Name="TenDT" ColumnName="TenDT" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_DM_GIAODICH">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_DM_GIAODICH">
+              <MappingFragment StoreEntitySet="BDS_DM_GIAODICH">
+                <ScalarProperty Name="idDM" ColumnName="idDM" />
+                <ScalarProperty Name="TenDMGiaoDich" ColumnName="TenDMGiaoDich" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_GIA">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_GIA">
+              <MappingFragment StoreEntitySet="BDS_GIA">
+                <ScalarProperty Name="IdGia" ColumnName="IdGia" />
+                <ScalarProperty Name="TenGia" ColumnName="TenGia" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_HUONGNHA">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_HUONGNHA">
+              <MappingFragment StoreEntitySet="BDS_HUONGNHA">
+                <ScalarProperty Name="IdHuongNha" ColumnName="IdHuongNha" />
+                <ScalarProperty Name="TenHuongNha" ColumnName="TenHuongNha" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_LOAIBDS">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_LOAIBDS">
+              <MappingFragment StoreEntitySet="BDS_LOAIBDS">
+                <ScalarProperty Name="IDBDS" ColumnName="IDBDS" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="TENBDS" ColumnName="TENBDS" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DUANs">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN">
+              <MappingFragment StoreEntitySet="DUAN">
+                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+                <ScalarProperty Name="TOMTAT" ColumnName="TOMTAT" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
+                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="SOLANXEM" ColumnName="SOLANXEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DUAN_HINH">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN_HINH">
+              <MappingFragment StoreEntitySet="DUAN_HINH">
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDH" ColumnName="IDH" />
+                <ScalarProperty Name="TENHINH" ColumnName="TENHINH" />
+                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
+                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DUAN_LOAI">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN_LOAI">
+              <MappingFragment StoreEntitySet="DUAN_LOAI">
+                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="IDCHA" ColumnName="IDCHA" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENUs">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+                <ScalarProperty Name="TenMenu" ColumnName="TenMenu" />
+                <ScalarProperty Name="IdCha" ColumnName="IdCha" />
+                <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
+                <ScalarProperty Name="HienThi" ColumnName="HienThi" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINHTHANHs">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.TINHTHANH">
+              <MappingFragment StoreEntitySet="TINHTHANH">
+                <ScalarProperty Name="IdTT" ColumnName="IdTT" />
+                <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+                <ScalarProperty Name="IDCha" ColumnName="IDCha" />
+                <ScalarProperty Name="Cap" ColumnName="Cap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

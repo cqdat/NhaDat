@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-7">
+        @Html.Partial("_search")
+    </div>
+    <div class="col-md-5">
+        
+        @Html.Partial("_detailbds")
+
+    </div>
+</div>
+
+
+<div class="row noibat">
+    <div class="col-md-8">
+        @Html.Partial("_slider")
+
+
+        @Html.Partial("_bdsnoibat")
+
+
+        @* phần tin bat dong san moi *@
+
+        @Html.Partial("_tinbds")
+
+
+    </div>
+    <div class="col-md-4">
+
+        @Html.Partial("_bannerleft")
+        
+        @Html.Partial("_hotnews")
+
+        @Html.Partial("_favtool")
+
+    </div>
+</div>

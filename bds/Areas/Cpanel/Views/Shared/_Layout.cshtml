@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>CPanel - @ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Avant">
+    <meta name="author" content="The Red Team">
+
+    <link href="@Url.Content("~/Areas/Cpanel/assets/css/styles.minc726.css?=140")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/demo/variations/default.css")" rel="stylesheet" type="text/css" media='all' id='styleswitcher' />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/demo/variations/default.css")" rel="stylesheet" type="text/css" media='all' id='headerswitcher' />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/plugins/form-daterangepicker/daterangepicker-bs3.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/plugins/fullcalendar/fullcalendar.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/plugins/form-markdown/css/bootstrap-markdown.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/plugins/codeprettifier/prettify.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Cpanel/assets/plugins/form-toggle/toggles.css")" rel="stylesheet" type="text/css" />
+
+    @RenderSection("Styles", false)
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+        <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
+        @*<div class="navbar-header pull-left" style="background-color:#ffffff">*@
+        <a class="navbar-brand" href="index.html">Wanek Co., Ltd</a>
+        @*</div>*@
+        @*@Html.Partial("_LoginPartial")*@
+    </header>
+    <div id="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <nav id="page-leftbar" role="navigation">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="acc-menu" id="sidebar">
+                <li id="search">
+                    <a href="javascript:;"><i class="fa fa-search opacity-control"></i></a>
+                    <form>
+                        <input type="text" class="search-query" placeholder="Search...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li><a href="/Cpanel/Default/Index/"><i class="fa fa-home"></i> <span>Trang Chủ</span></a></li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-list-ol"></i> <span>Danh mục</span> @*<span class="badge badge-indigo">4</span>*@</a>
+                    <ul class='acc-menu'>
+                        <li><a href="/Cpanel/BDS_LOAIBDS/">DM Loại BDS</a></li>
+                        <li><a href="/Cpanel/BDS_HUONGNHA/">DM Hướng nhà</a></li>
+                       
+                    </ul>
+                </li>
+                <li><a href="/Wanek/DEVICES/SimCard"><i class="fa fa-th"></i> <span>SIM - CARDs</span></a></li>
+
+
+                <li>
+                    <a href="javascript:;"><i class="fa fa-tasks"></i> <span>Transaction</span> <span class="badge badge-info">12</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Wanek/ORDER/CreateNew">Create New</a></li>
+                        <li><a href="/Wanek/ORDER/WaitingApproval">Pending Transaction</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-table"></i> <span>To Lend</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="/Wanek/TRANSACTIONLOG/CreateNew">To Lend</a></li>
+                        <li><a href="/Wanek/TRANSACTIONLOG/ListLending">Device Lending</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-pencil"></i> <span>Advanced Forms</span><span class="badge badge-primary">5</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="form-components.html">Components</a></li>
+                        <li><a href="form-wizard.html">Wizards</a></li>
+                        <li><a href="form-validation.html">Validation</a></li>
+                        <li><a href="form-masks.html">Masks</a></li>
+                        <li><a href="form-fileupload.html">Multiple File Uploads</a></li>
+                        <li><a href="form-dropzone.html">Dropzone File Uploads</a></li>
+                        <li><a href="form-ckeditor.html">WYSIWYG Editor</a></li>
+                        <li><a href="form-xeditable.html">Inline Editor</a></li>
+                        <li><a href="form-imagecrop.html">Image Cropping</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="maps-google.html">Google Maps</a></li>
+                        <li><a href="maps-vector.html">Vector Maps</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="charts-flot.html">Extensible</a></li>
+                        <li><a href="charts-svg.html">Interactive</a></li>
+                        <li><a href="charts-canvas.html">Lightweight</a></li>
+                        <li><a href="charts-inline.html">Inline</a></li>
+                    </ul>
+                </li>
+                <li><a href="calendar.html"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
+                <li><a href="gallery.html"><i class="fa fa-camera"></i> <span> Gallery</span> </a></li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-flag"></i> <span>Icons</span> <span class="badge badge-orange">2</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="icons-fontawesome.html">Font Awesome</a></li>
+                        <li><a href="icons-glyphicons.html">Glyphicons</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-briefcase"></i> <span>Configuration</span> <span class="badge badge-danger">1</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="extras-timeline.html">Locations</a></li>
+                        <li><a href="extras-profile.html">Departments</a></li>
+                        <li><a href="extras-inbox.html">Master Model</a></li>
+                        <li><a href="extras-search.html">Search Page</a></li>
+                        <li><a href="extras-chatroom.html">Inventory Rack</a></li>
+                        <li><a href="extras-invoice.html">Categories</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-sitemap"></i> <span>Unlimited Level Menu</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="javascript:;">Menu Item 1</a></li>
+                        <li>
+                            <a href="javascript:;">Menu Item 2</a>
+                            <ul class="acc-menu">
+                                <li><a href="javascript:;">Menu Item 2.1</a></li>
+                                <li>
+                                    <a href="javascript:;">Menu Item 2.2</a>
+                                    <ul class="acc-menu">
+                                        <li><a href="javascript:;">Menu Item 2.2.1</a></li>
+                                        <li>
+                                            <a href="javascript:;">Menu Item 2.2.2</a>
+                                            <ul class="acc-menu">
+                                                <li><a href="javascript:;">And deeper yet!</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </nav>
+        <!-- BEGIN RIGHTBAR -->
+        <div id="page-rightbar">
+
+            <div id="widgetarea">
+
+
+                <div id="chatbar" class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#chatbody"><h4>Select Site <small>(2)</small></h4></a>
+                    </div>
+                    <div class="widget-body collapse in">
+                        <ul class="chat-users">
+                            <li><a href="/Wanek/Dashboard/Index" style="text-align:center"><img src="~/assets/demo/avatar/wanek.jpg" alt=""></a></li>
+                            <li><a href="/Ashton/Testing" style="text-align:center"><img src="~/assets/demo/avatar/Ashton.jpg" alt=""></a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END RIGHTBAR -->
+        <div id="page-content">
+            <div id="wrap">
+                @RenderBody()
+            </div> <!--wrap -->
+        </div> <!-- page-content -->
+        <footer role="contentinfo">
+            <div class="clearfix">
+                <ul class="list-unstyled list-inline pull-left">
+                    <li>WANEK IT &copy; 2017</li>
+                </ul>
+                <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+            </div>
+        </footer>
+    </div> <!-- page-container -->
+
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/jquery-1.10.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/jqueryui-1.10.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/enquire.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/jquery.cookie.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/jquery.nicescroll.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/plugins/codeprettifier/prettify.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/plugins/easypiechart/jquery.easypiechart.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/plugins/sparklines/jquery.sparklines.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/plugins/form-toggle/toggle.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/placeholdr.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/js/application.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Areas/Cpanel/assets/demo/demo.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+    @RenderSection("JavaScript", required: false)
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@model bds.Areas.Cpanel.Models.BDS_LOAIBDS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<div id="page-heading">
+    <h1>Xóa Loại BDS</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            @*<a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại DM Loại BDS</a>*@
+        </div>
+    </div>
+</div>
+<div class="alert alert-dismissable alert-danger">
+    <strong></strong> Bạn có chắc chắn muốn xóa nó không?
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+</div>
+<div class="container" style="background-color:#ffffff; padding:2px">
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+           Tên loại BDS
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENBDS)
+        </dd>
+        <dt>
+            Số thứ tự
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUTU)
+        </dd>
+        <dt>
+           Hiện thị
+        </dt>
+
+        <dd>
+            @{
+                if (Model.HIENTHI == 1)
+                {
+                    <img src="/Areas/Cpanel/Images/Check.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                }
+                if (Model.HIENTHI == 0)
+                {
+                    <img src="/Areas/Cpanel/Images/disable.png" style="cursor:pointer; width:15px;" title="Ẩn">
+                }
+            }
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại DM Loại BDS</a>
+        </div>
+    }
+    </div>
+    <div>
+
+        
+    </div>
