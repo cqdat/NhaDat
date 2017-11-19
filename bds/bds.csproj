@@ -208,6 +208,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BDS_DIENTICH.cs" />
+    <Compile Include="Models\BDS_DM_GIAODICH.cs" />
+    <Compile Include="Models\BDS_GIA.cs" />
+    <Compile Include="Models\BDS_HUONGNHA.cs" />
+    <Compile Include="Models\BDS_LOAIBDS.cs" />
+    <Compile Include="Models\DataEntity.cs" />
+    <Compile Include="Models\DUAN.cs" />
+    <Compile Include="Models\DUAN_HINH.cs" />
+    <Compile Include="Models\DUAN_LOAI.cs" />
+    <Compile Include="Models\GIOITHIEU.cs" />
+    <Compile Include="Models\MENU.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\THANHVIEN.cs" />
+    <Compile Include="Models\TINHTHANH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1639,7 +1653,6 @@
     <Folder Include="ckfinder\userfiles\files\" />
     <Folder Include="ckfinder\userfiles\images\" />
     <Folder Include="ckfinder\userfiles\_thumbs\Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
