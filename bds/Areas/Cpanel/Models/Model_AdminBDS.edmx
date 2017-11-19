@@ -327,7 +327,7 @@
           <Property Name="IDCha" Type="Int32" />
           <Property Name="Cap" Type="Int32" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

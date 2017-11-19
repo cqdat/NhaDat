@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using bds.Areas.Cpanel.Models;
 namespace bds.Controllers
 {
     public class HomeController : Controller
     {
-        //Danny hkhkkh
+        private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
         public ActionResult Index()
         {
             return View();
@@ -16,9 +16,13 @@ namespace bds.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            GIOITHIEU gIOITHIEU = db.GIOITHIEUx.Find(1);
+            if (gIOITHIEU == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gIOITHIEU);
+            
         }
 
         public ActionResult Search()

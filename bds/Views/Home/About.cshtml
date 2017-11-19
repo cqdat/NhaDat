@@ -1,35 +1,62 @@
-﻿@{
+﻿@model bds.Areas.Cpanel.Models.GIOITHIEU
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-@*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
-<script src="~/Scripts/jquery-3.2.1.min.js"></script>
-<script src="~/Content/ckeditor/ckeditor.js"></script>
-<script src="~/Content/ckfinder/ckfinder.js"></script>
-<script type="text/javascript">
-    $(function () {
+<div>
+    <div class="row">
+        <div class="col-md-8 detailnews">
+            <div class="contentnews">
+                <div class="title">
+                    <h3>
+                        @Model.TIEUDE
+                    </h3>
+                </div>
+                <div class="uptime">
+                    Cập nhật: @Model.NGAYCAPNHAT
+                </div>
+                <div class="desc" style="padding:0 15px">
+                    @Html.Raw(Model.NOIDUNG)
+                </div>
+            </div>
 
-        $('#Brows').click(function () {
-            var ckfinder = new CKFinder();
-            ckfinder.selectActionFunction = function (Images) {
-                $('#hinhanh').val(Images);
+            <div class="othernews">
+                <p>
+                    <b>Tin cũ hơn</b>
+                </p>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.Partial("_leftdetail")
 
-            };
-            ckfinder.popup();
-        });
-    })
-
-</script>
-<script type="text/javascript">
-
-    $(function () {
-        CKEDITOR.replace("mota",{customConfig:"/Content/ckeditor/config.js"});
-    })
-</script>
-<input type="text" id="hinhanh" />
-Img<br />
-<input type="button" id="Brows" name="Brows" value="Brows images" /><br />
-ND<br />
-<textarea id="mota" name="mota"></textarea>
+            @Html.Partial("_bannerleft")
+        </div>
+    </div>
+</div>
