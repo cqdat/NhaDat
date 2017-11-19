@@ -33,7 +33,9 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<DUAN> DUANs { get; set; }
         public virtual DbSet<DUAN_HINH> DUAN_HINH { get; set; }
         public virtual DbSet<DUAN_LOAI> DUAN_LOAI { get; set; }
+        public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
+        public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
     }
 }

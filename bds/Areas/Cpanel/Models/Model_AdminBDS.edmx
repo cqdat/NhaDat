@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_BDSModel_Admin.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_BDSModel_Admin.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BDS_DIENTICH">
           <Key>
             <PropertyRef Name="IdDT" />
@@ -96,6 +96,25 @@
           <Property Name="NOIDUNG" Type="ntext" />
           <Property Name="TINNOIBAT" Type="int" />
         </EntityType>
+        <EntityType Name="GIOITHIEU">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THUTU" Type="int" />
+          <Property Name="TIEUDE" Type="nvarchar" MaxLength="4000" />
+          <Property Name="TOMTAT" Type="ntext" />
+          <Property Name="NOIDUNG" Type="ntext" />
+          <Property Name="HINHANH" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NGAYCAPNHAT" Type="datetime" />
+          <Property Name="TINNOIBAT" Type="int" />
+          <Property Name="HIENTHI" Type="int" />
+          <Property Name="HIEULUC" Type="int" />
+          <Property Name="SOLANXEM" Type="int" />
+          <Property Name="TUKHOA1" Type="ntext" />
+          <Property Name="TUKHOA2" Type="ntext" />
+          <Property Name="TUKHOA3" Type="ntext" />
+        </EntityType>
         <EntityType Name="MENU">
           <Key>
             <PropertyRef Name="IdMenu" />
@@ -107,10 +126,11 @@
           <Property Name="HienThi" Type="int" />
           <Property Name="IsMenu" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="THANHVIEN">
-          <Property Name="idTV" Type="int" />
+          <Key>
+            <PropertyRef Name="idTV" />
+          </Key>
+          <Property Name="idTV" Type="int" Nullable="false" />
           <Property Name="TenTruyCap" Type="varchar" MaxLength="20" />
           <Property Name="MatKhau" Type="nvarchar" MaxLength="200" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="200" />
@@ -120,7 +140,7 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <Property Name="TinhTrang" Type="int" />
           <Property Name="VIP" Type="int" />
           <Property Name="LanDangNhapCuoi" Type="datetime" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="TINHTHANH">
           <Key>
             <PropertyRef Name="IdTT" />
@@ -139,14 +159,29 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <EntitySet Name="DUAN" EntityType="Self.DUAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DUAN_HINH" EntityType="Self.DUAN_HINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIOITHIEU" EntityType="Self.GIOITHIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THANHVIEN" EntityType="Self.THANHVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINHTHANH" EntityType="Self.TINHTHANH" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_BDSModel_Admin" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_BDSEntitiesAdmin" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BDS_DIENTICH" EntityType="DB_BDSModel_Admin.BDS_DIENTICH" />
+          <EntitySet Name="BDS_DM_GIAODICH" EntityType="DB_BDSModel_Admin.BDS_DM_GIAODICH" />
+          <EntitySet Name="BDS_GIA" EntityType="DB_BDSModel_Admin.BDS_GIA" />
+          <EntitySet Name="BDS_HUONGNHA" EntityType="DB_BDSModel_Admin.BDS_HUONGNHA" />
+          <EntitySet Name="BDS_LOAIBDS" EntityType="DB_BDSModel_Admin.BDS_LOAIBDS" />
+          <EntitySet Name="DUANs" EntityType="DB_BDSModel_Admin.DUAN" />
+          <EntitySet Name="DUAN_HINH" EntityType="DB_BDSModel_Admin.DUAN_HINH" />
+          <EntitySet Name="DUAN_LOAI" EntityType="DB_BDSModel_Admin.DUAN_LOAI" />
+          <EntitySet Name="GIOITHIEUx" EntityType="DB_BDSModel_Admin.GIOITHIEU" />
+          <EntitySet Name="MENUs" EntityType="DB_BDSModel_Admin.MENU" />
+          <EntitySet Name="THANHVIENs" EntityType="DB_BDSModel_Admin.THANHVIEN" />
+          <EntitySet Name="TINHTHANHs" EntityType="DB_BDSModel_Admin.TINHTHANH" />
+        </EntityContainer>
         <EntityType Name="BDS_DIENTICH">
           <Key>
             <PropertyRef Name="IdDT" />
@@ -195,7 +230,7 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           </Key>
           <Property Name="IDLOAI" Type="Int32" />
           <Property Name="THUTU" Type="Int32" />
-          <Property Name="IDTT" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTT" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TIEUDE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="TOMTAT" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -211,7 +246,7 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <Key>
             <PropertyRef Name="IDH" />
           </Key>
-          <Property Name="IDTT" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IDTT" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="THUTU" Type="Int32" />
           <Property Name="IDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENHINH" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
@@ -238,16 +273,50 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TINNOIBAT" Type="Int32" />
         </EntityType>
+        <EntityType Name="GIOITHIEU">
+          <Key>
+            <PropertyRef Name="IDTT" />
+          </Key>
+          <Property Name="IDTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THUTU" Type="Int32" />
+          <Property Name="TIEUDE" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="TOMTAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HINHANH" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYCAPNHAT" Type="DateTime" Precision="3" />
+          <Property Name="TINNOIBAT" Type="Int32" />
+          <Property Name="HIENTHI" Type="Int32" />
+          <Property Name="HIEULUC" Type="Int32" />
+          <Property Name="SOLANXEM" Type="Int32" />
+          <Property Name="TUKHOA1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TUKHOA2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TUKHOA3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="MENU">
           <Key>
             <PropertyRef Name="IdMenu" />
           </Key>
           <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenMenu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenMenu" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="IdCha" Type="Int32" />
           <Property Name="ThuTu" Type="Int32" />
           <Property Name="HienThi" Type="Int32" />
           <Property Name="IsMenu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="THANHVIEN">
+          <Key>
+            <PropertyRef Name="idTV" />
+          </Key>
+          <Property Name="idTV" Type="Int32" Nullable="false" />
+          <Property Name="TenTruyCap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HoTen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoDiDong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailLH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TinhTrang" Type="Int32" />
+          <Property Name="VIP" Type="Int32" />
+          <Property Name="LanDangNhapCuoi" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="TINHTHANH">
           <Key>
@@ -258,18 +327,6 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <Property Name="IDCha" Type="Int32" />
           <Property Name="Cap" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="DB_BDSEntitiesAdmin" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BDS_DIENTICH" EntityType="Self.BDS_DIENTICH" />
-          <EntitySet Name="BDS_DM_GIAODICH" EntityType="Self.BDS_DM_GIAODICH" />
-          <EntitySet Name="BDS_GIA" EntityType="Self.BDS_GIA" />
-          <EntitySet Name="BDS_HUONGNHA" EntityType="Self.BDS_HUONGNHA" />
-          <EntitySet Name="BDS_LOAIBDS" EntityType="Self.BDS_LOAIBDS" />
-          <EntitySet Name="DUANs" EntityType="Self.DUAN" />
-          <EntitySet Name="DUAN_HINH" EntityType="Self.DUAN_HINH" />
-          <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" />
-          <EntitySet Name="MENUs" EntityType="Self.MENU" />
-          <EntitySet Name="TINHTHANHs" EntityType="Self.TINHTHANH" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -279,121 +336,157 @@ warning 6013: The table/view 'DB_BDS.dbo.THANHVIEN' does not have a primary key 
           <EntitySetMapping Name="BDS_DIENTICH">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_DIENTICH">
               <MappingFragment StoreEntitySet="BDS_DIENTICH">
-                <ScalarProperty Name="IdDT" ColumnName="IdDT" />
-                <ScalarProperty Name="TenDT" ColumnName="TenDT" />
                 <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="TenDT" ColumnName="TenDT" />
+                <ScalarProperty Name="IdDT" ColumnName="IdDT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BDS_DM_GIAODICH">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_DM_GIAODICH">
               <MappingFragment StoreEntitySet="BDS_DM_GIAODICH">
-                <ScalarProperty Name="idDM" ColumnName="idDM" />
-                <ScalarProperty Name="TenDMGiaoDich" ColumnName="TenDMGiaoDich" />
                 <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="TenDMGiaoDich" ColumnName="TenDMGiaoDich" />
+                <ScalarProperty Name="idDM" ColumnName="idDM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BDS_GIA">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_GIA">
               <MappingFragment StoreEntitySet="BDS_GIA">
-                <ScalarProperty Name="IdGia" ColumnName="IdGia" />
-                <ScalarProperty Name="TenGia" ColumnName="TenGia" />
                 <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="TenGia" ColumnName="TenGia" />
+                <ScalarProperty Name="IdGia" ColumnName="IdGia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BDS_HUONGNHA">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_HUONGNHA">
               <MappingFragment StoreEntitySet="BDS_HUONGNHA">
-                <ScalarProperty Name="IdHuongNha" ColumnName="IdHuongNha" />
-                <ScalarProperty Name="TenHuongNha" ColumnName="TenHuongNha" />
                 <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="TenHuongNha" ColumnName="TenHuongNha" />
+                <ScalarProperty Name="IdHuongNha" ColumnName="IdHuongNha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BDS_LOAIBDS">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_LOAIBDS">
               <MappingFragment StoreEntitySet="BDS_LOAIBDS">
-                <ScalarProperty Name="IDBDS" ColumnName="IDBDS" />
-                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
-                <ScalarProperty Name="TENBDS" ColumnName="TENBDS" />
-                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
                 <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="TENBDS" ColumnName="TENBDS" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDBDS" ColumnName="IDBDS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DUANs">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN">
               <MappingFragment StoreEntitySet="DUAN">
-                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
-                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
-                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
-                <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
-                <ScalarProperty Name="TOMTAT" ColumnName="TOMTAT" />
-                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
-                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
-                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
-                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
-                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
-                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
                 <ScalarProperty Name="SOLANXEM" ColumnName="SOLANXEM" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
+                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="TOMTAT" ColumnName="TOMTAT" />
+                <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DUAN_HINH">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN_HINH">
               <MappingFragment StoreEntitySet="DUAN_HINH">
-                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
-                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
-                <ScalarProperty Name="IDH" ColumnName="IDH" />
-                <ScalarProperty Name="TENHINH" ColumnName="TENHINH" />
-                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
-                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
-                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
-                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
                 <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+                <ScalarProperty Name="HINHLON" ColumnName="HINHLON" />
+                <ScalarProperty Name="HINHNHO" ColumnName="HINHNHO" />
+                <ScalarProperty Name="TENHINH" ColumnName="TENHINH" />
+                <ScalarProperty Name="IDH" ColumnName="IDH" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DUAN_LOAI">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.DUAN_LOAI">
               <MappingFragment StoreEntitySet="DUAN_LOAI">
-                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
-                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
-                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
-                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
-                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
-                <ScalarProperty Name="IDCHA" ColumnName="IDCHA" />
-                <ScalarProperty Name="URL" ColumnName="URL" />
-                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
                 <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IDCHA" ColumnName="IDCHA" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDLOAI" ColumnName="IDLOAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIOITHIEUx">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.GIOITHIEU">
+              <MappingFragment StoreEntitySet="GIOITHIEU">
+                <ScalarProperty Name="TUKHOA3" ColumnName="TUKHOA3" />
+                <ScalarProperty Name="TUKHOA2" ColumnName="TUKHOA2" />
+                <ScalarProperty Name="TUKHOA1" ColumnName="TUKHOA1" />
+                <ScalarProperty Name="SOLANXEM" ColumnName="SOLANXEM" />
+                <ScalarProperty Name="HIEULUC" ColumnName="HIEULUC" />
+                <ScalarProperty Name="HIENTHI" ColumnName="HIENTHI" />
+                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+                <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
                 <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
                 <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
-                <ScalarProperty Name="TINNOIBAT" ColumnName="TINNOIBAT" />
+                <ScalarProperty Name="TOMTAT" ColumnName="TOMTAT" />
+                <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+                <ScalarProperty Name="THUTU" ColumnName="THUTU" />
+                <ScalarProperty Name="IDTT" ColumnName="IDTT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MENUs">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.MENU">
               <MappingFragment StoreEntitySet="MENU">
-                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
-                <ScalarProperty Name="TenMenu" ColumnName="TenMenu" />
-                <ScalarProperty Name="IdCha" ColumnName="IdCha" />
-                <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
-                <ScalarProperty Name="HienThi" ColumnName="HienThi" />
                 <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="HienThi" ColumnName="HienThi" />
+                <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
+                <ScalarProperty Name="IdCha" ColumnName="IdCha" />
+                <ScalarProperty Name="TenMenu" ColumnName="TenMenu" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THANHVIENs">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.THANHVIEN">
+              <MappingFragment StoreEntitySet="THANHVIEN">
+                <ScalarProperty Name="LanDangNhapCuoi" ColumnName="LanDangNhapCuoi" />
+                <ScalarProperty Name="VIP" ColumnName="VIP" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="EmailLH" ColumnName="EmailLH" />
+                <ScalarProperty Name="SoDiDong" ColumnName="SoDiDong" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TenTruyCap" ColumnName="TenTruyCap" />
+                <ScalarProperty Name="idTV" ColumnName="idTV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TINHTHANHs">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.TINHTHANH">
               <MappingFragment StoreEntitySet="TINHTHANH">
-                <ScalarProperty Name="IdTT" ColumnName="IdTT" />
-                <ScalarProperty Name="TenTT" ColumnName="TenTT" />
-                <ScalarProperty Name="IDCha" ColumnName="IDCha" />
                 <ScalarProperty Name="Cap" ColumnName="Cap" />
+                <ScalarProperty Name="IDCha" ColumnName="IDCha" />
+                <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+                <ScalarProperty Name="IdTT" ColumnName="IdTT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

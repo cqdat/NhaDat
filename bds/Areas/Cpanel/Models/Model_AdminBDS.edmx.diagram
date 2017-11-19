@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2686e9ccbd5d4cf393fc030e45358719" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_DIENTICH" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_DM_GIAODICH" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_GIA" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_HUONGNHA" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_LOAIBDS" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN_HINH" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN_LOAI" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.MENU" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel_Admin.TINHTHANH" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+      <Diagram DiagramId="2686e9ccbd5d4cf393fc030e45358719" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_DIENTICH" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_DM_GIAODICH" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_GIA" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_HUONGNHA" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_LOAIBDS" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN_HINH" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.DUAN_LOAI" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.GIOITHIEU" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.MENU" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.THANHVIEN" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.TINHTHANH" Width="1.5" PointX="8.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

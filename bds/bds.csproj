@@ -155,6 +155,8 @@
     <Compile Include="Areas\Cpanel\Controllers\BDS_HUONGNHAController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_LOAIBDSController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
@@ -180,6 +182,9 @@
     <Compile Include="Areas\Cpanel\Models\DUAN_LOAI.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs">
+      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Cpanel\Models\MENU.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
     </Compile>
@@ -197,6 +202,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs">
+      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
@@ -1590,6 +1598,12 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU1\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU\Index.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

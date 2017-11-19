@@ -1,1 +1,30 @@
-﻿
+﻿<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $('#Brows').click(function () {
+            var ckfinder = new CKFinder();
+            ckfinder.selectActionFunction = function (Images) {
+                $('#hinhanh').val(Images);
+
+            };
+            ckfinder.popup();
+        });
+    })
+
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        CKEDITOR.replace("mota",
+            { height: '500px',},
+            { customConfig: "/Content/ckeditor/config.js" });
+    })
+</script>
+<input type="text" id="hinhanh" />
+Img<br />
+<input type="button" id="Brows" name="Brows" value="Brows images" /><br />
+ND<br />
+<textarea id="mota" name="mota"></textarea>
