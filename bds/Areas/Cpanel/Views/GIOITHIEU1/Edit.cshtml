@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+    //$(function () {
+
+    //    $('#Brows').click(function () {
+    //        var ckfinder = new CKFinder();
+    //        ckfinder.selectActionFunction = function (Images) {
+    //            $('#hinhanh').val(Images);
+
+    //        };
+    //        ckfinder.popup();
+    //    });
+    //})
+
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        CKEDITOR.replace("ChiTiet",
+            { height: '500px', },
+            {
+                customConfig: "/Content/ckeditor/config.js",
+                skin: 'Moono_blue',
+                toolbar: 'class',
+            });
+    })
+</script>
+<form action="#" class="form-horizontal" style="border-radius: 0px;">
+    <div id="page-heading">
+        <h1>Chỉnh sửa Bài Giới thiệu</h1>
+        <div class="options">
+            <div class="btn-toolbar">
+
+                <input type="submit" value="Lưu" class="btn btn-green" />
+                <a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại Trang chủ</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:#ffffff; padding:2px">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel panel-gray">
+                    <div class="panel-heading">
+                        <h5></h5>
+                        <div class="options">
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tiêu đề</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tóm tắt</label>
+                            <div class="col-sm-10">
+                                <textarea id="Desc" class="form-control" rows="5" name="Desc"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel panel-gray">
+                    <div class="panel-heading">
+                        <h5>SEO GOOGLE</h5>
+                        <div class="options">
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Từ khóa</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Mỗi từ khóa cách nhau bởi dấu ','">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea id="Desc" class="form-control" rows="5" name="Desc"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <textarea id="ChiTiet" name="ChiTiet"></textarea>
+            </div>
+        </div>
+    </div>
+</form>
