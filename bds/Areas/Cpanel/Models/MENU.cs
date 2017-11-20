@@ -20,5 +20,6 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> ThuTu { get; set; }
         public Nullable<int> HienThi { get; set; }
         public Nullable<bool> IsMenu { get; set; }
+        public string url { get; set; }
     }
 }

@@ -80,7 +80,9 @@
             </div>
         </div>
 
-        @Html.Partial("_menubar")
+        @*@Html.Partial("_menubar")*@
+
+         @{Html.RenderAction("getMenu", "Home");}         
         
 
         @Html.Partial("_social")

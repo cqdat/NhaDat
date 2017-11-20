@@ -125,6 +125,7 @@
           <Property Name="ThuTu" Type="int" />
           <Property Name="HienThi" Type="int" />
           <Property Name="IsMenu" Type="bit" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="THANHVIEN">
           <Key>
@@ -302,6 +303,7 @@
           <Property Name="ThuTu" Type="Int32" />
           <Property Name="HienThi" Type="Int32" />
           <Property Name="IsMenu" Type="Boolean" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="THANHVIEN">
           <Key>
@@ -455,6 +457,7 @@
           <EntitySetMapping Name="MENUs">
             <EntityTypeMapping TypeName="DB_BDSModel_Admin.MENU">
               <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
                 <ScalarProperty Name="HienThi" ColumnName="HienThi" />
                 <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />

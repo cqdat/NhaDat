@@ -42,5 +42,11 @@ namespace bds.Controllers
 
             return View();
         }
+
+        public PartialViewResult getMenu()
+        {
+            var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
+            return PartialView("_menubar", model);
+        }
     }
 }

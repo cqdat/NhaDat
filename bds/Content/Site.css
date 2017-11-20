@@ -1368,3 +1368,12 @@ ul.dropdown {
     top: 4px;
     cursor: pointer;
 }
+
+.sub_menu li a
+{
+    text-transform:lowercase;
+}
+.sub_menu li a:first-letter
+{
+    text-transform:uppercase;
+}
