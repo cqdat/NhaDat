@@ -83,6 +83,7 @@ namespace bds.Areas.Cpanel.Controllers
         {
             if (ModelState.IsValid)
             {
+                gIOITHIEU.IDTT = 1;
                 gIOITHIEU.THUTU = 1;
                 gIOITHIEU.TIEUDE = gIOITHIEU.TIEUDE;
                 gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
