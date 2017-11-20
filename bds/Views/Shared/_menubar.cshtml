@@ -10,9 +10,10 @@
                 <img alt="home" src="~/images/home-hover.png" />
             </a>
         </li>
-
+        @{int temp = 0; }
         @foreach(var q in Model)
         {
+            temp++;
             <li class="parent">
                 <a href="~/@q.IdMenu/@q.url">
                     @q.TenMenu
@@ -24,7 +25,15 @@
                     {
                         <li>
                             <a href="~/@x.IdMenu/@x.url">
-                                Cần bán @x.TenMenu
+                                @if(temp == 1)
+                                {
+                                    <span>Cần bán</span>
+                                }
+                                else if(temp == 2)
+                                {
+                                    <span>Cho thuê</span>
+                                }
+                                @x.TenMenu
                             </a>
                         </li>
                     }
