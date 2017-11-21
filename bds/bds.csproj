@@ -157,6 +157,7 @@
     <Compile Include="Areas\Cpanel\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\MENUController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
@@ -1591,6 +1592,12 @@
     <Content Include="Areas\Cpanel\Views\GIOITHIEU\Details.cshtml" />
     <Content Include="Areas\Cpanel\Views\GIOITHIEU\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\GIOITHIEU\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\GIOITHIEU1\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\MENU\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\MENU\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\MENU\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\MENU\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\MENU\Index.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
