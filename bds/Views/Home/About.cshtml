@@ -1,6 +1,12 @@
 ﻿@model bds.Areas.Cpanel.Models.GIOITHIEU
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = Model.TIEUDE;
+    
+}
+@section metatags
+{
+    <meta name="keywords" content="@Model.TUKHOA2" />
+    <meta name="description" content="@Model.TUKHOA3" />
 }
 
 <div>
