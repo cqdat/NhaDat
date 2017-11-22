@@ -1,18 +1,38 @@
-﻿<div class="hotnews">
+﻿@model bds.Models.IndexModel
+
+<div class="hotnews">
     <div class="newstitle main-bg-button1 mtitle">
         Tin tức nổi bật
     </div>
 
     <div class="ctnhotnews">
-        <div class="firsthot">
-            <a href="#">
-                <img alt="1" src="~/images/content/1.jpg" />
+        @*<div class="firsthot">
+            <a href="/TinTuc/@Model.FirstNEWS.TinTucID/@Model.FirstNEWS.URL">
+                <img alt="@Model.FirstNEWS.TintucName" src="@Model.FirstNEWS.HinhAnh" />
             </a>
-            <a href="#">BẤT ĐỘNG SẢN LONG THÀNH - CHƯA HỀ CÓ DẤU HIỆU GIẢM NHIỆT</a>
-        </div>
+            <a href="#">@Model.FirstNEWS.TintucName</a>
+        </div>*@
 
         <ul>
-            <li>
+            @foreach (var q in Model.TinTucNoiBat)
+            {
+                <li>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="/TinTuc/@q.TinTucID/@q.URL">
+                                <img alt="@q.TintucName" src="@q.HinhAnh" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <a href="/TinTuc/@q.TinTucID/@q.URL">
+                                @q.TintucName
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            }
+
+            @*<li>
                 <div class="row">
                     <div class="col-md-3">
                         <a href="#">
@@ -83,7 +103,7 @@
                         </a>
                     </div>
                 </div>
-            </li>
+            </li>*@
         </ul>
     </div>
 </div>

@@ -37,5 +37,7 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
+        public virtual DbSet<BDS_MuaBan> BDS_MuaBan { get; set; }
+        public virtual DbSet<BDS_TinTuc> BDS_TinTuc { get; set; }
     }
 }

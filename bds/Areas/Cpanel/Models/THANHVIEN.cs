@@ -14,6 +14,15 @@ namespace bds.Areas.Cpanel.Models
     
     public partial class THANHVIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public THANHVIEN()
+        {
+            this.BDS_MuaBan = new HashSet<BDS_MuaBan>();
+            this.BDS_MuaBan1 = new HashSet<BDS_MuaBan>();
+            this.BDS_TinTuc = new HashSet<BDS_TinTuc>();
+            this.BDS_TinTuc1 = new HashSet<BDS_TinTuc>();
+        }
+    
         public int idTV { get; set; }
         public string TenTruyCap { get; set; }
         public string MatKhau { get; set; }
@@ -24,5 +33,14 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> TinhTrang { get; set; }
         public Nullable<int> VIP { get; set; }
         public Nullable<System.DateTime> LanDangNhapCuoi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BDS_MuaBan> BDS_MuaBan1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BDS_TinTuc> BDS_TinTuc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BDS_TinTuc> BDS_TinTuc1 { get; set; }
     }
 }

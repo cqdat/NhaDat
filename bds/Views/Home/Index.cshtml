@@ -1,4 +1,6 @@
-﻿@{
+﻿@using bds.Models
+@model IndexModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -9,7 +11,7 @@
     </div>
     <div class="col-md-5">
         
-        @Html.Partial("_detailbds")
+        @Html.Partial("_detailbds", Model.TinhThanh)
 
     </div>
 </div>
@@ -20,12 +22,12 @@
         @Html.Partial("_slide")
 
 
-        @Html.Partial("_bdsnoibat")
+        @Html.Partial("_bdsnoibat", Model.BDSNoiBat)
 
 
         @* phần tin bat dong san moi *@
 
-        @Html.Partial("_tinbds")
+        @Html.Partial("_tinbds", Model.BDSMoi)
 
 
     </div>

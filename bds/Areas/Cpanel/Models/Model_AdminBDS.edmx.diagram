@@ -17,6 +17,15 @@
         <EntityTypeShape EntityType="DB_BDSModel_Admin.MENU" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="DB_BDSModel_Admin.THANHVIEN" Width="1.5" PointX="2.75" PointY="8.75" />
         <EntityTypeShape EntityType="DB_BDSModel_Admin.TINHTHANH" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_MuaBan" Width="1.5" PointX="12.875" PointY="3.875" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.BDS_TinTuc" Width="1.5" PointX="10.625" PointY="4.5" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_MuaBan_BDS_MuaBan" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_MuaBan_MENU" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_MuaBan_THANHVIEN" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_TinTuc_MENU" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

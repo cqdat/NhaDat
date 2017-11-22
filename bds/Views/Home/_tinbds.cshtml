@@ -1,10 +1,58 @@
-﻿<div class="newsbds">
+﻿@using bds.Areas.Cpanel.Models;
+@model IEnumerable<BDS_MuaBan>
+
+<div class="newsbds">
     <div class="newsbdstitle mtitle main-bg-button1">
         Tin bất động sản mới
     </div>
 
     <div class="ctnbdsnews">
-        <div class="row dtbds">
+
+        @foreach (var q in Model)
+        {
+            <div class="row dtbds">
+                <div class="col-md-3">
+                    <a href="#">
+                        <img alt="@q.Name" src="@q.HinhAnh" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <div class="titlebds">
+                        <a href="/TinTuc/@q.IDMuaBan/@q.URL">
+                            @q.Name
+                        </a>
+                    </div>
+                    <div class="descbds">
+                        @q.MoTa
+                    </div>
+                    <div class="row bdsdetail">
+                        <div class="col-md-7">
+                            <div>
+                                <span>
+                                    Diện tích:
+                                </span>
+                                <span>
+                                    @q.DienTich
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    Khu vực:
+                                </span>
+                                <span>
+                                    @q.TINHTHANH.TenTT
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            @q.Gia
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div class="row dtbds">
             <div class="col-md-3">
                 <a href="#">
                     <img alt="1" src="~/images/content/a.jpg" />
@@ -169,7 +217,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
 
     </div>
 

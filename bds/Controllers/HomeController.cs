@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
+using bds.Models;
+
 namespace bds.Controllers
 {
     public class HomeController : Controller
@@ -11,7 +13,14 @@ namespace bds.Controllers
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
         public ActionResult Index()
         {
-            return View();
+            /// type == true => mua bán, type=false ==> cho thue
+            IndexModel index = new IndexModel();
+            index.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
+            index.BDSNoiBat = db.BDS_MuaBan.Where(q => q.NoiBat == true && q.Visible == true && q.Type == true).Take(15).ToList();
+            index.BDSMoi = db.BDS_MuaBan.Where(q => q.Visible == true && q.Type == true).OrderBy(o => o.Created).Take(15).ToList();
+            index.TinTucNoiBat = db.BDS_TinTuc.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
+            index.FirstNEWS = db.BDS_TinTuc.FirstOrDefault(q => q.NoiBat == true && q.Visible == true);
+            return View(index);
         }
 
         public ActionResult About()

@@ -173,6 +173,12 @@
     <Compile Include="Areas\Cpanel\Models\BDS_LOAIBDS.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_MuaBan.cs">
+      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_TinTuc.cs">
+      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Cpanel\Models\DUAN.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
     </Compile>
@@ -217,6 +223,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Helper.cs" />
+    <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1629,9 +1636,9 @@
     <Content Include="Views\Shared\_search.cshtml" />
     <Content Include="Views\Shared\_detailbds.cshtml" />
     <Content Include="Views\Shared\_slider.cshtml" />
-    <Content Include="Views\Shared\_bdsnoibat.cshtml" />
-    <Content Include="Views\Shared\_tinbds.cshtml" />
-    <Content Include="Views\Shared\_hotnews.cshtml" />
+    <Content Include="Views\Home\_bdsnoibat.cshtml" />
+    <Content Include="Views\Home\_tinbds.cshtml" />
+    <Content Include="Views\Home\_hotnews.cshtml" />
     <Content Include="Views\Shared\_favtool.cshtml" />
     <Content Include="Views\Shared\_social.cshtml" />
     <Content Include="Views\Shared\_menubar.cshtml" />

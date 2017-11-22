@@ -1,9 +1,56 @@
-﻿<div class="bdsnoibat">
+﻿@using bds.Areas.Cpanel.Models;
+@model IEnumerable<BDS_MuaBan>
+
+<div class="bdsnoibat">
     <div class="mtitle main-bg-button1 noibattitle">
         bất động sản nổi bật
     </div>
     <div class="row shownoibat">
-        <div class="col-md-4">
+
+        @foreach (var q in Model)
+        {
+            <div class="col-md-4">
+                <div class="colnoibat">
+                    <div class="efirst">
+                        <div class="floatleft">
+                            <div class="rating">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                            </div>
+                        </div>
+                        <div class="floatright">
+                            @Convert.ToDateTime(q.Created).ToString("HH:mm dd/MM/yyyy")
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="eimg">
+                        <a href="#">
+                            <img alt="@q.Name" src="@q.HinhAnh" />
+                        </a>
+                    </div>
+                    <div class="nbtitle">
+                        <a href="/BDS/@q.IDMuaBan/@q.URL">
+                            @q.Name
+                        </a>
+                    </div>
+                    <div class="nbdetail">
+                        <span class="dongia">
+                            @q.Gia
+                        </span> |
+                        <span>
+                            @q.DienTich
+                        </span>
+                    </div>
+                    <div class="nbaddress">
+                        @q.DiaChi
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div class="col-md-4">
             <div class="colnoibat">
                 <div class="efirst">
                     <div class="floatleft">
@@ -281,7 +328,7 @@
                     Đường Tân Cang, Thành phố Biên Hoà
                 </div>
             </div>
-        </div>
+        </div>*@
 
 
     </div>

@@ -1,4 +1,6 @@
-﻿<div class="detailbds">
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<TINHTHANH>
+<div class="detailbds">
     <div class="bds-title">
         Bất động sản bình dương
     </div>
@@ -9,7 +11,15 @@
                 Nhà đất bán
             </p>
             <ul>
-                <li>
+                @foreach (var q in Model)
+                {
+                    <li>
+                        <a href="#">
+                            @q.TenTT (<span>@q.DemMuaban</span>)
+                        </a>
+                    </li>
+                }
+                @*<li>
                     <a href="#">
                         Thành phố Thủ Dầu Một (<span>1234</span>)
                     </a>
@@ -38,7 +48,7 @@
                     <a href="#">
                         Huyện Dầu Tiếng (<span>789</span>)
                     </a>
-                </li>
+                </li>*@
             </ul>
         </div>
         <div class="col-md-6">
@@ -46,7 +56,15 @@
                 Nhà đất cho thuê
             </p>
             <ul>
-                <li>
+                @foreach (var q in Model)
+                {
+                    <li>
+                        <a href="#">
+                            @q.TenTT (<span>@q.DemChoThue</span>)
+                        </a>
+                    </li>
+                }
+                @*<li>
                     <a href="#">
                         Thành phố Thủ Dầu Một (<span>1234</span>)
                     </a>
@@ -75,7 +93,7 @@
                     <a href="#">
                         Huyện Dầu Tiếng (<span>789</span>)
                     </a>
-                </li>
+                </li>*@
             </ul>
         </div>
     </div>
