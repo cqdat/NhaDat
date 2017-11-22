@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .dd {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 0;
+        max-width: 600px;
+        list-style: none;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    /*.dd-list {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }*/
+    .dd-item, .dd-empty, .dd-placeholder {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        min-height: 20px;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .dd-handle {
+        display: block;
+        height: 30px;
+        margin: 5px 0;
+        padding: 5px 10px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        background: #fafafa;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+
+</style>
+<div id="nestable" class="dd">
+    <ol class="dd-list">
+        <li data-id="1" class="dd-item">
+            <div class="dd-handle">Item 1 <span style="float:right">Sửa</span> </div>
+        </li>
+        <li data-id="2" class="dd-item">
+            @*<button data-action="collapse" type="button" style="display: block;">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>*@
+            <div class="dd-handle">Item 2</div>
+            <ol class="dd-list" style="">
+                <li data-id="3" class="dd-item">
+                    <div class="dd-handle">Item 3</div>
+                </li>
+                <li data-id="4" class="dd-item">
+                    <div class="dd-handle">Item 4</div>
+                </li>
+                <li data-id="5" class="dd-item">
+                    @*<button data-action="collapse" type="button" style="display: block;">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>*@
+                    <div class="dd-handle">Item 5</div>
+                    <ol class="dd-list" style="">
+                        <li data-id="6" class="dd-item">
+                            <div class="dd-handle">Item 6</div>
+                        </li>
+                        <li data-id="7" class="dd-item">
+                            <div class="dd-handle">Item 7</div>
+                        </li>
+                        <li data-id="8" class="dd-item">
+                            <div class="dd-handle">Item 8</div>
+                        </li>
+                    </ol>
+                </li>
+                <li data-id="9" class="dd-item">
+                    <div class="dd-handle">Item 9</div>
+                </li>
+                <li data-id="10" class="dd-item">
+                    <div class="dd-handle">Item 10</div>
+                </li>
+            </ol>
+        </li>
+        <li data-id="11" class="dd-item">
+            <div class="dd-handle">Item 11</div>
+        </li>
+        <li data-id="12" class="dd-item">
+            <div class="dd-handle">Item 12</div>
+        </li>
+    </ol>
+</div>

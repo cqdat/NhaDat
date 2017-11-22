@@ -1,0 +1,67 @@
+﻿@model bds.Areas.Cpanel.Models.MENU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MENU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuTu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuTu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HienThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HienThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMenu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
