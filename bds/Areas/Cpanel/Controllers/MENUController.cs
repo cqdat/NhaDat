@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
+using bds.Models;
 
 namespace bds.Areas.Cpanel.Controllers
 {
@@ -53,10 +54,13 @@ namespace bds.Areas.Cpanel.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 if(mENU.IdCha == null)
                 {
                     mENU.IdCha = 0;
                 }
+                mENU.url = Helper.ConvertToUpperLower(mENU.TenMenu);
+                mENU.IsMenu = true;
                 db.MENUs.Add(mENU);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -73,6 +77,7 @@ namespace bds.Areas.Cpanel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             MENU mENU = db.MENUs.Find(id);
+            ViewBag.IdCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0).OrderBy(b => b.ThuTu), "IdMenu", "TenMenu", mENU.IdCha);
             if (mENU == null)
             {
                 return HttpNotFound();
@@ -89,6 +94,13 @@ namespace bds.Areas.Cpanel.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (mENU.IdCha == null)
+                {
+                    mENU.IdCha = 0;
+                }
+                mENU.url = Helper.ConvertToUpperLower(mENU.TenMenu);
+                mENU.IsMenu = true;
+
                 db.Entry(mENU).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -104,6 +116,7 @@ namespace bds.Areas.Cpanel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             MENU mENU = db.MENUs.Find(id);
+           
             if (mENU == null)
             {
                 return HttpNotFound();

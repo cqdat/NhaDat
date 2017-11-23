@@ -1,0 +1,47 @@
+﻿@model bds.Areas.Cpanel.Models.GIOITHIEU
+@{
+    ViewBag.Title = "Footer_ContactInfo";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        CKEDITOR.replace("NOIDUNG",
+            { height: '350px', },
+            {
+                customConfig: "/Content/ckeditor/config.js",
+                skin: 'Moono_blue',
+                toolbar: 'class',
+            });
+    })
+</script>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div id="page-heading">
+            <h1>Chỉnh sửa Thông tin liên hệ</h1>
+            <div class="options">
+                <div class="btn-toolbar">
+
+                    <input type="submit" value="Lưu" class="btn btn-green" />
+                    <a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại Trang chủ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#ffffff; padding:2px">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea id="NOIDUNG" name="NOIDUNG">@Model.NOIDUNG</textarea>
+                </div>
+            </div>
+        </div>
+        @Html.AntiForgeryToken()
+
+    </div>
+}
+

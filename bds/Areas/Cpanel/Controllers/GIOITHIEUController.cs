@@ -73,6 +73,7 @@ namespace bds.Areas.Cpanel.Controllers
             return View(gIOITHIEU);
         }
 
+
         // POST: Cpanel/GIOITHIEU/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -103,6 +104,53 @@ namespace bds.Areas.Cpanel.Controllers
                 db.SaveChanges();
                 ViewBag.Message = "Cập nhật thành công";
                 return RedirectToAction("Edit", "GIOITHIEU", new { id = gIOITHIEU.IDTT });
+            }
+            return View(gIOITHIEU);
+        }
+
+
+
+        // GET: Cpanel/GIOITHIEU/Edit/2 // CHỈNH SỬA NỘI DUNG FOOTER
+        public ActionResult Footer_ContactInfo(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            GIOITHIEU gIOITHIEU = db.GIOITHIEUx.Find(2);
+            if (gIOITHIEU == null)
+            {
+                return HttpNotFound();
+            }
+            return View(gIOITHIEU);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult Footer_ContactInfo([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3")] GIOITHIEU gIOITHIEU)
+        {
+            if (ModelState.IsValid)
+            {
+                gIOITHIEU.IDTT = 2;
+                gIOITHIEU.THUTU = 1;
+                gIOITHIEU.TIEUDE = gIOITHIEU.TIEUDE;
+                gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
+                gIOITHIEU.NOIDUNG = gIOITHIEU.NOIDUNG;
+                gIOITHIEU.HINHANH = gIOITHIEU.HINHANH;
+                gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
+                gIOITHIEU.TINNOIBAT = 1;
+                gIOITHIEU.HIENTHI = 1;
+                gIOITHIEU.HIEULUC = 1;
+                gIOITHIEU.SOLANXEM = gIOITHIEU.SOLANXEM;
+                gIOITHIEU.TUKHOA1 = gIOITHIEU.TIEUDE;
+                gIOITHIEU.TUKHOA2 = gIOITHIEU.TUKHOA2;
+                gIOITHIEU.TUKHOA3 = gIOITHIEU.TUKHOA3;
+
+
+                db.Entry(gIOITHIEU).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "Cập nhật thành công";
+                return RedirectToAction("Footer_ContactInfo", "GIOITHIEU", new { id = gIOITHIEU.IDTT });
             }
             return View(gIOITHIEU);
         }

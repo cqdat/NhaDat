@@ -4,16 +4,23 @@
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
 }
+<div id="page-heading">
+    <h1>Xóa Menu</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            @*<a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại DM Loại BDS</a>*@
+        </div>
+    </div>
+</div>
+<div class="alert alert-dismissable alert-danger">
+    <strong></strong> Bạn có chắc chắn muốn xóa nó không?
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+</div>
+<div class="container" style="background-color:#ffffff; padding:2px">
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>MENU</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TenMenu)
+            Tiêu đề Menu
         </dt>
 
         <dd>
@@ -62,7 +69,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
