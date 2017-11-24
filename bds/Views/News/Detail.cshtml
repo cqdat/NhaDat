@@ -1,6 +1,8 @@
-﻿
+﻿@using bds.Models
+@model NewsDetailModel
+
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.ChiTiet.TintucName;
 }
 
 
@@ -10,49 +12,23 @@
             <div class="contentnews">
                 <div class="title">
                     <h3>
-                        Nhà độc và lạ
+                        @Model.ChiTiet.TintucName
                     </h3>
                 </div>
                 <div class="uptime">
-                    Cập nhật: 09:10 08/11/2017
+                    Cập nhật: @Convert.ToDateTime(Model.ChiTiet.Updated).ToString("HH:mm dd/MM/yyyy")
                 </div>
             </div>
 
-            <div class="othernews">
-                <p>
-                    <b>Tin cũ hơn</b>
-                </p>
-                <ul>
-                    <li>
-                        <a href="#">
-                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_tinkhac", Model.TinKhac)
+
+
         </div>
         <div class="col-md-4">
-            @Html.Partial("_leftdetail")
+            <div class="leftdetail">
+                @Html.Partial("_tinnoibat", Model.TinNoiBat)
+                @Html.Partial("_nhieunguoixem", Model.NhieuNguoiDoc)
+            </div>
 
             @Html.Partial("_bannerleft")
         </div>

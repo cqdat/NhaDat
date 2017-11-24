@@ -1,4 +1,5 @@
-﻿
+﻿@using bds.Models
+@model NewsViewModel
 @{
     ViewBag.Title = "Thread";
 }
@@ -11,27 +12,32 @@
             </div>
 
             <ul>
-                <li>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <a href="#">
-                                <img  alt="hinh" src="~/images/hieu-dung-ve-phong-thuy1458359355100x100.jpg"/>
-                            </a>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="subject">
-                                <a href="#">
-                                    Hiểu đúng về phong thủy, nhà đất đồng nai
+                @foreach (var q in Model.TinTuc)
+                {
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <a href="/News/detail/@q.TinTucID/@q.URL">
+                                    <img alt="@q.TintucName" src="@q.HinhAnh" />
                                 </a>
                             </div>
-                            <div class="descript">
-                                Nhắc đến phong thủy, người ta thường nghĩ ngay đến việc xem tử vi, xem tuổi, xem tướng, hướng nhà, bố trí phòng ốc sân vườn… Nhưng thực sự, phong thủy không chỉ có vậy...
+                            <div class="col-sm-9">
+                                <div class="subject">
+                                    <a href="/News/detail/@q.TinTucID/@q.URL">
+                                        @q.TintucName
+                                    </a>
+                                </div>
+                                <div class="descript">
+                                    @q.MoTa
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                }
 
-                <li>
+                
+
+                @*<li>
                     <div class="row">
                         <div class="col-sm-3">
                             <a href="#">
@@ -89,14 +95,18 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>*@
             </ul>
 
         </div>
     </div>
     <div class="col-md-4">
 
-        @Html.Partial("_leftdetail")
+        <div class="leftdetail">
+            @Html.Partial("_tinnoibat", Model.TinNoiBat)
+            @Html.Partial("_nhieunguoixem", Model.NhieuNguoiDoc)
+        </div>
+
 
         @Html.Partial("_bannerleft")
 
