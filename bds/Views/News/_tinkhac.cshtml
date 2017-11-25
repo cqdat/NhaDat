@@ -1,0 +1,38 @@
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<BDS_TinTuc>
+<div class="othernews">
+    <p>
+        <b>Tin cũ hơn</b>
+    </p>
+    <ul>
+        @foreach (var q in Model)
+        {
+            <li>
+                <a href="/News/detail/@q.TinTucID/@q.URL">
+                    @q.TintucName<span>(@Convert.ToDateTime(q.Created).ToString("dd/MM/yyyy"))</span>
+                </a>
+            </li>
+        }
+        
+        @*<li>
+            <a href="#">
+                Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Căn hộ 28,8m2 vẫn " rộng rãi " nhờ bố trí tối ưu <span>(08/11/2017)</span>
+            </a>
+        </li>*@
+    </ul>
+</div>

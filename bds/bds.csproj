@@ -226,6 +226,8 @@
     </Compile>
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\NewsDetailModel.cs" />
+    <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1657,7 +1659,6 @@
     <Content Include="Views\Shared\_social.cshtml" />
     <Content Include="Views\Shared\_menubar.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
-    <Content Include="Views\Shared\_leftdetail.cshtml" />
     <Content Include="Views\Shared\_bannerleft.cshtml" />
     <Content Include="Views\News\Thread.cshtml" />
     <Content Include="Views\DuAn\Index.cshtml" />
@@ -1667,6 +1668,9 @@
     <Content Include="Views\RaoVat\GetChoThue.cshtml" />
     <Content Include="Views\RaoVat\_tinchothue.cshtml" />
     <Content Include="Views\Shared\_slide.cshtml" />
+    <Content Include="Views\News\_tinnoibat.cshtml" />
+    <Content Include="Views\News\_nhieunguoixem.cshtml" />
+    <Content Include="Views\News\_tinkhac.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

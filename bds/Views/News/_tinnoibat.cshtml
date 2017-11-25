@@ -1,0 +1,55 @@
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<BDS_TinTuc>
+<div class="hotnews">
+    <div class="title">
+        Tin tức nổi bật
+    </div>
+
+    <ul>
+        @foreach (var q in Model)
+            {
+            <li>
+                <a href="/News/detail/@q.TinTucID/@q.URL">
+                    @q.TintucName
+                </a>
+            </li>
+        }
+
+        @*<li>
+                <a href="#">
+                    Nóng tình trạng phân lô bán nền trái pháp luật, tại đất đồng nai
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Đảm bảo dự án không đứt đoạn
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Nóng tình trạng phân lô bán nền trái pháp luật, tại đất đồng nai
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Đảm bảo dự án không đứt đoạn
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Nóng tình trạng phân lô bán nền trái pháp luật, tại đất đồng nai
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Đảm bảo dự án không đứt đoạn
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Nóng tình trạng phân lô bán nền trái pháp luật, tại đất đồng nai
+                </a>
+            </li>*@
+    </ul>
+</div>
+
