@@ -1,0 +1,83 @@
+﻿@model bds.Areas.Cpanel.Models.TINHTHANH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TINHTHANH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemChoThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemChoThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemMuaban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemMuaban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HienThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HienThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuTu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuTu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -30,6 +30,8 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<BDS_GIA> BDS_GIA { get; set; }
         public virtual DbSet<BDS_HUONGNHA> BDS_HUONGNHA { get; set; }
         public virtual DbSet<BDS_LOAIBDS> BDS_LOAIBDS { get; set; }
+        public virtual DbSet<BDS_MuaBan> BDS_MuaBan { get; set; }
+        public virtual DbSet<BDS_TinTuc> BDS_TinTuc { get; set; }
         public virtual DbSet<DUAN> DUANs { get; set; }
         public virtual DbSet<DUAN_HINH> DUAN_HINH { get; set; }
         public virtual DbSet<DUAN_LOAI> DUAN_LOAI { get; set; }
@@ -37,7 +39,5 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
-        public virtual DbSet<BDS_MuaBan> BDS_MuaBan { get; set; }
-        public virtual DbSet<BDS_TinTuc> BDS_TinTuc { get; set; }
     }
 }

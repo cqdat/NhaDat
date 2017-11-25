@@ -10,9 +10,17 @@ namespace bds.Models
     {
         DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
+        //Get Menu Con
         public List<MENU> getChildMenu(int? idMenu)
         {
-            return db.MENUs.Where(q => q.IdCha == idMenu).ToList();
+            return db.MENUs.Where(q => q.IdCha == idMenu).OrderBy(q=>q.ThuTu).ToList();
+        }
+
+
+        //Get Quan Huyen theo tinh thanh
+        public List<TINHTHANH> getChildTinhThanh(int? idTT)
+        {
+            return db.TINHTHANHs.Where(q => q.IDCha == idTT).OrderBy(q => q.ThuTu).ToList();
         }
 
         // chuyển chữ có dấu thành không dấu, chữ hoa thành chữ thường

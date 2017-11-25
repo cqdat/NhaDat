@@ -1,0 +1,71 @@
+﻿@model bds.Areas.Cpanel.Models.TINHTHANH
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-heading">
+    <h1>Thêm mới DM Tỉnh Thành</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a class="btn btn-success" href="/Cpanel/Menu/">Quay lại DM Menu</a>
+
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:2px">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+          
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Tên", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenTT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenTT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Danh mục cha", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IDCha", null, "-- Đặt làm Menu cha --", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IDCha, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Thứ tự", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.ThuTu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-8">
+                    <label style="font-style:italic; text-align:left" class="control-label col-md-8">Nhập số 1, 2, 3,... theo thứ tự tăng dần</label>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Hiện thị", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    <select class="form-control" id="HienThi" name="HienThi">
+                        <option value="1">Hiện thị</option>
+                        <option value="0">Ẩn</option>
+
+                    </select>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -28,11 +28,11 @@ namespace bds.Areas.Cpanel.Models
         public string DiaChi { get; set; }
         public string MapPoint { get; set; }
         public Nullable<int> PropertyID { get; set; }
+        public bool Type { get; set; }
         public Nullable<System.DateTime> Created { get; set; }
         public Nullable<System.DateTime> Updated { get; set; }
         public Nullable<int> CreateBy { get; set; }
         public Nullable<int> UpdateBy { get; set; }
-        public bool Type { get; set; }
         public Nullable<bool> IsVip { get; set; }
         public Nullable<bool> Visible { get; set; }
         public Nullable<int> Rating { get; set; }
