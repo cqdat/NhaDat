@@ -26,6 +26,10 @@
         <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN" />
         <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1" />
         <AssociationConnector Association="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.Property" Width="1.5" PointX="12.875" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel_Admin.PropertyMuaBan" Width="1.5" PointX="15.125" PointY="6.625" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_PropertyMuaBan_BDS_MuaBan" />
+        <AssociationConnector Association="DB_BDSModel_Admin.FK_PropertyMuaBan_Property" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -57,5 +57,79 @@ namespace bds.Controllers
             var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
             return PartialView("_menubar", model);
         }
+
+        private static string GetSHA512(string text)
+        {
+            System.Text.UnicodeEncoding UE = new System.Text.UnicodeEncoding();
+            byte[] hashValue;
+            byte[] message = UE.GetBytes(text);
+
+            System.Security.Cryptography.SHA512Managed hashString = new System.Security.Cryptography.SHA512Managed();
+            string hex = "";
+
+            hashValue = hashString.ComputeHash(message);
+
+            foreach (byte x in hashValue)
+            {
+                hex += String.Format("{0:x2}", x);
+            }
+            return hex;
+        }
+        public static string HashPasswordUser(string password)
+        {
+            string hashpass = null;
+
+            hashpass = GetSHA512(password).Substring(0, 75).ToString();
+
+            return hashpass;
+        }
+        [HttpGet]
+        public ActionResult Login(int? id)
+        {
+            if(id ==0)
+            {
+                ViewBag.Error = "Đăng nhập không thành công ! Vui lòng thử lại !";
+            }
+            if(Session["username"] != null)
+            {
+                return Redirect("~/home");
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string username, string password, bool? ckRemember)
+        {
+
+            string hasspass = HashPasswordUser(password);
+            var model = db.THANHVIENs.FirstOrDefault(q => q.TinhTrang == 1 && q.TenTruyCap == username && q.MatKhau == hasspass);
+            if (model != null)
+            {
+                Session["username"] = model.TenTruyCap;
+                Session["uid"] = model.idTV;
+                if (ckRemember != null)
+                {
+                    HttpCookie cookie = new HttpCookie("Login");
+                    cookie.Values["username"] = model.TenTruyCap;
+                    cookie.Values["uid"] = model.idTV.ToString();
+                    cookie.Expires = DateTime.Now.AddMonths(2);
+                    Response.Cookies.Add(cookie);
+                }               
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            else
+            {
+                return Redirect("~/home/login/0");
+            }            
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(int? id)
+        {
+            return View();
+        }
     }
 }

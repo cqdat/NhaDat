@@ -1,0 +1,83 @@
+﻿@using bds.Models
+@model MuaBanViewModel
+@{
+    ViewBag.Title = "Mua Bán";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="direction">
+            <a href="#">Trang Chủ</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <a href="#">Mua bán</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <a href="#">Đồng Nai</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        &nbsp;
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="chothue">
+            <ul>
+                @foreach (var q in Model.ListMuaBan)
+                {
+                    <li class="row">
+                        <div class="col-md-3">
+                            <a href="/Raovat/chothue/@q.IDMuaBan/@q.URL">
+                                <img alt="@q.Name" src="@q.HinhAnh" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="title">
+                                <a href="#">
+                                    @q.Name  <span class="date">(@Convert.ToDateTime(q.Created).ToString("dd/MM/yyyy"))</span>
+                                </a>
+                            </div>
+                            <div class="detail row">
+                                <div class="col-md-7">
+                                    <div class="t1">
+                                        <span>
+                                            Diện tích
+                                        </span>
+                                        <span>
+                                            : @q.DienTich
+                                        </span>
+                                    </div>
+                                    <div class="t1">
+                                        <span>
+                                            Kích thước
+                                        </span>
+                                        <span>
+                                            : @q.KichThuoc
+                                        </span>
+                                    </div>
+                                    <div class="t1">
+                                        <span>
+                                            Khu vực
+                                        </span>
+                                        <span>
+                                            : @q.TINHTHANH.TenTT
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <span>
+                                        @q.Gia
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }                              
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.Partial("_bannerleft")
+
+        @Html.Partial("_rightmuaban", Model.TinhThanh)
+    </div>
+</div>

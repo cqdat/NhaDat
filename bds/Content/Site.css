@@ -1377,3 +1377,37 @@ ul.dropdown {
 {
     text-transform:uppercase;
 }
+.titlelogin {
+    color: #fff;
+    font-weight: bold;
+    padding: 7px 0px 7px 12px;
+    text-transform: uppercase;
+}
+.logctn
+{
+    background-color:#fff;
+}
+.logctn td
+{
+    padding:6px;
+}
+.boxlog
+{
+}
+.logctn tr td:first-child
+{
+    text-align:right;
+    padding-right:8px;
+}
+.logctn tr td:last-child
+{
+    width:60%;
+}
+
+.errorlogin
+{
+    color:#c30;
+    font-weight:bold;
+    background-color:#fff;
+    padding:12px 12px 12px 8px;
+}

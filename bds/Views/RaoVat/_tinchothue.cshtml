@@ -1,4 +1,5 @@
-﻿
+﻿@using bds.Areas.Cpanel.Models;
+@model IEnumerable<BDS_MuaBan>
 
 
 <div class="chothue">
@@ -7,341 +8,59 @@
     </div>
 
     <ul>
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue1.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(Hôm nay)</span>
+        @foreach (var q in Model)
+        {
+            <li class="row">
+                <div class="col-md-3">
+                    <a href="/Raovat/getchothue/@q.IDMuaBan/@q.URL">
+                        <img alt="@q.Name" src="@q.HinhAnh" />
                     </a>
                 </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
+                <div class="col-md-9">
+                    <div class="title">
+                        <a href="/Raovat/getchothue/@q.IDMuaBan/@q.URL">
+                            @q.Name  <span class="date">(@Convert.ToDateTime(q.Created).ToString("dd/MM/yyyy"))</span>
+                        </a>
                     </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
+                    <div class="detail row">
+                        <div class="col-md-7">
+                            <div class="t1">
+                                <span>
+                                    Diện tích
+                                </span>
+                                <span>
+                                    : @q.DienTich
+                                </span>
+                            </div>
+                            <div class="t1">
+                                <span>
+                                    Kích thước
+                                </span>
+                                <span>
+                                    : @q.KichThuoc
+                                </span>
+                            </div>
+                            <div class="t1">
+                                <span>
+                                    Khu vực
+                                </span>
+                                <span>
+                                    : @q.TINHTHANH.TenTT
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <span>
+                                @q.Gia
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        }
+        
 
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue2.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(Hôm qua)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue3.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(17/11/2017)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue2.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(Hôm qua)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue3.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(17/11/2017)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue2.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(Hôm qua)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img alt="te" src="~/images/thue3.jpg" />
-                </a>
-            </div>
-            <div class="col-md-9">
-                <div class="title">
-                    <a href="#">
-                        CHO THUÊ VĂN PHÒNG, NHÀ Ở LIỀN KỀ TẠI BIÊN HÒA  <span class="date">(17/11/2017)</span>
-                    </a>
-                </div>
-                <div class="detail row">
-                    <div class="col-md-7">
-                        <div class="t1">
-                            <span>
-                                Diện tích
-                            </span>
-                            <span>
-                                : 365 m2
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Kích thước
-                            </span>
-                            <span>
-                                : 6x13m
-                            </span>
-                        </div>
-                        <div class="t1">
-                            <span>
-                                Khu vực
-                            </span>
-                            <span>
-                                : Huyện Long Thành
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <span>
-                            15 triệu / tháng
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </li>
+        
 
     </ul>
 </div>

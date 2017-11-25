@@ -1,0 +1,19 @@
+﻿
+@using bds.Areas.Cpanel.Models
+@model IEnumerable<TINHTHANH>
+<div class="rightchothue">
+    <div class="title main-bg-button1">
+        Cho thuê nhà đất tại Bình Dương
+    </div>
+
+    <ul>
+        @foreach (var q in Model)
+        {
+            <li>
+                <a href="/Raovat/chothue/@q.IdTT">
+                    @q.TenTT (<span>@q.DemMuaban</span>)
+                </a>
+            </li>
+        }
+    </ul>
+</div>
