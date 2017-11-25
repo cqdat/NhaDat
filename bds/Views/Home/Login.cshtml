@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="errorlogin">
+                @ViewBag.Error
+            </div>
+        </div>
+        <div class="col-md-5 boxlog">
+            <form method="post" action="~/Home/Login">
+                <div class="titlelogin main-bg-button1">
+                    Đăng nhập
+                </div>
+
+                <div class="logctn">
+                    <table>
+                        <tr>
+                            <td>
+                                Tên đăng nhập:
+                            </td>
+                            <td>
+                                <input id="username" name="username" placeholder="tên đăng nhập" class="form-control" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Mật khẩu:
+                            </td>
+                            <td>
+                                <input id="password" name="password" placeholder="tên đăng nhập" class="form-control" type="password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <input id="btLogin" type="submit" value="Đăng Nhập" class="btn btn-sm btn-primary" />
+                                <input id="btLogin" type="reset" value="Làm Lại" class="btn btn-sm btn-danger" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </form>
+
+</div>
+</div>

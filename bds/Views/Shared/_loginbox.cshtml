@@ -1,0 +1,32 @@
+﻿
+<form method="post" action="~/Home/Login">
+    <div class="loginbox box-shadow">
+        <span class="close">
+            <i class="glyphicon glyphicon-remove-circle"></i>
+        </span>
+        <div class="logintitle main-title">
+            <img alt="login" src="~/images/luser.png" /> Đăng nhập
+        </div>
+        <div class="contentlogin">
+            <div class="linelog">
+                <span>
+                    <img alt="login" src="~/images/luser.png" />
+                </span>
+                <input type="text" id="username" name="username" class="form-control" placeholder="tên đăng nhập" />
+            </div>
+            <div class="linelog">
+                <span>
+                    <img alt="login" src="~/images/llock.png" />
+                </span>
+                <input type="password" id="password" name="password" class="form-control" placeholder="mật khẩu" />
+            </div>
+            <div class="linelog">
+                <input id="ckRemember" type="checkbox" /> Tự động truy cập lần sau !
+            </div>
+            <div class="linelog">
+                <input id="btnLogin" type="submit" class="btn btn-sm btn-primary" value="Đăng nhập" />
+                <input id="btnExit" type="reset" value="Thoát" class="btn btn-sm btn-danger" />
+            </div>
+        </div>
+    </div>
+</form>

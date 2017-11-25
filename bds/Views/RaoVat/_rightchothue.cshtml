@@ -1,16 +1,21 @@
-﻿
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<TINHTHANH>
 <div class="rightchothue">
     <div class="title main-bg-button1">
         Cho thuê nhà đất tại Bình Dương
     </div>
 
     <ul>
-        <li>
-            <a href="#">
-                Thành phố Thủ Dầu Một (<span>15</span>)
-            </a>
-        </li>
-        <li>
+        @foreach (var q in Model)
+        {
+            <li>
+                <a href="/Raovat/chothue/@q.IdTT">
+                    @q.TenTT (<span>@q.DemChoThue</span>)
+                </a>
+            </li>
+        }
+        
+        @*<li>
             <a href="#">
                 Thị xã Dĩ An (<span>15</span>)
             </a>
@@ -29,6 +34,6 @@
             <a href="#">
                 Thị xã Tân Uyên (<span>15</span>)
             </a>
-        </li>
+        </li>*@
     </ul>
 </div>

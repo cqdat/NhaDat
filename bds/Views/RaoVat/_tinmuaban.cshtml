@@ -1,0 +1,63 @@
+﻿
+@using bds.Areas.Cpanel.Models;
+@model IEnumerable<BDS_MuaBan>
+
+
+<div class="chothue">
+    <div class="xtitle main-bg-button1">
+        Tin mua bán khác
+    </div>
+
+    <ul>
+        @foreach (var q in Model)
+        {
+            <li class="row">
+                <div class="col-md-3">
+                    <a href="/Raovat/getchothue/@q.IDMuaBan/@q.URL">
+                        <img alt="@q.Name" src="@q.HinhAnh" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <div class="title">
+                        <a href="/Raovat/getchothue/@q.IDMuaBan/@q.URL">
+                            @q.Name  <span class="date">(@Convert.ToDateTime(q.Created).ToString("dd/MM/yyyy"))</span>
+                        </a>
+                    </div>
+                    <div class="detail row">
+                        <div class="col-md-7">
+                            <div class="t1">
+                                <span>
+                                    Diện tích
+                                </span>
+                                <span>
+                                    : @q.DienTich
+                                </span>
+                            </div>
+                            <div class="t1">
+                                <span>
+                                    Kích thước
+                                </span>
+                                <span>
+                                    : @q.KichThuoc
+                                </span>
+                            </div>
+                            <div class="t1">
+                                <span>
+                                    Khu vực
+                                </span>
+                                <span>
+                                    : @q.TINHTHANH.TenTT
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <span>
+                                @q.Gia
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
