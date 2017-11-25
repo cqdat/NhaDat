@@ -11,126 +11,127 @@ using bds.Models;
 
 namespace bds.Areas.Cpanel.Controllers
 {
-    public class MENUController : Controller
+    public class TINHTHANHController : Controller
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
-        // GET: Cpanel/MENU
+        // GET: Cpanel/TINHTHANH
         public ActionResult Index()
         {
-            var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
-
+            var model = db.TINHTHANHs.Where(t=>t.IDCha == 0).OrderBy(t=>t.ThuTu).ToList();
             return View(model);
         }
 
-        // GET: Cpanel/MENU/Details/5
+        // GET: Cpanel/TINHTHANH/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MENU mENU = db.MENUs.Find(id);
-            if (mENU == null)
+            TINHTHANH tINHTHANH = db.TINHTHANHs.Find(id);
+            if (tINHTHANH == null)
             {
                 return HttpNotFound();
             }
-            return View(mENU);
+            return View(tINHTHANH);
         }
 
-        // GET: Cpanel/MENU/Create
+        // GET: Cpanel/TINHTHANH/Create
         public ActionResult Create()
         {
-            ViewBag.IdCha = new SelectList(db.MENUs.Where(l => l.IdCha == 0), "IdMenu", "TenMenu");
+            ViewBag.IDCha = new SelectList(db.TINHTHANHs.Where(l => l.IDCha == 0), "IdTT", "TenTT");
             return View();
         }
 
-        // POST: Cpanel/MENU/Create
+        // POST: Cpanel/TINHTHANH/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdMenu,TenMenu,IdCha,ThuTu,HienThi,IsMenu,url")] MENU mENU)
+        public ActionResult Create([Bind(Include = "IdTT,TenTT,IDCha,Cap,DemChoThue,DemMuaban,HienThi,ThuTu,url")] TINHTHANH tINHTHANH)
         {
             if (ModelState.IsValid)
             {
-                
-                if(mENU.IdCha == null)
+                if (tINHTHANH.IDCha == null)
                 {
-                    mENU.IdCha = 0;
+                    tINHTHANH.IDCha = 0;
                 }
-                mENU.url = Helper.ConvertToUpperLower(mENU.TenMenu);
-                mENU.IsMenu = true;
-                db.MENUs.Add(mENU);
+                tINHTHANH.url = Helper.ConvertToUpperLower(tINHTHANH.TenTT);
+                tINHTHANH.Cap = 1;
+                tINHTHANH.DemChoThue = 0;
+                tINHTHANH.DemMuaban = 0;
+
+                db.TINHTHANHs.Add(tINHTHANH);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(mENU);
+            return View(tINHTHANH);
         }
 
-        // GET: Cpanel/MENU/Edit/5
+        // GET: Cpanel/TINHTHANH/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MENU mENU = db.MENUs.Find(id);
-            ViewBag.IdCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0).OrderBy(b => b.ThuTu), "IdMenu", "TenMenu", mENU.IdCha);
-            if (mENU == null)
+            TINHTHANH tINHTHANH = db.TINHTHANHs.Find(id);
+            ViewBag.IDCha = new SelectList(db.TINHTHANHs.Where(m => m.IDCha == 0).OrderBy(b => b.ThuTu), "IdTT", "TenTT", tINHTHANH.IDCha);
+            if (tINHTHANH == null)
             {
                 return HttpNotFound();
             }
-            return View(mENU);
+            return View(tINHTHANH);
         }
 
-        // POST: Cpanel/MENU/Edit/5
+        // POST: Cpanel/TINHTHANH/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdMenu,TenMenu,IdCha,ThuTu,HienThi,IsMenu,url")] MENU mENU)
+        public ActionResult Edit([Bind(Include = "IdTT,TenTT,IDCha,Cap,DemChoThue,DemMuaban,HienThi,ThuTu,url")] TINHTHANH tINHTHANH)
         {
             if (ModelState.IsValid)
             {
-                if (mENU.IdCha == null)
+                if (tINHTHANH.IDCha == null)
                 {
-                    mENU.IdCha = 0;
+                    tINHTHANH.IDCha = 0;
                 }
-                mENU.url = Helper.ConvertToUpperLower(mENU.TenMenu);
-                mENU.IsMenu = true;
-
-                db.Entry(mENU).State = EntityState.Modified;
+                tINHTHANH.url = Helper.ConvertToUpperLower(tINHTHANH.TenTT);
+                tINHTHANH.Cap = tINHTHANH.Cap;
+                tINHTHANH.DemChoThue = tINHTHANH.DemChoThue;
+                tINHTHANH.DemMuaban = tINHTHANH.DemMuaban;
+                db.Entry(tINHTHANH).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mENU);
+            return View(tINHTHANH);
         }
 
-        // GET: Cpanel/MENU/Delete/5
+        // GET: Cpanel/TINHTHANH/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MENU mENU = db.MENUs.Find(id);
-           
-            if (mENU == null)
+            TINHTHANH tINHTHANH = db.TINHTHANHs.Find(id);
+            if (tINHTHANH == null)
             {
                 return HttpNotFound();
             }
-            return View(mENU);
+            return View(tINHTHANH);
         }
 
-        // POST: Cpanel/MENU/Delete/5
+        // POST: Cpanel/TINHTHANH/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MENU mENU = db.MENUs.Find(id);
-            db.MENUs.Remove(mENU);
+            TINHTHANH tINHTHANH = db.TINHTHANHs.Find(id);
+            db.TINHTHANHs.Remove(tINHTHANH);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

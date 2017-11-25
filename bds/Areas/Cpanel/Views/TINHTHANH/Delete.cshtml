@@ -1,0 +1,89 @@
+﻿@model bds.Areas.Cpanel.Models.TINHTHANH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TINHTHANH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemChoThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemChoThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemMuaban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemMuaban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HienThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HienThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuTu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuTu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

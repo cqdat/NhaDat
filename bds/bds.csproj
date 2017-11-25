@@ -168,6 +168,7 @@
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\MENUController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\TINHTHANHController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs">
       <DependentUpon>Model_AdminBDS.tt</DependentUpon>
