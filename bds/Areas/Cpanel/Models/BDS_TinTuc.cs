@@ -30,6 +30,8 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> UpdateBy { get; set; }
         public Nullable<bool> Visible { get; set; }
         public string URL { get; set; }
+        public string MetaKeyword { get; set; }
+        public string MetaDescrip { get; set; }
     
         public virtual MENU MENU { get; set; }
         public virtual THANHVIEN THANHVIEN { get; set; }

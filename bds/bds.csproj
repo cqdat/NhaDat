@@ -162,8 +162,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\BDS_DIENTICHController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_HUONGNHAController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_LOAIBDSController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\BDS_TinTucController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
@@ -1913,6 +1915,16 @@
     <Content Include="Content\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="Content\ckeditor\skins\moono\readme.md" />
     <Content Include="Content\ckeditor\skins\moono_blue\readme.md" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Index.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

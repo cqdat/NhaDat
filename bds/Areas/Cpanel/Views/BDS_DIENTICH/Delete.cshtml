@@ -1,12 +1,11 @@
-﻿@model bds.Areas.Cpanel.Models.BDS_HUONGNHA
+﻿@model bds.Areas.Cpanel.Models.BDS_DIENTICH
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
 }
-
 <div id="page-heading">
-    <h1>Xóa Hướng</h1>
+    <h1>Xóa Diện tích</h1>
     <div class="options">
         <div class="btn-toolbar">
             @*<a class="btn btn-success" href="/Cpanel/BDS_LOAIBDS/">Quay lại DM Loại BDS</a>*@
@@ -19,17 +18,18 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     </div>
     <div>
+
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.TenHuongNha)
+                Diện tích
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TenHuongNha)
+                @Html.DisplayFor(model => model.TenDT)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.STT)
+                Số thứ tự
             </dt>
 
             <dd>
@@ -44,8 +44,8 @@
 
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Quay lại", "Index")
             </div>
         }
     </div>
-</div>
+    </div>

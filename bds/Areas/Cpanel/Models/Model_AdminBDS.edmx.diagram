@@ -5,27 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="dc1366d6844a4e11a6621c2883336053" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_DIENTICH" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_DM_GIAODICH" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_GIA" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_HUONGNHA" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_LOAIBDS" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_MuaBan" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.BDS_TinTuc" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.DUAN" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.DUAN_HINH" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.DUAN_LOAI" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.GIOITHIEU" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.MENU" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.THANHVIEN" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.TINHTHANH" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_BDS_MuaBan" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_MENU" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_THANHVIEN" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_TINHTHANH" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_MENU" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_DIENTICH" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_DM_GIAODICH" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_GIA" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_HUONGNHA" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_LOAIBDS" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_MuaBan" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="DB_BDSModel.BDS_TinTuc" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="DB_BDSModel.DUAN" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.DUAN_HINH" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.DUAN_LOAI" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.GIOITHIEU" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_BDSModel.MENU" Width="1.5" PointX="3.75" PointY="11" />
+        <EntityTypeShape EntityType="DB_BDSModel.THANHVIEN" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="DB_BDSModel.TINHTHANH" Width="1.5" PointX="3.75" PointY="1.375" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_BDS_MuaBan" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_MENU" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_THANHVIEN" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_TINHTHANH" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_MENU" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN" />
+        <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
