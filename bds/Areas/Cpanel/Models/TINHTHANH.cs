@@ -26,7 +26,6 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> Cap { get; set; }
         public Nullable<int> DemChoThue { get; set; }
         public Nullable<int> DemMuaban { get; set; }
-        public Nullable<int> HienThi { get; set; }
         public Nullable<int> ThuTu { get; set; }
         public string url { get; set; }
     

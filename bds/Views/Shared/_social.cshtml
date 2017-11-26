@@ -27,19 +27,19 @@
     <div class="col-md-6 floatright" style="width:auto;">
         <ul>
             <li>
-                <a href="#" class="dtnd">
+                <a href="/home/newthread" class="dtnd">
                     <img alt="dang tin" src="~/images/dangtin.png" /> <b>Đăng tin</b>
                 </a>
             </li>
             @if (Session["username"] == null)
             {
                 <li>
-                    <a href="#" class="dktv">
+                    <a href="javascript:" class="dktv">
                         <img alt="reg" src="~/images/dangky.png" /> <b>Đăng ký</b>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="dn" id="btnlogin">
+                    <a href="javascript:" class="dn" id="btnlogin">
                         <img alt="dang nhap" src="~/images/dangnhap.png" /> <b>Đăng nhập</b>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
             else
             {
                 <li>
-                    <a href="#" class="ql">
+                    <a href="/home/usercontrol" class="ql">
                         <img alt="dang tin" src="~/images/quanly.png" /> <b>Quản lý</b>
                     </a>
                 </li>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
 using bds.Models;
+using CaptchaMvc.HtmlHelpers;
 
 namespace bds.Controllers
 {
@@ -122,14 +123,89 @@ namespace bds.Controllers
             }            
         }
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Register(int? id)
         {
+            if(id == 0)
+            {
+                ViewBag.Success = "Đăng Ký thành công ! Chào mừng đến mới website !";
+            }
+            else
+            {
+                ViewBag.Error = "Đăng Ký không thành công ! Vui lòng đăng ký lại !";
+            }
             return View();
         }
         [HttpPost]
-        public ActionResult Register(int? id)
+        public ActionResult Register(string txtUserName, string txtPassword, string txtFullName, string txtMobile, string txtEmail, int slDistrict, string CaptchaInputText)
+        {
+            if(this.IsCaptchaValid(CaptchaInputText))
+            {
+                THANHVIEN t = new THANHVIEN();
+                t.idTV = 3;
+                t.TenTruyCap = txtUserName;
+                t.MatKhau = HashPasswordUser(txtPassword);
+                t.HoTen = txtFullName;
+                t.SoDiDong = txtMobile;
+                t.EmailLH = txtEmail;
+                t.TinhTrang = 1;
+                t.VIP = 0;
+                t.DiaChi = slDistrict.ToString();
+                t.LanDangNhapCuoi = DateTime.Now;
+                db.THANHVIENs.Add(t);
+                db.SaveChanges();
+
+                return Redirect("/home/register/0");
+            }
+            else
+            {
+                return Redirect("/home/register/1");
+            }
+        }
+
+        public ActionResult NewThread()
         {
             return View();
+        }
+        public ActionResult UserControl()
+        {
+            return View();
+        }
+
+        public JsonResult checkUsername(string txtUsername)
+        {
+            var m = db.THANHVIENs.FirstOrDefault(q => q.TenTruyCap == txtUsername);
+            if(m != null)
+            {
+                return Json("Tài khoản đã có người sử dụng", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("true", JsonRequestBehavior.AllowGet);
+            }           
+        }
+        public JsonResult checkEmail(string txtEmail)
+        {
+            var m = db.THANHVIENs.FirstOrDefault(q => q.EmailLH == txtEmail);
+            if (m != null)
+            {
+                return Json("Email đã có người sử dụng", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("true", JsonRequestBehavior.AllowGet);
+            }
+        }
+        public JsonResult checkMobile(string txtMobile)
+        {
+            var m = db.THANHVIENs.FirstOrDefault(q => q.SoDiDong == txtMobile);
+            if (m != null)
+            {
+                return Json("Số điện thoại đã có người sử dụng", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("true", JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

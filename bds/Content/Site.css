@@ -45,7 +45,12 @@
     }
 }
 
-body {
+.wrapper 
+{
+    position:relative;
+}
+body
+{
     padding-top: 39px;
     /*padding-bottom: 20px;*/
     background-color: #ededed;
@@ -743,7 +748,7 @@ ul.dropdown {
     height: 350px;
     position: absolute;
     top: 80px;
-    left: 36%;
+    left: 30%;
     z-index: 9999 !important;
     display: none;
 }
@@ -1330,8 +1335,8 @@ ul.dropdown {
     width: 666px;
     min-height: 350px;
     position: absolute;
-    top: 80px;
-    left: 32%;
+    top: 39px;
+    left: 20%;
     z-index: 9999 !important;
     padding-bottom: 22px;
     display: none;
@@ -1410,4 +1415,36 @@ ul.dropdown {
     font-weight:bold;
     background-color:#fff;
     padding:12px 12px 12px 8px;
+}
+
+.formreg .error
+{
+    color:#ff0000 !important;
+    font-weight:normal !important;
+    font-style:italic !important;
+}
+.captcha a
+{
+    display:table-cell !important;
+}
+.captcha a:hover
+{
+    color:#ff6a00;
+    text-decoration:none;
+}
+.captcha a:active
+{
+    text-decoration:none;
+}
+.captcha a:visited
+{
+    text-decoration:none;
+}
+.captcha a:active
+{
+    text-decoration:none;
+}
+.captcha a:focus
+{
+    text-decoration:none;
 }

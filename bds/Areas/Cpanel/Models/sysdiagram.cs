@@ -12,13 +12,12 @@ namespace bds.Areas.Cpanel.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PropertyMuaBan
+    public partial class sysdiagram
     {
-        public int ProMuaID { get; set; }
-        public Nullable<int> PropertyID { get; set; }
-        public Nullable<int> MuaBanID { get; set; }
-    
-        public virtual BDS_MuaBan BDS_MuaBan { get; set; }
-        public virtual Property Property { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
