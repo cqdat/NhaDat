@@ -84,7 +84,7 @@
           <Property Name="TintucName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="HinhAnh" Type="varchar" MaxLength="100" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="400" />
-          <Property Name="NoiDung" Type="nvarchar(max)" />
+          <Property Name="NoiDung" Type="ntext" />
           <Property Name="IDMenu" Type="int" />
           <Property Name="NoiBat" Type="bit" />
           <Property Name="NhieuNguoiDoc" Type="bit" />
@@ -96,6 +96,8 @@
           <Property Name="UpdateBy" Type="int" />
           <Property Name="Visible" Type="bit" />
           <Property Name="URL" Type="varchar" MaxLength="200" />
+          <Property Name="MetaKeyword" Type="nvarchar" MaxLength="200" />
+          <Property Name="MetaDescrip" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="DUAN">
           <Key>
@@ -312,7 +314,8 @@
           <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GIOITHIEU" EntityType="Self.GIOITHIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyMuaBan" EntityType="Self.PropertyMuaBan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THANHVIEN" EntityType="Self.THANHVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINHTHANH" EntityType="Self.TINHTHANH" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BDS_MuaBan_BDS_MuaBan" Association="Self.FK_BDS_MuaBan_BDS_MuaBan">
@@ -347,7 +350,65 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DB_BDSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DB_BDSModel_Admin" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_BDSEntitiesAdmin" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BDS_DIENTICH" EntityType="DB_BDSModel_Admin.BDS_DIENTICH" />
+          <EntitySet Name="BDS_DM_GIAODICH" EntityType="DB_BDSModel_Admin.BDS_DM_GIAODICH" />
+          <EntitySet Name="BDS_GIA" EntityType="DB_BDSModel_Admin.BDS_GIA" />
+          <EntitySet Name="BDS_HUONGNHA" EntityType="DB_BDSModel_Admin.BDS_HUONGNHA" />
+          <EntitySet Name="BDS_LOAIBDS" EntityType="DB_BDSModel_Admin.BDS_LOAIBDS" />
+          <EntitySet Name="BDS_MuaBan" EntityType="DB_BDSModel_Admin.BDS_MuaBan" />
+          <EntitySet Name="BDS_TinTuc" EntityType="DB_BDSModel_Admin.BDS_TinTuc" />
+          <EntitySet Name="DUANs" EntityType="DB_BDSModel_Admin.DUAN" />
+          <EntitySet Name="DUAN_HINH" EntityType="DB_BDSModel_Admin.DUAN_HINH" />
+          <EntitySet Name="DUAN_LOAI" EntityType="DB_BDSModel_Admin.DUAN_LOAI" />
+          <EntitySet Name="GIOITHIEUx" EntityType="DB_BDSModel_Admin.GIOITHIEU" />
+          <EntitySet Name="MENUs" EntityType="DB_BDSModel_Admin.MENU" />
+          <EntitySet Name="THANHVIENs" EntityType="DB_BDSModel_Admin.THANHVIEN" />
+          <EntitySet Name="TINHTHANHs" EntityType="DB_BDSModel_Admin.TINHTHANH" />
+          <AssociationSet Name="FK_BDS_MuaBan_BDS_MuaBan" Association="DB_BDSModel_Admin.FK_BDS_MuaBan_BDS_MuaBan">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_MuaBan_MENU" Association="DB_BDSModel_Admin.FK_BDS_MuaBan_MENU">
+            <End Role="MENU" EntitySet="MENUs" />
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_MuaBan_THANHVIEN" Association="DB_BDSModel_Admin.FK_BDS_MuaBan_THANHVIEN">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_MuaBan_TINHTHANH" Association="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH">
+            <End Role="TINHTHANH" EntitySet="TINHTHANHs" />
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_TinTuc_MENU" Association="DB_BDSModel_Admin.FK_BDS_TinTuc_MENU">
+            <End Role="MENU" EntitySet="MENUs" />
+            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_TinTuc_THANHVIEN" Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_TinTuc_THANHVIEN1" Association="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BDS_MuaBan_TINHTHANH" Association="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH">
+            <End Role="TINHTHANH" EntitySet="TINHTHANHs" />
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+          </AssociationSet>
+          <EntitySet Name="Properties" EntityType="DB_BDSModel_Admin.Property" />
+          <EntitySet Name="PropertyMuaBans" EntityType="DB_BDSModel_Admin.PropertyMuaBan" />
+          <AssociationSet Name="FK_PropertyMuaBan_BDS_MuaBan" Association="DB_BDSModel_Admin.FK_PropertyMuaBan_BDS_MuaBan">
+            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
+            <End Role="PropertyMuaBan" EntitySet="PropertyMuaBans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyMuaBan_Property" Association="DB_BDSModel_Admin.FK_PropertyMuaBan_Property">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="PropertyMuaBan" EntitySet="PropertyMuaBans" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="BDS_DIENTICH">
           <Key>
             <PropertyRef Name="IdDT" />
@@ -418,10 +479,10 @@
           <Property Name="Rating" Type="Int32" />
           <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="IDTinhThanh" Type="Int32" />
-          <NavigationProperty Name="THANHVIEN" Relationship="Self.FK_BDS_MuaBan_BDS_MuaBan" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
-          <NavigationProperty Name="MENU" Relationship="Self.FK_BDS_MuaBan_MENU" FromRole="BDS_MuaBan" ToRole="MENU" />
-          <NavigationProperty Name="THANHVIEN1" Relationship="Self.FK_BDS_MuaBan_THANHVIEN" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
-          <NavigationProperty Name="TINHTHANH" Relationship="Self.FK_BDS_MuaBan_TINHTHANH" FromRole="BDS_MuaBan" ToRole="TINHTHANH" />
+          <NavigationProperty Name="THANHVIEN" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_BDS_MuaBan" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
+          <NavigationProperty Name="MENU" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_MENU" FromRole="BDS_MuaBan" ToRole="MENU" />
+          <NavigationProperty Name="THANHVIEN1" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_THANHVIEN" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
+          <NavigationProperty Name="TINHTHANH" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH" FromRole="BDS_MuaBan" ToRole="TINHTHANH" />
         </EntityType>
         <EntityType Name="BDS_TinTuc">
           <Key>
@@ -443,9 +504,9 @@
           <Property Name="UpdateBy" Type="Int32" />
           <Property Name="Visible" Type="Boolean" />
           <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MENU" Relationship="Self.FK_BDS_TinTuc_MENU" FromRole="BDS_TinTuc" ToRole="MENU" />
-          <NavigationProperty Name="THANHVIEN" Relationship="Self.FK_BDS_TinTuc_THANHVIEN" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
-          <NavigationProperty Name="THANHVIEN1" Relationship="Self.FK_BDS_TinTuc_THANHVIEN1" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
+          <NavigationProperty Name="MENU" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_MENU" FromRole="BDS_TinTuc" ToRole="MENU" />
+          <NavigationProperty Name="THANHVIEN" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
+          <NavigationProperty Name="THANHVIEN1" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
         </EntityType>
         <EntityType Name="DUAN">
           <Key>
@@ -526,8 +587,8 @@
           <Property Name="HienThi" Type="Int32" />
           <Property Name="IsMenu" Type="Boolean" />
           <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BDS_MuaBan" Relationship="Self.FK_BDS_MuaBan_MENU" FromRole="MENU" ToRole="BDS_MuaBan" />
-          <NavigationProperty Name="BDS_TinTuc" Relationship="Self.FK_BDS_TinTuc_MENU" FromRole="MENU" ToRole="BDS_TinTuc" />
+          <NavigationProperty Name="BDS_MuaBan" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_MENU" FromRole="MENU" ToRole="BDS_MuaBan" />
+          <NavigationProperty Name="BDS_TinTuc" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_MENU" FromRole="MENU" ToRole="BDS_TinTuc" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -553,10 +614,10 @@
           <Property Name="TinhTrang" Type="Int32" />
           <Property Name="VIP" Type="Int32" />
           <Property Name="LanDangNhapCuoi" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="BDS_MuaBan" Relationship="Self.FK_BDS_MuaBan_BDS_MuaBan" FromRole="THANHVIEN" ToRole="BDS_MuaBan" />
-          <NavigationProperty Name="BDS_MuaBan1" Relationship="Self.FK_BDS_MuaBan_THANHVIEN" FromRole="THANHVIEN" ToRole="BDS_MuaBan" />
-          <NavigationProperty Name="BDS_TinTuc" Relationship="Self.FK_BDS_TinTuc_THANHVIEN" FromRole="THANHVIEN" ToRole="BDS_TinTuc" />
-          <NavigationProperty Name="BDS_TinTuc1" Relationship="Self.FK_BDS_TinTuc_THANHVIEN1" FromRole="THANHVIEN" ToRole="BDS_TinTuc" />
+          <NavigationProperty Name="BDS_MuaBan" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_BDS_MuaBan" FromRole="THANHVIEN" ToRole="BDS_MuaBan" />
+          <NavigationProperty Name="BDS_MuaBan1" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_THANHVIEN" FromRole="THANHVIEN" ToRole="BDS_MuaBan" />
+          <NavigationProperty Name="BDS_TinTuc" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN" FromRole="THANHVIEN" ToRole="BDS_TinTuc" />
+          <NavigationProperty Name="BDS_TinTuc1" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1" FromRole="THANHVIEN" ToRole="BDS_TinTuc" />
         </EntityType>
         <EntityType Name="TINHTHANH">
           <Key>
@@ -570,11 +631,69 @@
           <Property Name="DemMuaban" Type="Int32" />
           <NavigationProperty Name="BDS_MuaBan" Relationship="Self.FK_BDS_MuaBan_TINHTHANH" FromRole="TINHTHANH" ToRole="BDS_MuaBan" />
           <Property Name="ThuTu" Type="Int32" />
-          <Property Name="url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BDS_MuaBan" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH" FromRole="TINHTHANH" ToRole="BDS_MuaBan" />
+        </EntityType>
+        <EntityType Name="BDS_MuaBan">
+          <Key>
+            <PropertyRef Name="IDMuaBan" />
+          </Key>
+          <Property Name="IDMuaBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MoTa" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDMenu" Type="Int32" />
+          <Property Name="NoiBat" Type="Boolean" />
+          <Property Name="CountView" Type="Int32" />
+          <Property Name="HotIcon" Type="Boolean" />
+          <Property Name="Gia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienTich" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MapPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <NavigationProperty Name="THANHVIEN" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_BDS_MuaBan" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
+          <NavigationProperty Name="MENU" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_MENU" FromRole="BDS_MuaBan" ToRole="MENU" />
+          <NavigationProperty Name="THANHVIEN1" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_THANHVIEN" FromRole="BDS_MuaBan" ToRole="THANHVIEN" />
+          <Property Name="Type" Type="Boolean" Nullable="false" />
+          <Property Name="IsVip" Type="Boolean" />
+          <Property Name="Visible" Type="Boolean" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IDTinhThanh" Type="Int32" />
+          <NavigationProperty Name="TINHTHANH" Relationship="DB_BDSModel_Admin.FK_BDS_MuaBan_TINHTHANH" FromRole="BDS_MuaBan" ToRole="TINHTHANH" />
+        </EntityType>
+        <EntityType Name="BDS_TinTuc">
+          <Key>
+            <PropertyRef Name="TinTucID" />
+          </Key>
+          <Property Name="TinTucID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TintucName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MoTa" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDMenu" Type="Int32" />
+          <Property Name="NoiBat" Type="Boolean" />
+          <Property Name="NhieuNguoiDoc" Type="Boolean" />
+          <Property Name="CountView" Type="Int32" />
+          <Property Name="HotIcon" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <NavigationProperty Name="MENU" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_MENU" FromRole="BDS_TinTuc" ToRole="MENU" />
+          <NavigationProperty Name="THANHVIEN" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
+          <NavigationProperty Name="THANHVIEN1" Relationship="DB_BDSModel_Admin.FK_BDS_TinTuc_THANHVIEN1" FromRole="BDS_TinTuc" ToRole="THANHVIEN" />
+          <Property Name="Visible" Type="Boolean" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_BDS_MuaBan_BDS_MuaBan">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="BDS_MuaBan" Type="Self.BDS_MuaBan" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_MuaBan" Role="BDS_MuaBan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="idTV" />
@@ -585,8 +704,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_MuaBan_MENU">
-          <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
-          <End Role="BDS_MuaBan" Type="Self.BDS_MuaBan" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.MENU" Role="MENU" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_MuaBan" Role="BDS_MuaBan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MENU">
               <PropertyRef Name="IdMenu" />
@@ -597,8 +716,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_MuaBan_THANHVIEN">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="BDS_MuaBan" Type="Self.BDS_MuaBan" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_MuaBan" Role="BDS_MuaBan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="idTV" />
@@ -609,8 +728,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_MuaBan_TINHTHANH">
-          <End Role="TINHTHANH" Type="Self.TINHTHANH" Multiplicity="0..1" />
-          <End Role="BDS_MuaBan" Type="Self.BDS_MuaBan" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.TINHTHANH" Role="TINHTHANH" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_MuaBan" Role="BDS_MuaBan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TINHTHANH">
               <PropertyRef Name="IdTT" />
@@ -621,8 +740,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_TinTuc_MENU">
-          <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
-          <End Role="BDS_TinTuc" Type="Self.BDS_TinTuc" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.MENU" Role="MENU" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_TinTuc" Role="BDS_TinTuc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MENU">
               <PropertyRef Name="IdMenu" />
@@ -633,8 +752,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_TinTuc_THANHVIEN">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="BDS_TinTuc" Type="Self.BDS_TinTuc" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_TinTuc" Role="BDS_TinTuc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="idTV" />
@@ -645,8 +764,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BDS_TinTuc_THANHVIEN1">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="BDS_TinTuc" Type="Self.BDS_TinTuc" Multiplicity="*" />
+          <End Type="DB_BDSModel_Admin.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_TinTuc" Role="BDS_TinTuc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="idTV" />
@@ -656,52 +775,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_BDSEntitiesAdmin" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BDS_DIENTICH" EntityType="Self.BDS_DIENTICH" />
-          <EntitySet Name="BDS_DM_GIAODICH" EntityType="Self.BDS_DM_GIAODICH" />
-          <EntitySet Name="BDS_GIA" EntityType="Self.BDS_GIA" />
-          <EntitySet Name="BDS_HUONGNHA" EntityType="Self.BDS_HUONGNHA" />
-          <EntitySet Name="BDS_LOAIBDS" EntityType="Self.BDS_LOAIBDS" />
-          <EntitySet Name="BDS_MuaBan" EntityType="Self.BDS_MuaBan" />
-          <EntitySet Name="BDS_TinTuc" EntityType="Self.BDS_TinTuc" />
-          <EntitySet Name="DUANs" EntityType="Self.DUAN" />
-          <EntitySet Name="DUAN_HINH" EntityType="Self.DUAN_HINH" />
-          <EntitySet Name="DUAN_LOAI" EntityType="Self.DUAN_LOAI" />
-          <EntitySet Name="GIOITHIEUx" EntityType="Self.GIOITHIEU" />
-          <EntitySet Name="MENUs" EntityType="Self.MENU" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
-          <EntitySet Name="TINHTHANHs" EntityType="Self.TINHTHANH" />
-          <AssociationSet Name="FK_BDS_MuaBan_BDS_MuaBan" Association="Self.FK_BDS_MuaBan_BDS_MuaBan">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_MuaBan_MENU" Association="Self.FK_BDS_MuaBan_MENU">
-            <End Role="MENU" EntitySet="MENUs" />
-            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_MuaBan_THANHVIEN" Association="Self.FK_BDS_MuaBan_THANHVIEN">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_MuaBan_TINHTHANH" Association="Self.FK_BDS_MuaBan_TINHTHANH">
-            <End Role="TINHTHANH" EntitySet="TINHTHANHs" />
-            <End Role="BDS_MuaBan" EntitySet="BDS_MuaBan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_TinTuc_MENU" Association="Self.FK_BDS_TinTuc_MENU">
-            <End Role="MENU" EntitySet="MENUs" />
-            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_TinTuc_THANHVIEN" Association="Self.FK_BDS_TinTuc_THANHVIEN">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BDS_TinTuc_THANHVIEN1" Association="Self.FK_BDS_TinTuc_THANHVIEN1">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="BDS_TinTuc" EntitySet="BDS_TinTuc" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        <Association Name="FK_BDS_MuaBan_TINHTHANH">
+          <End Type="DB_BDSModel_Admin.TINHTHANH" Role="TINHTHANH" Multiplicity="0..1" />
+          <End Type="DB_BDSModel_Admin.BDS_MuaBan" Role="BDS_MuaBan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTHANH">
+              <PropertyRef Name="IdTT" />
+            </Principal>
+            <Dependent Role="BDS_MuaBan">
+              <PropertyRef Name="IDTinhThanh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -787,21 +873,6 @@
           <EntitySetMapping Name="BDS_TinTuc">
             <EntityTypeMapping TypeName="DB_BDSModel.BDS_TinTuc">
               <MappingFragment StoreEntitySet="BDS_TinTuc">
-                <ScalarProperty Name="TinTucID" ColumnName="TinTucID" />
-                <ScalarProperty Name="TintucName" ColumnName="TintucName" />
-                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
-                <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
-                <ScalarProperty Name="NoiBat" ColumnName="NoiBat" />
-                <ScalarProperty Name="NhieuNguoiDoc" ColumnName="NhieuNguoiDoc" />
-                <ScalarProperty Name="CountView" ColumnName="CountView" />
-                <ScalarProperty Name="HotIcon" ColumnName="HotIcon" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="Updated" ColumnName="Updated" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="Visible" ColumnName="Visible" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -929,6 +1000,63 @@
                 <ScalarProperty Name="Cap" ColumnName="Cap" />
                 <ScalarProperty Name="DemChoThue" ColumnName="DemChoThue" />
                 <ScalarProperty Name="DemMuaban" ColumnName="DemMuaban" />
+                <ScalarProperty Name="DemChoThue" ColumnName="DemChoThue" />
+                <ScalarProperty Name="Cap" ColumnName="Cap" />
+                <ScalarProperty Name="IDCha" ColumnName="IDCha" />
+                <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+                <ScalarProperty Name="IdTT" ColumnName="IdTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_MuaBan">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_MuaBan">
+              <MappingFragment StoreEntitySet="BDS_MuaBan">
+                <ScalarProperty Name="IDTinhThanh" ColumnName="IDTinhThanh" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="IsVip" ColumnName="IsVip" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+                <ScalarProperty Name="MapPoint" ColumnName="MapPoint" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienTich" ColumnName="DienTich" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="HotIcon" ColumnName="HotIcon" />
+                <ScalarProperty Name="CountView" ColumnName="CountView" />
+                <ScalarProperty Name="NoiBat" ColumnName="NoiBat" />
+                <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IDMuaBan" ColumnName="IDMuaBan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BDS_TinTuc">
+            <EntityTypeMapping TypeName="DB_BDSModel_Admin.BDS_TinTuc">
+              <MappingFragment StoreEntitySet="BDS_TinTuc">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="HotIcon" ColumnName="HotIcon" />
+                <ScalarProperty Name="CountView" ColumnName="CountView" />
+                <ScalarProperty Name="NhieuNguoiDoc" ColumnName="NhieuNguoiDoc" />
+                <ScalarProperty Name="NoiBat" ColumnName="NoiBat" />
+                <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="TintucName" ColumnName="TintucName" />
+                <ScalarProperty Name="TinTucID" ColumnName="TinTucID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

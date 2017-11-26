@@ -23,15 +23,31 @@
 </script>
 <script type="text/javascript">
 
+    //$(function () {
+    //    CKEDITOR.replace("NOIDUNG",
+    //        { height: '500px', },
+    //        {
+    //            customConfig: "/Content/ckeditor/config.js",
+    //            skin: 'Moono_blue',
+    //            toolbar: 'class',
+    //        });
+    //})
+
     $(function () {
-        CKEDITOR.replace("NOIDUNG",
-            { height: '500px', },
-            {
-                customConfig: "/Content/ckeditor/config.js",
-                skin: 'Moono_blue',
-                toolbar: 'class',
-            });
-    })
+
+        CKEDITOR.replace('NOIDUNG', {
+            extraPlugins: 'imagebrowser',
+            imageBrowser_listUrl: "/Utilities/ImageBrowser",
+            language: 'en',
+            skin: 'Moono_blue',
+            toolbar: 'class',
+            //filebrowserImageBrowseUrl : '@Url.Content("~/Content/ckeditor/plugins/imagebrowser/browser/browser.html")',
+            filebrowserImageUploadUrl: '/Utilities/UploadImage',
+            height: '500px'
+        })
+
+
+    });
 </script>
 
 @*<div class="alert alert-dismissable alert-success">

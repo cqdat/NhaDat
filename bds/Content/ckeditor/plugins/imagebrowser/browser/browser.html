@@ -1,0 +1,132 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<base>
+		<link rel="stylesheet" href="browser.css">
+	</head>
+
+	<body>
+		<script type="text/x-template-html" id="js-template-image">
+            <div class="box" onmouseover="boxhoverin(this)" onmouseout="boxhoverout(this)">
+			    <a href="javascript://" class="thumbnail js-image-link" data-url="%imageUrl%"><img src="%thumbUrl%"></a>
+                <div class="delete">
+                    <a class="ctrldelete" href="javascript:void(0)" onclick="DeleteImage(this)">Xoá</a>
+                </div>
+            <div>
+		</script>
+
+		<ul class="folder-switcher" id="js-folder-switcher"></ul>
+
+		<div class="images-container" id="js-images-container">Loading..</div>
+
+		<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="browser.js"></script>
+
+		<script type="text/javascript">
+            var lang=getParameterByName('langCode');           
+            if(lang=="en"){
+               var str= $("#js-template-image").html().replace("Xoá","Delete");
+               $("#js-template-image").html(str);
+            }
+			CkEditorImageBrowser.init();
+            function boxhoverin(obj){
+                //alert("int");
+                $(obj).find(".delete").show();
+                //$(obj).find(".delete").css("display","inline");
+            } 
+            function boxhoverout(obj){
+                $(obj).find(".delete").hide();
+            }
+            function DeleteImage(obj){
+                var imageUrl=$(obj).parents(".box").find(".thumbnail").attr("data-url");
+                var thumbUrl=$(obj).parents(".box").find(".thumbnail").find("img").attr("src");
+
+                var listUrl=getParameterByName('listUrl');   
+                var CKEditorFuncNum=getParameterByName('CKEditorFuncNum');   
+                var CKEditor=getParameterByName('CKEditor');   
+                var langCode=getParameterByName('langCode');
+
+                //alert($(obj).html());
+                $.ajax({
+                    type: "POST",
+                    url: "/Utilities/DeleteImage",
+                    data: { imageUrl: imageUrl, thumbUrl:thumbUrl,listUrl:listUrl ,CKEditorFuncNum:CKEditorFuncNum,CKEditor:CKEditor,langCode:langCode},
+                    dataType: "json",
+                    success: function(respone){
+                        if(respone.toString()=="true"){
+                            $(obj).parents(".box").remove();
+                            //alert($(obj).parent().parent().html());
+                        }
+                        else
+                        {
+                            alert(respone);
+                        }
+                    }
+                });
+            }
+            
+            function getParameterByName( name ){
+              name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+              var regexS = "[\\?&]"+name+"=([^&#]*)", 
+                  regex = new RegExp( regexS ),
+                  results = regex.exec( window.location.href );
+              if( results == null ){
+                return "";
+              } else{
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+              }
+            }
+		</script>
+        <style>
+            .box
+            {
+                display:inline-block;
+                position:relative;
+            }
+            .delete
+            {
+                display:none;
+                /*width: 197px;
+               position:absolute;
+                bottom:10px;
+                background:#000;
+                opacity:0.6;
+                color:white;
+                line-height:30px;
+                margin-left: 5px;
+                margin-right: 5px;
+                -moz-border-radius-bottomleft: 5px;
+                -moz-border-radius-bottomright: 5px;
+                border-bottom-left-radius:5px;
+                border-bottom-right-radius:5px;*/ 
+
+               right:0px;
+                position: absolute;
+                bottom: 10px;
+                background: #000;
+                opacity: 0.6;
+                color: white;
+                line-height: 30px;
+                
+                margin-right: 5px;
+                -moz-border-radius-bottomleft: 5px;
+                -moz-border-radius-bottomright: 5px;
+                border-top-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            .ctrldelete
+            {
+                color:white;
+                text-decoration:none;
+                float:right;
+                margin-right:10px;
+                margin-left:10px;
+            }
+                .ctrldelete:hover
+                {
+                    text-decoration:underline;
+                }
+        </style>
+	</body>
+</html>

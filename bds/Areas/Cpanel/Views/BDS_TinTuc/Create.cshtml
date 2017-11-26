@@ -1,0 +1,312 @@
+﻿@model bds.Areas.Cpanel.Models.BDS_TinTuc
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/ckfinder/ckfinder.js"></script>
+<script>
+
+    $(function () {
+
+        CKEDITOR.replace('NoiDung', {
+            extraPlugins: 'imagebrowser',
+            imageBrowser_listUrl: "/Utilities/ImageBrowser",
+            language: 'en',
+            skin: 'Moono_blue',
+            toolbar: 'class',
+            //filebrowserImageBrowseUrl : '@Url.Content("~/Content/ckeditor/plugins/imagebrowser/browser/browser.html")',
+            filebrowserImageUploadUrl: '/Utilities/UploadImage',
+            height: '500px'
+        })
+
+
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div id="page-heading">
+            <h1>Thêm mới tin tức</h1>
+            <div class="options">
+                <div class="btn-toolbar">
+
+                    <input type="submit" value="Lưu" class="btn btn-green" />
+                    <a class="btn btn-success" href="/Cpanel/BDS_TinTuc/">Quay lại Trang chủ</a>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="background-color:#ffffff; padding:2px">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="panel panel-gray">
+                        @*<div class="panel-heading">
+                                <h5></h5>
+                                <div class="options">
+
+                                </div>
+                            </div>*@
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Tiêu đề</label>
+                                <div class="col-sm-10">
+
+                                    @Html.EditorFor(model => model.TintucName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TintucName, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Hình ảnh</label>
+                                <div class="col-sm-5">
+
+                                    <input type="file" id="HinhAnh" name="HinhAnh" />
+
+                                </div>
+                                <div class="col-sm-5">
+
+                                    <img src="http://nhadatdongnai247.com.vn/media/upload/images/article/thumbnails/images1965244_ph_i_c_nh_nh__ga_s_n_bay_long_th_nh_c_ch__i_u_h_nh_hoa_sen___k_gi_i100x100.jpg" />
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Menu</label>
+                                <div class="col-sm-10">
+
+                                    @Html.DropDownList("IDMenu", null, htmlAttributes: new { @class = "form-control" })
+
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Mô tả ngắn</label>
+                                <div class="col-sm-10">
+                                    <textarea id="MoTa" class="form-control" rows="6" name="MoTa">@*@Model.MoTa*@</textarea>
+                                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="panel panel-gray">
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Nổi bật</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control list-box tri-state" id="NoiBat" name="NoiBat">
+                                        <option selected value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+
+                                </div>
+                                <label for="selector1" class="col-sm-3 control-label">Hot</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control list-box tri-state" id="HotIcon" name="HotIcon">
+                                        <option selected value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Ẩn/Hiện</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control list-box tri-state" id="Visible" name="Visible">
+                                        <option selected value="true">Hiện</option>
+                                        <option value="false">Ẩn</option>
+                                    </select>
+
+                                </div>
+                                <label for="selector1" class="col-sm-3 control-label">Nhiều người đọc</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control list-box tri-state" id="NhieuNguoiDoc" name="NhieuNguoiDoc">
+                                        <option selected value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <h5 style="border-bottom:1px solid #808080">SEO Google</h5>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Từ khóa</label>
+                                <div class="col-sm-10">
+
+                                    @Html.EditorFor(model => model.MetaKeyword, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MetaKeyword, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Meta Description</label>
+                                <div class="col-sm-10">
+                                    <textarea id="MetaDescrip" class="form-control" rows="5" name="MetaDescrip">@*@Model.MoTa*@</textarea>
+                                    @Html.ValidationMessageFor(model => model.MetaDescrip, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @Html.Label("Nội dung chi tiêt", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                <div class="col-md-12">
+                    <textarea id="NoiDung" name="NoiDung"></textarea>
+                </div>
+
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.TintucName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TintucName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TintucName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IDMenu, "IDMenu", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IDMenu", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IDMenu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoiBat, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.NoiBat)
+                        @Html.ValidationMessageFor(model => model.NoiBat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NhieuNguoiDoc, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.NhieuNguoiDoc)
+                        @Html.ValidationMessageFor(model => model.NhieuNguoiDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CountView, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CountView, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CountView, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HotIcon, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.HotIcon)
+                        @Html.ValidationMessageFor(model => model.HotIcon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreateBy, "CreateBy", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CreateBy", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Updated, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Updated, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Updated, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdateBy, "UpdateBy", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("UpdateBy", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UpdateBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Visible, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Visible)
+                        @Html.ValidationMessageFor(model => model.Visible, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.URL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.URL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.URL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

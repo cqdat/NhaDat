@@ -13,36 +13,39 @@
         </div>
     </div>
 </div>
-<div class="alert alert-dismissable alert-danger">
-    <strong></strong> Bạn có chắc chắn muốn xóa nó không?
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-</div>
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenHuongNha)
-        </dt>
+<div class="container" style="background-color:#ffffff; padding:2px">
+    <div class="alert alert-dismissable alert-danger">
+        <strong></strong> Bạn có chắc chắn muốn xóa nó không?
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    </div>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenHuongNha)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenHuongNha)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TenHuongNha)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.STT)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.STT)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.STT)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.STT)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>
