@@ -4,6 +4,15 @@ $(document).ready(function () {
         interval: 5000
     });
 
+    $('input:radio[name="hinhthuc"]').change(
+        function () {
+            if ($(this).is(':checked')) {
+
+                $(".kieutin").css("background-color", "#fff");
+                $(this).parent().css("background-color", "#efefef");
+            }
+        });
+
     $(".captcha a").prop("href", "javascript:");
 
     $(".captcha br").remove();
@@ -58,16 +67,7 @@ $(document).ready(function () {
         return arg !== value;
     }, "Value must not equal arg.");
 
-     $.validator.addMethod('uniqueUsername', function (value) {
-         $.ajax({
-             url: 'http://localhost:8080/TBS-war/RegisterServlet.java',
-             type: 'POST',
-             async: false,
-             contentType: 'application/json',
-             dataType: 'json'
 
-         });
-     });
 
     $("#formreg").validate({
         rules: {
@@ -167,6 +167,49 @@ $(document).ready(function () {
                 valueNotEquals: "Vui lòng chọn nơi cư trú"
             }
         }
+     });
+
+
+    $(document).on("change", "#slQuanHuyen", function () {
+        var quanhuyenid = $("#slQuanHuyen option:selected").val(); 
+
+        $.ajax({
+            url: '/Home/getPhuongXa',
+            contentType: 'application/html; charset=utf-8',
+            data: { quanhuyenid: quanhuyenid },
+            type: 'GET',
+            dataType: 'json'
+            , success: function (data) {
+                    $.each(data, function (id, dt) {
+                        $('#slPhuongXa').append("<option value=" + dt.IDPhuongXa + ">" + dt.NamePhuongXa + "</option>");
+                    });
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        });
+
+    });
+
+    $(document).on("change", "#slPhuongXa", function () {
+        var phuongxaid = $("#slPhuongXa option:selected").val();
+
+        $.ajax({
+            url: '/Home/getDuongPho',
+            contentType: 'application/html; charset=utf-8',
+            data: { phuongxaid: phuongxaid },
+            type: 'GET',
+            dataType: 'json'
+            , success: function (data) {
+                $.each(data, function (id, dt) {
+                    $('#slDuongPho').append("<option value=" + dt.IDDuongPho + ">" + dt.NameDuongPho + "</option>");
+                });
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        });
+
     });
     
 

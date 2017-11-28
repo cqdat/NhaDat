@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d100c20baf014c62886c8183d2254042" Name="Diagram1">
+      <Diagram DiagramId="f5c8a5cde3ae4e4291450bb00fda8842" Name="Diagram1">
         <EntityTypeShape EntityType="DB_BDSModel.BDS_DIENTICH" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.BDS_DM_GIAODICH" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.BDS_GIA" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
@@ -16,10 +16,10 @@
         <EntityTypeShape EntityType="DB_BDSModel.DUAN_HINH" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.DUAN_LOAI" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.GIOITHIEU" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.MENU" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BDSModel.MENU" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BDSModel.THANHVIEN" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_BDSModel.TINHTHANH" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BDSModel.TINHTHANH" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_BDS_MuaBan" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_MENU" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_MuaBan_THANHVIEN" ManuallyRouted="false" />
@@ -27,6 +27,10 @@
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_MENU" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_BDSModel.ProMuaBan" Width="1.5" PointX="8.25" PointY="11.375" />
+        <EntityTypeShape EntityType="DB_BDSModel.Property" Width="1.5" PointX="6" PointY="15.5" />
+        <AssociationConnector Association="DB_BDSModel.FK_ProMuaBan_BDS_MuaBan" />
+        <AssociationConnector Association="DB_BDSModel.FK_ProMuaBan_Property" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

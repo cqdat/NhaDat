@@ -1,7 +1,391 @@
-﻿
+﻿@using bds.Models
+@model NewThreadViewModel
+@using CaptchaMvc.HtmlHelpers
 @{
-    ViewBag.Title = "NewThread";
+    ViewBag.Title = "Đăng tin mới";
 }
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<div class="row">
+    <div class="col-md-8">
+        <div class="direction">
+            <a href="#">Trang Chủ</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <a href="#">Đăng tin</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        &nbsp;
+    </div>
+</div>
 
-<h2>NewThread</h2>
+<div class="row">
+    <div class="col-md-9">
+        <div class="newthreadcontent">
+            <div class="warning">
+                Rao vặt nhà đất đồng nai vẫn hiệu quả nhadatdongnai247.com.vn là một trong những website về mua bán và cho thuê bất động sản lớn nhất thị trường đồng nai hiện nay, lượt truy cập tìm kiếm thông tin mỗi ngày. Các tin rao vặt bất động sản được bộ phận quản trị duyệt nội dung trước khi xuất bản để đảm bảo chất lượng thông tin đến mức tối đa. Thời gian duyệt tin sẻ được đẩy tin ngay sau khi khách hàng đăng tin và chọn loại tin để giao dịch
+            </div>
+            <div class="khauhieu">
+                ĐĂNG TIN NHÀ ĐẤT BÌNH DƯƠNG HIỆU QUẢ VÀ SẼ LUÔN NHƯ VẬY
+            </div>
+            <div class="khauhieu1">
+                Miễn phí úp tin <br />
+                Miễn phí truy cập <br />
+                Tất cả đều miễn phí
+            </div>
+            <div class="khauhieu2">
+                ĐĂNG TIN VIP HIỆU QUẢ HƠN, BÁN NHANH HƠN <br />
+                Hướng dẫn đăng tin VIP
+            </div>
 
+            <div class="ttbatbuoc main-bg-button1">
+                Thông tin bắt buộc
+            </div>
+            <div class="boxinput">
+                <div class="row">
+                    <div class="col-sm-2">
+                        Tiêu đề (<span>*</span>)
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" id="tieude" name="tieude" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Nội Dung (<span>*</span>)
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea id="noidung" name="noidung" rows="2" cols="20" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property">
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Loại tin (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slLoaitin" name="slLoaitin">
+                            <option value="0">
+                                -- Chọn loại tin --
+                            </option>
+                            <option value="1">
+                                Cần Bán
+                            </option>
+                            <option value="2">
+                                Cho thuê
+                            </option>
+                            <option value="3">
+                                Cần mua
+                            </option>
+                            <option value="4">
+                                Cần thuê
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 cochu">
+                        Loại BĐS (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slLoaiBDS" name="slLoaiBDS">
+                            <option value="0">
+                                -- Chọn loại BĐS --
+                            </option>
+                            @foreach (var q in Model.Menu)
+                            {
+                                <option value="@q.IdMenu">
+                                    @q.TenMenu
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Quận/Huyện (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slQuanHuyen" name="slQuanHuyen">
+                            <option value="0">
+                                -- Chọn quận/huyện --
+                            </option>
+                            @foreach (var q in Model.TinhThanh)
+                            {
+                                <option value="@q.IdTT">@q.TenTT</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-3 cochu">
+                        Phường/Xã (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slPhuongXa" name="slPhuongXa">
+                            <option>
+                                -- Chọn phường/xã --
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Địa chỉ (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="txtDiachi" name="txtDiachi" class="form-control" placeholder="Số nhà 29/13C" type="text" />
+                    </div>
+                    <div class="col-sm-3 cochu">
+                        Đường/Phố (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slDuongPho" name="slDuongPho">
+                            <option>
+                                -- Chọn đường/phố --
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Dự án (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="slDuAn" name="slDuAn">
+                            <option>
+                                -- Chọn Dự Án --
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 cochu">
+                        Diện tích (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="txtDientich" name="txtDientich" class="form-control" placeholder="m2" type="text" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Giá (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="txtGia" name="txtGia" class="form-control" placeholder="tổng giá hoặc m2" type="text" />                        
+                    </div>   
+                    <div class="col-sm-3">
+                        <select class="form-control">
+                            <option value="1">Tổng diện tích</option>
+                            <option value="2">Theo m2</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2 cochu">
+                        Người đăng (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="txtNguoiDang" name="txtNguoiDang" class="form-control" placeholder="Tuan Bui" readonly="readonly" type="text" />
+                    </div>
+                    <div class="col-sm-3 cochu">
+                        Điện thoại (<span>*</span>)
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="txtDienthoai" name="txtDienthoai" class="form-control" placeholder="0978757125" readonly="readonly" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ttkhac main-bg-button1">
+                Thông tin khác
+            </div>
+
+            <div class="row listttkhac">
+                <div class="col-md-9">
+                    <table>
+                        <tr>
+                            <td>
+                                Ngang
+                            </td>
+                            <td>
+                                <input id="txtNgang" name="txtNgang" type="text" /><span>m</span>
+                            </td>
+                            <td>
+                                Dài
+                            </td>
+                            <td>
+                                <input id="txtDai" name="txtDai" type="text" /><span>m</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Hướng
+                            </td>
+                            <td>
+                                <select id="slHuong">
+                                    <option value="0">Không Xác Định</option>
+                                    <option value="1">Đông</option>
+                                    <option value="2">Tây</option>
+                                    <option value="3">Nam</option>
+                                    <option value="4">Bắc</option>
+                                    <option value="5">Đông Bắc</option>
+                                    <option value="6">Đông Nam</option>
+                                    <option value="7">Tây Bắc</option>
+                                    <option value="8">Tây Nam</option>
+                                </select>
+                            </td>
+                            <td>
+                                Đường rộng
+                            </td>
+                            <td>
+                                <input id="txtDuongRong" name="txtDuongRong" type="text" /><span>m</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Pháp lý
+                            </td>
+                            <td>
+                                <select id="slPhapLy">
+                                    <option value="0">-- Chọn --</option>
+                                    <option value="1">Sổ đỏ/sổ hồng</option>
+                                    <option value="2">Giấy tờ hợp lệ</option>
+                                    <option value="3">Giấy phép KD</option>
+                                    <option value="4">Giấy phép XD</option>
+                                </select>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Số lầu
+                            </td>
+                            <td>
+                                <input id="txtSolau" name="txtSolau" type="text" />
+                            </td>
+                            <td>
+                                Phòng ngủ
+                            </td>
+                            <td>
+                                <input id="txtPhongngu" name="txtPhongngu" type="text" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2">
+                    <p>
+                        <input id="ckBep" type="checkbox" /> Nhà bếp
+                    </p>
+                    <p>
+                        <input id="ckPhongAn" type="checkbox" /> Phòng ăn
+                    </p>
+                    <p>
+                        <input id="ckSanthuong" type="checkbox" /> Sân thượng
+                    </p>
+                    <p>
+                        <input id="ckXehoi" type="checkbox" /> Chỗ để xe hơi
+                    </p>
+                    <p>
+                        <input id="ckChinhchu" type="checkbox" /> Chính chủ
+                    </p>
+                </div>
+            </div>
+
+            <div class="hinhanh main-bg-button1">
+                Hình Ảnh
+            </div>
+
+            <div class="hinhthucdangtin">
+                Hình thức đăng tin
+            </div>
+            <div class="ctnhinhthuc">
+                <div class="tinthuong kieutin">
+                    <input id="rdTinthuong" checked="checked" name="hinhthuc" type="radio" /> <span style="color: #165DB7; font-weight:bold;">Tin thường</span>
+                    <ul>
+                        <li>
+                            Bị trôi trang nhanh do có nhiều tin đăng trong ngày.
+                        </li>
+                        <li>Tin thường có chữ <span style="color:#1570E2">màu xanh</span>, nằm dưới tin VIP.</li>
+                        <li>Chờ kiểm duyệt trước khi được hiển thị, thời gian chờ duyệt từ 5 phút đến vài tiếng tùy thuộc vào số lượng tin đăng trong ngày.</li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="tinvip tinvipngay kieutin">
+                            <input id="rdTinVip" name="hinhthuc" type="radio" /> <span style="color: #f00; font-weight:bold;">Tin VIP ngày</span>
+                            <div>
+                                <select id="slLoaiVipNgay">
+                                    <option>-- Chọn loại Vip --</option>
+
+                                </select> x
+                                <select id="slSongay">
+                                    <option value="0">Số ngày</option>
+                                    @for (int i = 1; i <= 20; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="tinvip tinvipthang kieutin">
+                            <input id="rdTinVip" name="hinhthuc" type="radio" /> <span style="color: #f00; font-weight:bold;">Tin VIP tháng</span>
+                            <div>
+                                <select>
+                                    <option>Loại VIP</option>
+                                </select>
+                                <ul>
+                                    <li>Tiết kiệm 20% so với đăng tin VIP theo ngày</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h5>Lợi ích của tin Vip</h5>
+                        <ul>
+                            <li>Tin VIP có chữ <span style="color:Red">màu đỏ</span>, nằm trên tin thường.</li>
+                            <li>Hiệu quả cao, số lượt xem tin VIP cao hơn từ <b>30 đến 40</b> lần so với tin thường.</li>
+                            <li>Hiển thị ngay sau khi đăng, không phải chờ duyệt như tin thường.</li>
+                            <li>Trở về trạng thái tin thường sau khi hết số ngày VIP.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sodu">
+                Số dư tài khoản: <span>0</span>đ
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="maantoan">
+                        <div style="color:blue; font-weight:bold;">
+                            Mã an toàn
+                        </div>
+                        <div class="captcha">
+                            @Html.Captcha("Làm mới", "", 5, null)
+                            @ViewBag.ErrorMessage
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top:79px;">
+                    <input id="btnSubmit" type="button" value="Đăng tin" class="btn btn-sm btn-primary" />
+                    <input id="btnReset" type="button" value="Nhập lại" class="btn btn-sm btn-danger" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

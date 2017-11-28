@@ -43,6 +43,9 @@
                         <img alt="dang nhap" src="~/images/dangnhap.png" /> <b>Đăng nhập</b>
                     </a>
                 </li>
+
+                @Html.Partial("_loginbox")
+                @Html.Partial("_registerbox")
             }
             else
             {
@@ -64,5 +67,4 @@
 
 
 
-@Html.Partial("_loginbox")
-@Html.Partial("_registerbox")
+

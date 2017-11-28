@@ -227,18 +227,14 @@
     <Compile Include="Areas\Cpanel\Models\MENU.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\sysdiagram.cs">
+    <Compile Include="Areas\Cpanel\Models\ProMuaBan.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\Model_AdminBDS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+    <Compile Include="Areas\Cpanel\Models\Property.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\Model_AdminBDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
+    <Compile Include="Areas\Cpanel\Models\sysdiagram.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
@@ -263,6 +259,7 @@
     <Compile Include="Models\MuaBanViewModel.cs" />
     <Compile Include="Models\NewsDetailModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
+    <Compile Include="Models\NewThreadViewModel.cs" />
     <Compile Include="Models\WebConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -487,8 +484,8 @@
     <Content Include="Areas\Cpanel\Images\disable.png" />
     <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model_AdminBDS.Context.cs</LastGenOutput>
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+      <LastGenOutput>DB_BDSEntitiesAdmin.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -1908,6 +1905,13 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <EntityDeploy Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_BDSEntitiesAdmin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx.diagram">
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

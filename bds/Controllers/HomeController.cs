@@ -86,16 +86,24 @@ namespace bds.Controllers
         }
         [HttpGet]
         public ActionResult Login(int? id)
-        {
-            if(id ==0)
-            {
-                ViewBag.Error = "Đăng nhập không thành công ! Vui lòng thử lại !";
-            }
+        {            
             if(Session["username"] != null)
             {
                 return Redirect("~/home");
             }
-            return View();
+            else
+            {
+                if (id == 0)
+                {
+                    ViewBag.Error = "Đăng nhập không thành công ! Vui lòng thử lại !";
+                }
+                else if(id == 1)
+                {
+                    ViewBag.Error = "Vui lòng đăng nhập để được đăng tin !";
+                }
+
+                return View();
+            }            
         }
         [HttpPost]
         public ActionResult Login(string username, string password, bool? ckRemember)
@@ -164,7 +172,18 @@ namespace bds.Controllers
 
         public ActionResult NewThread()
         {
-            return View();
+            if(Session["username"] != null)
+            {
+                NewThreadViewModel model = new NewThreadViewModel();
+                model.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
+                model.Menu = db.MENUs.Where(q => q.IdCha == 1).ToList();
+                return View(model);
+            }
+            else
+            {
+                return Redirect("~/home/login/1");
+            }
+            
         }
         public ActionResult UserControl()
         {
@@ -207,5 +226,24 @@ namespace bds.Controllers
                 return Json("true", JsonRequestBehavior.AllowGet);
             }
         }
+
+        public JsonResult getPhuongXa(int? quanhuyenid)
+        {
+            var model = db.TINHTHANHs.Where(q => q.IDCha == quanhuyenid && q.Cap == 2).Select(x => new {
+                IDPhuongXa = x.IdTT,
+                NamePhuongXa = x.TenTT
+            });
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getDuongPho(int? phuongxaid)
+        {
+            var model = db.TINHTHANHs.Where(q => q.IDCha == phuongxaid && q.Cap == 3).Select(x => new {
+                IDDuongPho = x.IdTT,
+                NameDuongPho = x.TenTT
+            });
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
