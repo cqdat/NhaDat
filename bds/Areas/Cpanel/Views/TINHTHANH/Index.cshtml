@@ -59,11 +59,43 @@
 </div>
 
 <div class="container" style="background-color:#ffffff; padding:5px 5px">
-    <div id="nestable" class="dd">
+    <ol class="dd-list">
+        @foreach (var item in Model)
+        {
+            <li data-id="1" class="dd-item" style="background-color:#1194f6; color:white">
+                <div class="dd-handle" style="background-color:#1194f6;">Tên <span style="float:right; font-weight:bold">Hiện thị &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sửa | Xóa</span> </div>
+            </li>
+            <li data-id="@item.IdTT" class="dd-item">
+                <div class="dd-handle">
+                    @item.TenTT
+
+                <span style="float:right">
+                    @{
+                        if (item.HienThi == 1)
+                        {
+                            <img src="/Areas/Cpanel/Images/Check.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                        }
+                        else if (item.HienThi == 0)
+                        {
+                            <img src="/Areas/Cpanel/Images/disable.png" style="cursor:pointer; width:15px;" title="Ẩn">
+                        }
+                    }
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/Cpanel/TINHTHANH/Edit/@item.IdTT">Sửa</a>
+                    | <a href="/Cpanel/TINHTHANH/Delete/@item.IdTT">Xóa</a>
+                </span>
+            </div>
+            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT })
+        </li>
+
+        }
+    </ol>
+    @*<div id="nestable" class="dd">
         <ol class="dd-list">
             <li data-id="1" class="dd-item" style="background-color:#1194f6; color:white">
                 <div class="dd-handle" style="background-color:#1194f6;">Tên <span style="float:right; font-weight:bold">Hiện thị &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sửa | Xóa</span> </div>
             </li>
+
             @{int temp = 0; }
             @foreach (var q in Model)
             {
@@ -108,12 +140,10 @@
                                     </span>
                                 </div>
                             </li>
-                         }
+                                            }
                     </ol>
                 </li>
-             }
+                                            }
         </ol>
-    </div>
+    </div>*@
 </div>
-
-

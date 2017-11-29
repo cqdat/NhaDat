@@ -39,10 +39,22 @@ namespace bds.Areas.Cpanel.Controllers
         // GET: Cpanel/BDS_TinTuc/Create
         public ActionResult Create()
         {
-            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu");
+            ViewBag.MenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
             ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap");
             ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap");
             return View();
+        }
+
+        public JsonResult FillMenuL2(int idCha)
+        {
+            //var tmp = from s in db.MODELDEVICEs
+            //          where s.IDCate == idCate
+            //          select s.NameModel;
+            //var sItems = new SelectList(tmp);
+            //return Json(sItems, JsonRequestBehavior.AllowGet);
+
+            var result = new SelectList(db.MENUs.Where(m=>m.IdCha == idCha), "IdMenu", "TenMenu");
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Cpanel/BDS_TinTuc/Create

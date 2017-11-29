@@ -21,7 +21,17 @@ namespace bds.Areas.Cpanel.Controllers
             var model = db.TINHTHANHs.Where(t=>t.IDCha == 0).OrderBy(t=>t.ThuTu).ToList();
             return View(model);
         }
+        [ChildActionOnly]
+        public PartialViewResult _PartialViewChildTinhThanh(int ParentID)
+        {
 
+            var _loca = from tt in db.TINHTHANHs
+                        where tt.IDCha == ParentID
+                        select tt;
+
+            return PartialView(_loca.ToList());
+
+        }
         // GET: Cpanel/TINHTHANH/Details/5
         public ActionResult Details(int? id)
         {

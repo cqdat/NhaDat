@@ -1,0 +1,47 @@
+﻿@model IEnumerable<bds.Areas.Cpanel.Models.TINHTHANH>
+@{
+    ViewBag.Title = "ChildrenLocation";
+    Layout = null;
+}
+
+@*<ul class="drop">
+
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.Raw("<a>")
+            <span class="active">@item.TenTT</span>
+            @Html.Raw("</a>")
+            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT })
+
+        </li>
+    }
+
+</ul>*@
+<ol class="dd-list">
+    @foreach (var item in Model)
+    {
+
+        <li data-id="1" class="dd-item">
+            <div class="dd-handle">@item.TenTT 
+                <span style="float:right">
+                    @{
+                        if (item.HienThi == 1)
+                        {
+                            <img src="/Areas/Cpanel/Images/Check.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                        }
+                        else if (item.HienThi == 0)
+                        {
+                            <img src="/Areas/Cpanel/Images/disable.png" style="cursor:pointer; width:15px;" title="Ẩn">
+                        }
+                    }
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/Cpanel/TINHTHANH/Edit/@item.IdTT">Sửa</a>
+                    | <a href="/Cpanel/TINHTHANH/Delete/@item.IdTT">Xóa</a>
+                </span>
+                </div>
+            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT })
+        </li>
+
+    }
+</ol>
