@@ -101,6 +101,10 @@ namespace bds.Controllers
                 {
                     ViewBag.Error = "Vui lòng đăng nhập để được đăng tin !";
                 }
+                else
+                {
+                    ViewBag.Error = "Vui lòng đăng nhập website để tiếp tục !";
+                }
 
                 return View();
             }            
@@ -115,11 +119,13 @@ namespace bds.Controllers
             {
                 Session["username"] = model.TenTruyCap;
                 Session["uid"] = model.idTV;
+                Session["VIPMoney"] = model.VIPMoney;
                 if (ckRemember != null)
                 {
                     HttpCookie cookie = new HttpCookie("Login");
                     cookie.Values["username"] = model.TenTruyCap;
                     cookie.Values["uid"] = model.idTV.ToString();
+                    cookie.Values["VIPMoney"] = model.VIPMoney.ToString();
                     cookie.Expires = DateTime.Now.AddMonths(2);
                     Response.Cookies.Add(cookie);
                 }               
@@ -170,6 +176,7 @@ namespace bds.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult NewThread()
         {
             if(Session["username"] != null)
@@ -182,9 +189,22 @@ namespace bds.Controllers
             else
             {
                 return Redirect("~/home/login/1");
-            }
-            
+            }           
         }
+        [HttpPost]
+        public ActionResult NewThread(string tieude, string noidung, int slLoaitin, int slLoaiBDS, int slPhuongXa, int slDuongPho, string txtDiachi,
+            int slDuAn, string txtDientich, string txtGia, int slTheoGia, string txtNgang, string txtDai, int slHuong, string txtDuongRong, int slPhapLy,
+            string txtSolau, string txtPhongngu, bool? ckChinhchu, bool? ckXehoi, bool? ckSanthuong, bool? ckPhongAn, bool? ckBep, int? hinhthuc, string CaptchaInputText,
+            int? slLoaiVipNgay, int? slSongay, int? slLoaiVipThang)
+        {
+
+            if(this.IsCaptchaValid(CaptchaInputText))
+            {
+
+            }
+            return View();
+        }
+
         public ActionResult UserControl()
         {
             return View();

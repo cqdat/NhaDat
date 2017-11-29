@@ -27,11 +27,9 @@
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_MENU" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BDSModel.FK_BDS_TinTuc_THANHVIEN1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DB_BDSModel.ProMuaBan" Width="1.5" PointX="8.25" PointY="11.375" />
-        <EntityTypeShape EntityType="DB_BDSModel.Property" Width="1.5" PointX="6" PointY="15.5" />
-        <AssociationConnector Association="DB_BDSModel.FK_ProMuaBan_BDS_MuaBan" />
-        <AssociationConnector Association="DB_BDSModel.FK_ProMuaBan_Property" />
-      </Diagram>
+        <EntityTypeShape EntityType="DB_BDSModel.ThuocTinh" Width="1.5" PointX="5.25" PointY="15.5" />
+        <AssociationConnector Association="DB_BDSModel.FK_ThuocTinh_BDS_MuaBan" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

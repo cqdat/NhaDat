@@ -44,15 +44,15 @@
                     </a>
                 </li>
 
-                @Html.Partial("_loginbox")
-                @Html.Partial("_registerbox")
+
             }
             else
             {
                 <li>
-                    <a href="/home/usercontrol" class="ql">
+                    <a href="/member" class="ql">
                         <img alt="dang tin" src="~/images/quanly.png" /> <b>Quản lý</b>
                     </a>
+                    <span class="logout">(<a href="/home/logout">Thoát</a>)</span>
                 </li>
             }
 
@@ -66,5 +66,8 @@
 
 
 
-
-
+@if (Session["username"] == null)
+{
+    @Html.Partial("_loginbox")
+    @Html.Partial("_registerbox")
+}

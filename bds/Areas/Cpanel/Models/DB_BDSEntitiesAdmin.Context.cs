@@ -40,7 +40,6 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
-        public virtual DbSet<ProMuaBan> ProMuaBans { get; set; }
-        public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<ThuocTinh> ThuocTinhs { get; set; }
     }
 }

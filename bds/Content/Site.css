@@ -1632,3 +1632,57 @@ ul.dropdown {
 {
     padding:12px;
 }
+.newthreadcontent .error
+{
+    color:#ff0000;
+    font-weight:normal;
+}
+.member
+{
+    
+}
+.member .listtin
+{
+    background-color:#fff;
+}
+.member .tieude
+{
+    color:#fff;
+    font-weight:bold;
+    padding-bottom:6px;
+    padding-top:6px;
+    padding-left:24px;
+}
+span.logout a
+{
+    color:#c30;
+    text-decoration:none;
+}
+span.logout a:hover
+{
+    color:#0c6ca5;
+}
+.chudemember
+{
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 24px;
+}
+.canhanhoa ul
+{
+    padding-left:0px;
+    background-color:#fff;
+}
+.canhanhoa li
+{
+    list-style:none;
+    padding:8px 6px 8px 12px;
+    border-bottom:1px solid #ddd;
+}
+.canhanhoa li span
+{
+    font-weight:bold;
+    color:#c30;
+}

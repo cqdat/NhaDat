@@ -33,6 +33,7 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> TinhTrang { get; set; }
         public Nullable<int> VIP { get; set; }
         public Nullable<System.DateTime> LanDangNhapCuoi { get; set; }
+        public Nullable<int> VIPMoney { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }

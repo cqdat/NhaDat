@@ -67,6 +67,90 @@ $(document).ready(function () {
         return arg !== value;
     }, "Value must not equal arg.");
 
+     $("#formnewthread").validate({
+         rules: {
+             tieude: {
+                 required: true,
+                 minlength: 10,
+                 maxlength: 200
+             },
+             noidung: {
+                 required: true,
+                 minlength: 20
+             },
+             slLoaitin: {
+                 required: true,
+                 valueNotEquals: "default"
+             },
+             slLoaiBDS: {
+                 required: true,
+                 valueNotEquals: "default"
+             },
+             txtDiachi: {
+                 required: true
+             },
+             slDuongPho: {
+                 required: true,
+                 valueNotEquals: "default"
+             },
+             slDuAn: {
+                 required: true,
+                 valueNotEquals: "default"
+             },
+             txtDientich: {
+                 required: true
+             },
+             txtGia: {
+                 required: true
+             },
+             CaptchaInputText: {
+                 required: true
+             }
+         },
+         messages: {
+             tieude:
+             {
+                 required: "Nhập tiêu đề khi đăng tin",
+                 minlength: "Tiêu đề phải có ít nhất 10 ký tự",
+                 maxlength: "Tiêu đề tối đa chỉ 200 ký tự"
+             },
+             noidung: {
+                 required: "Phải có nội dung khi đăng tin",
+                 minlength: "Nội dung phải có ít nhất 20 ký tự"
+             }
+             ,
+             slLoaitin: {
+                 required: "Chọn loại tin",
+                 valueNotEquals: "Chọn loại tin"
+             },
+             slLoaiBDS: {
+                 required: "Chọn loại bất động sản",
+                 valueNotEquals: "Chọn loại bất động sản"
+             },
+             txtDiachi: {
+                 required: "Vui lòng nhập địa chỉ"
+             },
+             slDuongPho: {
+                 required: "Vui lòng chọn đường phố",
+                 valueNotEquals: "Vui lòng chọn đường phố"
+             },
+             slDuAn: {
+                 required: "Vui lòng chọn dự án",
+                 valueNotEquals: "Vui lòng chọn dự án"
+             },
+             txtDientich: {
+                 required: "Vui lòng chọn diện tích"
+             },
+             txtGia: {
+                 required: "Vui lòng nhập giá"
+             },
+             CaptchaInputText: {
+                 required: "Nhập mã bảo mật"
+             }
+             
+         }
+     });
+
 
 
     $("#formreg").validate({

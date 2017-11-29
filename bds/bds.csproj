@@ -227,16 +227,13 @@
     <Compile Include="Areas\Cpanel\Models\MENU.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\ProMuaBan.cs">
-      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Cpanel\Models\Property.cs">
-      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Cpanel\Models\sysdiagram.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\ThuocTinh.cs">
       <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs">
@@ -244,6 +241,7 @@
     </Compile>
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RaoVatController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1983,6 +1981,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\NewThread.cshtml" />
     <Content Include="Views\Home\UserControl.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
