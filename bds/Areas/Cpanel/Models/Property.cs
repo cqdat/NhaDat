@@ -12,27 +12,19 @@ namespace bds.Areas.Cpanel.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MENU
+    public partial class Property
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MENU()
+        public Property()
         {
-            this.BDS_MuaBan = new HashSet<BDS_MuaBan>();
-            this.BDS_TinTuc = new HashSet<BDS_TinTuc>();
+            this.ProMuaBans = new HashSet<ProMuaBan>();
         }
     
-        public int IdMenu { get; set; }
-        public string TenMenu { get; set; }
-        public Nullable<int> IdCha { get; set; }
-        public Nullable<int> ThuTu { get; set; }
-        public Nullable<int> HienThi { get; set; }
-        public Nullable<bool> IsMenu { get; set; }
-        public string url { get; set; }
-        public Nullable<int> Cap { get; set; }
+        public int PropertyID { get; set; }
+        public string PropertyName { get; set; }
+        public string NameURL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_TinTuc> BDS_TinTuc { get; set; }
+        public virtual ICollection<ProMuaBan> ProMuaBans { get; set; }
     }
 }

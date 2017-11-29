@@ -1,85 +1,97 @@
-﻿<div class="boxregister box-shadow">
-    <span class="close">
-        <i class="glyphicon glyphicon-remove-circle"></i>
-    </span>
-    <div class="register main-title">
-        <img alt="login" src="~/images/luser.png" /> Đăng ký thành viên
-    </div>
+﻿@using bds.Models
+@using CaptchaMvc.HtmlHelpers
+@{Helper h = new Helper();}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<form method="post" action="~/Home/Register" name="formreg" id="formreg">
+    <div class="boxregister box-shadow">
+        <span class="close">
+            <i class="glyphicon glyphicon-remove-circle"></i>
+        </span>
+        <div class="register main-title">
+            <img alt="login" src="~/images/luser.png" /> Đăng ký thành viên
+        </div>
 
-    <div class="formreg">
-        <div class="row">
-            <div class="col-md-4">
-                Tên truy cập<span>*</span>
+        <div class="formreg">
+            <div class="row">
+                <div class="col-md-4">
+                    Tên truy cập<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtUserName" name="txtUserName" class="form-control" />
+                </div>
             </div>
-            <div class="col-md-8">
-                <input type="text" id="txtUserName" name="txtUserName" class="form-control" />
+            <div class="row">
+                <div class="col-md-4">
+                    Mật khẩu<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="password" id="txtPassword" name="txtPassword" class="form-control" />
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Mật khẩu<span>*</span>
+            <div class="row">
+                <div class="col-md-4">
+                    Nhập lại mật khẩu<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="password" id="txtConfirm" name="txtConfirm" class="form-control" />
+                </div>
             </div>
-            <div class="col-md-8">
-                <input type="password" id="txtPassword" name="txtPassword" class="form-control" />
+            <div class="row">
+                <div class="col-md-4">
+                    Họ tên<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtFullName" name="txtFullName" class="form-control" />
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Nhập lại mật khẩu<span>*</span>
+            <div class="row">
+                <div class="col-md-4">
+                    Di động<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtMobile" name="txtMobile" class="form-control" />
+                </div>
             </div>
-            <div class="col-md-8">
-                <input type="password" id="txtConfirm" name="txtConfirm" class="form-control" />
+            <div class="row">
+                <div class="col-md-4">
+                    Thư điện tử<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtEmail" name="txtEmail" class="form-control" />
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Họ tên<span>*</span>
+            <div class="row">
+                <div class="col-md-4">
+                    Quận Huyện<span>*</span>
+                </div>
+                <div class="col-md-8">
+                    <select id="slDistrict" name="slDistrict" class="form-control">
+                        <option value="">-- Chọn Quận Huyện --</option>
+                        @foreach (var q in h.getTinhThanh())
+                        {
+                            <option value="@q.IdTT">@q.TenTT</option>
+                        }
+                    </select>
+                </div>
             </div>
-            <div class="col-md-8">
-                <input type="text" id="txtFullName" name="txtFullName" class="form-control" />
+            <div class="row">
+                <div class="col-md-4">
+                    Mã an toàn
+                </div>
+                <div class="col-md-8 captcha">
+                    @Html.Captcha("Làm mới","",5,null)
+                    @ViewBag.ErrorMessage
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Di động<span>*</span>
-            </div>
-            <div class="col-md-8">
-                <input type="text" id="txtMobile" name="txtMobile" class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Thư điện tử<span>*</span>
-            </div>
-            <div class="col-md-8">
-                <input type="text" id="txtEmail" name="txtEmail" class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Quận Huyện<span>*</span>
-            </div>
-            <div class="col-md-8">
-                <input type="text" id="txtDistrict" name="txtDistrict" class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                Mã an toàn
-            </div>
-            <div class="col-md-8">
-                @*<input type="text" id="txtDistrict" name="txtDistrict" class="form-control" />*@
-                &nbsp;
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                &nbsp;
-            </div>
-            <div class="col-md-8">
-                <input type="submit" class="btn btn-sm btn-primary" value="Đăng Ký" />
-                <input type="reset" class="btn btn-sm btn-danger" value="Làm Lại" />
+            <div class="row">
+                <div class="col-md-4">
+                    &nbsp;
+                </div>
+                <div class="col-md-8">
+                    <input type="submit" class="btn btn-sm btn-primary" value="Đăng Ký" />
+                    <input type="reset" class="btn btn-sm btn-danger" value="Làm Lại" />
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>

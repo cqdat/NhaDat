@@ -45,7 +45,12 @@
     }
 }
 
-body {
+.wrapper 
+{
+    position:relative;
+}
+body
+{
     padding-top: 39px;
     /*padding-bottom: 20px;*/
     background-color: #ededed;
@@ -743,7 +748,7 @@ ul.dropdown {
     height: 350px;
     position: absolute;
     top: 80px;
-    left: 36%;
+    left: 30%;
     z-index: 9999 !important;
     display: none;
 }
@@ -1330,8 +1335,8 @@ ul.dropdown {
     width: 666px;
     min-height: 350px;
     position: absolute;
-    top: 80px;
-    left: 32%;
+    top: 39px;
+    left: 20%;
     z-index: 9999 !important;
     padding-bottom: 22px;
     display: none;
@@ -1410,4 +1415,220 @@ ul.dropdown {
     font-weight:bold;
     background-color:#fff;
     padding:12px 12px 12px 8px;
+}
+
+.formreg .error
+{
+    color:#ff0000 !important;
+    font-weight:normal !important;
+    font-style:italic !important;
+}
+.captcha a
+{
+    display:table-cell !important;
+}
+.captcha a:hover
+{
+    color:#ff6a00;
+    text-decoration:none;
+}
+.captcha a:active
+{
+    text-decoration:none;
+}
+.captcha a:visited
+{
+    text-decoration:none;
+}
+.captcha a:active
+{
+    text-decoration:none;
+}
+.captcha a:focus
+{
+    text-decoration:none;
+}
+
+.newthreadcontent
+{
+    background-color:#fff;
+    border:2px solid #ddd;
+}
+.newthreadcontent .warning
+{
+    padding:8px 18px;
+    text-align:justify;
+    background-color:#efefef;
+    line-height:22px;
+    border:1px solid #ccc;
+    font-size:13px;
+}
+.newthreadcontent .khauhieu
+{
+    text-transform:uppercase;
+    color:#f60;
+    font-size:15px;
+    padding:8px;
+    text-align:center;
+    font-weight:bold;
+    border-bottom:1px dashed #ff6a00;
+    margin-bottom:4px;
+}
+.newthreadcontent .khauhieu1
+{
+    text-align:center;
+    color:#1D81BD;
+    line-height:24px;
+}
+.newthreadcontent .khauhieu2
+{
+    text-align:center;
+    color:#f00;
+    line-height:24px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+.newthreadcontent .ttbatbuoc
+{
+    color:#fff;
+    padding:6px 0px 6px 18px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+.boxinput
+{
+    padding-bottom:12px;
+}
+.boxinput .col-sm-2
+{
+    padding-top:6px;
+    padding-left:25px;
+    margin-bottom:12px;
+}
+.boxinput .col-sm-2 span
+{
+    color:#f00;
+}
+.boxinput .col-sm-9 input
+{
+    max-width:100%;
+}
+.boxinput .col-sm-9 textarea{
+    max-width: 100%;
+    min-height:239px;
+}
+.property .cochu
+{
+    padding-top: 7px;
+    padding-left: 25px;
+    margin-bottom: 12px;
+}
+.property .cochu span
+{
+    color: #f00;
+}
+.newthreadcontent .ttkhac
+{
+    color: #fff;
+    padding: 6px 0px 6px 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.listttkhac
+{
+
+}
+.listttkhac td
+{
+    padding:5px;
+    min-width:80px;
+}
+.listttkhac td input
+{
+    min-width:160px;
+    padding:2px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+.listttkhac td select
+{
+    min-width:164px;
+    padding:2px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+.listttkhac td span
+{
+    color:#c30;
+    font-weight:bold;
+    padding-left:2px;
+}
+.newthreadcontent .hinhanh
+{
+    color: #fff;
+    padding: 6px 0px 6px 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.newthreadcontent .hinhthucdangtin
+{
+    background-color:#D14141;
+    color:#fff;
+    font-weight:bold;
+    padding:6px 0px 6px 18px;
+}
+.ctnhinhthuc .tinthuong
+{
+    padding:6px 24px;
+    border-bottom:1px dashed #0c6ca5;
+    background-color:#efefef;
+}
+
+.ctnhinhthuc .tinthuong li
+{
+    padding:2px;
+    font-size:13px;
+}
+.ctnhinhthuc .tinvip
+{
+    padding: 6px 24px;
+    border-bottom: 1px dashed #c30;
+    border-right:1px dashed #c30;
+}
+.ctnhinhthuc .tinvip:last-child
+{
+    border-bottom:unset;
+}
+.ctnhinhthuc .col-md-5 h5
+{
+    color:#f00;
+    font-weight:bold;
+}
+.ctnhinhthuc .col-md-5 li
+{
+    font-size:13px;
+    padding:2px;
+}
+.tinvip select:first-child
+{
+    color:#f00;
+}
+.ctnhinhthuc .tinvip div
+{
+    padding:10px 0px;
+}
+.sodu
+{
+    border:1px solid #ddd;
+    padding:7px 24px;
+    font-weight:bold;
+}
+.sodu span
+{
+    color:#c30;
+    font-size:15px;
+}
+.maantoan
+{
+    padding:12px;
 }
