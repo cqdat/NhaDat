@@ -22,6 +22,7 @@ namespace bds.Models
         {
             return db.TINHTHANHs.Where(q => q.IDCha == idTT).OrderBy(q => q.ThuTu).ToList();
         }
+        
 
         // chuyển chữ có dấu thành không dấu, chữ hoa thành chữ thường
         private static string[] VietNamChar = new string[]

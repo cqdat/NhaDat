@@ -24,6 +24,54 @@
 
 
     });
+
+
+    $(document).ready(function () {
+        $("#MenuL2").prop("disabled", true);
+        $(function () {
+            $('#MenuCha').change(function () {
+                $("#IDMenu").prop("disabled", false);
+                var idCha = $('#MenuCha').val();
+                //var selectedBrand = $('#IDBrand').val(); IDMenu
+                var clearmoldid = $("#IDMenu");
+                clearmoldid.empty();
+                if (idCha == null || idCha == "") {
+                    $('#IDMenu').prop('disabled', true);
+                }
+                else {
+                    $.ajax(
+                        {
+                            url: "/BDS_TinTuc/FillMenuL2",
+                            type: 'GET',
+                            cache: false,
+                            data: { idCha: idCha },
+                            //success: function (result) {
+                            //    var items = "<option>Select Model</option>";
+                            //    $.each(result, function (i, state) {
+                            //        items += "<option value='" + state.Text + "'>" + state.Text + "</option>";
+                            //    });
+                            //    $('#idModelCate').html(items);
+
+                            //}
+
+                            success: function (data) {
+                                var optionhtml1 = '<option value="' +
+                                    0 + '">' + "--Chọn Menu Cấp con--" + '</option>';
+                                $('#IDMenu').append(optionhtml1);
+
+                                $.each(data, function (i) {
+
+                                    var optionhtml = '<option value="' +
+                                        data[i].Value + '">' + data[i].Text + '</option>';
+                                    $('#IDMenu').append(optionhtml);
+                                });
+                            }
+                        });
+                }
+
+            });
+        });
+    });
 </script>
 @using (Html.BeginForm())
 {
@@ -70,17 +118,22 @@
 
                                 </div>
                                 <div class="col-sm-5">
-
-                                    <img src="http://nhadatdongnai247.com.vn/media/upload/images/article/thumbnails/images1965244_ph_i_c_nh_nh__ga_s_n_bay_long_th_nh_c_ch__i_u_h_nh_hoa_sen___k_gi_i100x100.jpg" />
+                                    <input class="form-control text-box single-line" readonly id="TintucName" name="TintucName" type="text" value="">
+                                    @*<img src="http://nhadatdongnai247.com.vn/media/upload/images/article/thumbnails/images1965244_ph_i_c_nh_nh__ga_s_n_bay_long_th_nh_c_ch__i_u_h_nh_hoa_sen___k_gi_i100x100.jpg" />*@
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Menu</label>
                                 <div class="col-sm-10">
-
-                                    @Html.DropDownList("IDMenu", null, htmlAttributes: new { @class = "form-control" })
-
+                                    @Html.DropDownList("MenuCha", null, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Menu Con</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control col-md-2" data-val="true" id="IDMenu" name="IDMenu"></select>
                                 </div>
                                 
                             </div>
@@ -201,7 +254,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.IDMenu, "IDMenu", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("IDMenu", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("MenuCha", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IDMenu, "", new { @class = "text-danger" })
                 </div>
             </div>

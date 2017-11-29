@@ -1925,6 +1925,7 @@
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Details.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\TINHTHANH\_PartialViewChildTinhThanh.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
