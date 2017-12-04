@@ -200,7 +200,7 @@ namespace bds.Controllers
 
             if(this.IsCaptchaValid(CaptchaInputText))
             {
-
+                BDS_MuaBan bds = new BDS_MuaBan();
             }
             return View();
         }
