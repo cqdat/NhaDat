@@ -1,0 +1,85 @@
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<BDS_MuaBan>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="member">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="listtin">
+                <div class="tieude main-bg-button1">
+                    <div class="row">
+                        <div class="col-md-1">
+                            STT
+                        </div>
+                        <div class="col-md-3">
+                            Mã tin
+                        </div>
+                        <div class="col-md-3">
+                            Loại tin
+                        </div>
+                        <div class="col-md-5">
+                            Tiêu đề
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+        <div class="col-md-3 canhanhoa">
+            <div class="main-bg-button1 chudemember">
+                Quản lý đăng tin
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        Tin đã duyệt (<span>0</span>)
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Tin chờ duyệt (<span>0</span>)
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Tin không được duyệt (<span>0</span>)
+                    </a>
+                </li>
+            </ul>
+            <div class="main-bg-button1 chudemember">
+                Tiện ích
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        Số dư/Lịch sử giao dịch
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Nạp tiền vào tài khoản
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Mua lượt <span>UP</span> tin <img alt="up" src="http://nhadatdongnai247.com.vn/publish/img/buyup.gif" />
+                    </a>
+                </li>
+            </ul>
+            <div class="main-bg-button1 chudemember">
+                Tài khoản cá nhân
+            </div>
+            <ul>
+                <li>
+                    <a href="#">Thông tin cá nhân</a>
+                </li>
+                <li>
+                    <a href="#">Thay đổi mật khẩu</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

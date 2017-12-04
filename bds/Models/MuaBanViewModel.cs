@@ -8,7 +8,7 @@ namespace bds.Models
 {
     public class MuaBanViewModel
     {
-        public List<BDS_MuaBan> ListMuaBan;
+        public List<BDS_MUABAN> ListMuaBan;
         public List<TINHTHANH> TinhThanh;
     }
 }

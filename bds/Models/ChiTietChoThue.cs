@@ -9,7 +9,7 @@ namespace bds.Models
     public class ChiTietChoThue
     {
         public List<TINHTHANH> TinhThanh;
-        public BDS_MuaBan ChiTiet;
-        public List<BDS_MuaBan> TinKhac;
+        public BDS_MUABAN ChiTiet;
+        public List<BDS_MUABAN> TinKhac;
     }
 }

@@ -1,4 +1,4 @@
-﻿@model bds.Areas.Cpanel.Models.BDS_TinTuc
+﻿@model bds.Areas.Cpanel.Models.BDS_TINTUC
 
 @{
     ViewBag.Title = "Create";
@@ -41,7 +41,7 @@
                 else {
                     $.ajax(
                         {
-                            url: "/BDS_TinTuc/FillMenuL2",
+                            url: "/BDS_TINTUC/FillMenuL2",
                             type: 'GET',
                             cache: false,
                             data: { idCha: idCha },
@@ -84,7 +84,7 @@
                 <div class="btn-toolbar">
 
                     <input type="submit" value="Lưu" class="btn btn-green" />
-                    <a class="btn btn-success" href="/Cpanel/BDS_TinTuc/">Quay lại Trang chủ</a>
+                    <a class="btn btn-success" href="/Cpanel/BDS_TINTUC/">Quay lại Trang chủ</a>
                 </div>
             </div>
         </div>

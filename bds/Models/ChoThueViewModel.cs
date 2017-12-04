@@ -8,7 +8,7 @@ namespace bds.Models
 {
     public class ChoThueViewModel
     {
-        public List<BDS_MuaBan> ListChoThue;
+        public List<BDS_MUABAN> ListChoThue;
         public List<TINHTHANH> TinhThanh;
     }
 }

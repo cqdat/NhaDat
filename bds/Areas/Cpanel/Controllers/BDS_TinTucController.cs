@@ -10,33 +10,33 @@ using bds.Areas.Cpanel.Models;
 
 namespace bds.Areas.Cpanel.Controllers
 {
-    public class BDS_TinTucController : Controller
+    public class BDS_TINTUCController : Controller
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
-        // GET: Cpanel/BDS_TinTuc
+        // GET: Cpanel/BDS_TINTUC
         public ActionResult Index()
         {
-            var bDS_TinTuc = db.BDS_TinTuc.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1);
-            return View(bDS_TinTuc.ToList());
+            var BDS_TINTUC = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1);
+            return View(BDS_TINTUC.ToList());
         }
 
-        // GET: Cpanel/BDS_TinTuc/Details/5
+        // GET: Cpanel/BDS_TINTUC/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BDS_TinTuc bDS_TinTuc = db.BDS_TinTuc.Find(id);
-            if (bDS_TinTuc == null)
+            BDS_TINTUC BDS_TINTUC = db.BDS_TINTUC.Find(id);
+            if (BDS_TINTUC == null)
             {
                 return HttpNotFound();
             }
-            return View(bDS_TinTuc);
+            return View(BDS_TINTUC);
         }
 
-        // GET: Cpanel/BDS_TinTuc/Create
+        // GET: Cpanel/BDS_TINTUC/Create
         public ActionResult Create()
         {
             ViewBag.MenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
@@ -57,85 +57,85 @@ namespace bds.Areas.Cpanel.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Cpanel/BDS_TinTuc/Create
+        // POST: Cpanel/BDS_TINTUC/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TinTuc bDS_TinTuc)
+        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TINTUC BDS_TINTUC)
         {
             if (ModelState.IsValid)
             {
-                db.BDS_TinTuc.Add(bDS_TinTuc);
+                db.BDS_TINTUC.Add(BDS_TINTUC);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", bDS_TinTuc.IDMenu);
-            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.CreateBy);
-            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.UpdateBy);
-            return View(bDS_TinTuc);
+            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
+            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
+            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.UpdateBy);
+            return View(BDS_TINTUC);
         }
 
-        // GET: Cpanel/BDS_TinTuc/Edit/5
+        // GET: Cpanel/BDS_TINTUC/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BDS_TinTuc bDS_TinTuc = db.BDS_TinTuc.Find(id);
-            if (bDS_TinTuc == null)
+            BDS_TINTUC BDS_TINTUC = db.BDS_TINTUC.Find(id);
+            if (BDS_TINTUC == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", bDS_TinTuc.IDMenu);
-            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.CreateBy);
-            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.UpdateBy);
-            return View(bDS_TinTuc);
+            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
+            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
+            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.UpdateBy);
+            return View(BDS_TINTUC);
         }
 
-        // POST: Cpanel/BDS_TinTuc/Edit/5
+        // POST: Cpanel/BDS_TINTUC/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TinTuc bDS_TinTuc)
+        public ActionResult Edit([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TINTUC BDS_TINTUC)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bDS_TinTuc).State = EntityState.Modified;
+                db.Entry(BDS_TINTUC).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", bDS_TinTuc.IDMenu);
-            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.CreateBy);
-            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", bDS_TinTuc.UpdateBy);
-            return View(bDS_TinTuc);
+            ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
+            ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
+            ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.UpdateBy);
+            return View(BDS_TINTUC);
         }
 
-        // GET: Cpanel/BDS_TinTuc/Delete/5
+        // GET: Cpanel/BDS_TINTUC/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BDS_TinTuc bDS_TinTuc = db.BDS_TinTuc.Find(id);
-            if (bDS_TinTuc == null)
+            BDS_TINTUC BDS_TINTUC = db.BDS_TINTUC.Find(id);
+            if (BDS_TINTUC == null)
             {
                 return HttpNotFound();
             }
-            return View(bDS_TinTuc);
+            return View(BDS_TINTUC);
         }
 
-        // POST: Cpanel/BDS_TinTuc/Delete/5
+        // POST: Cpanel/BDS_TINTUC/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BDS_TinTuc bDS_TinTuc = db.BDS_TinTuc.Find(id);
-            db.BDS_TinTuc.Remove(bDS_TinTuc);
+            BDS_TINTUC BDS_TINTUC = db.BDS_TINTUC.Find(id);
+            db.BDS_TINTUC.Remove(BDS_TINTUC);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

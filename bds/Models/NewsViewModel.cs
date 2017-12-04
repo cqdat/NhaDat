@@ -8,8 +8,8 @@ namespace bds.Models
 {
     public class NewsViewModel
     {
-        public List<BDS_TinTuc> TinTuc;
-        public List<BDS_TinTuc> TinNoiBat;
-        public List<BDS_TinTuc> NhieuNguoiDoc;
+        public List<BDS_TINTUC> TinTuc;
+        public List<BDS_TINTUC> TinNoiBat;
+        public List<BDS_TINTUC> NhieuNguoiDoc;
     }
 }
