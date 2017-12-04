@@ -49,6 +49,9 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -174,61 +177,70 @@
     <Compile Include="Areas\Cpanel\Controllers\UtilitiesController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_DM_GIAODICH.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_GIA.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_HUONGNHA.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_LOAIBDS.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_MuaBan.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\BDS_TinTuc.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\DUAN.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\DUAN_HINH.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\DUAN_LOAI.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\MENU.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\Model_AdminBDS.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_AdminBDS.Context.tt</DependentUpon>
+    <Compile Include="Areas\Cpanel\Models\ProMuaBan.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\Model_AdminBDS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+    <Compile Include="Areas\Cpanel\Models\Property.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Cpanel\Models\Model_AdminBDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
+    <Compile Include="Areas\Cpanel\Models\sysdiagram.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs">
-      <DependentUpon>Model_AdminBDS.tt</DependentUpon>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -247,6 +259,7 @@
     <Compile Include="Models\MuaBanViewModel.cs" />
     <Compile Include="Models\NewsDetailModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
+    <Compile Include="Models\NewThreadViewModel.cs" />
     <Compile Include="Models\WebConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -469,15 +482,15 @@
     <Content Include="Areas\Cpanel\assets\plugins\sparklines\jquery.sparklines.min.js" />
     <Content Include="Areas\Cpanel\Images\Check.png" />
     <Content Include="Areas\Cpanel\Images\disable.png" />
-    <Content Include="Areas\Cpanel\Models\Model_AdminBDS.Context.tt">
+    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
-      <LastGenOutput>Model_AdminBDS.Context.cs</LastGenOutput>
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+      <LastGenOutput>DB_BDSEntitiesAdmin.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\Cpanel\Models\Model_AdminBDS.tt">
+    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
-      <LastGenOutput>Model_AdminBDS.cs</LastGenOutput>
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+      <LastGenOutput>DB_BDSEntitiesAdmin.cs</LastGenOutput>
     </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
@@ -1892,12 +1905,12 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <EntityDeploy Include="Areas\Cpanel\Models\Model_AdminBDS.edmx">
+    <EntityDeploy Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model_AdminBDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_BDSEntitiesAdmin.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Areas\Cpanel\Models\Model_AdminBDS.edmx.diagram">
-      <DependentUpon>Model_AdminBDS.edmx</DependentUpon>
+    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx.diagram">
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Cpanel\Views\TINHTHANH\Create.cshtml" />
     <Content Include="Areas\Cpanel\Views\TINHTHANH\Delete.cshtml" />
@@ -1925,7 +1938,6 @@
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Details.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Index.cshtml" />
-    <Content Include="Areas\Cpanel\Views\TINHTHANH\_PartialViewChildTinhThanh.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -1995,6 +2007,8 @@
     <Content Include="Views\Shared\_registerbox.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\NewThread.cshtml" />
+    <Content Include="Views\Home\UserControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
