@@ -28,7 +28,6 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> HienThi { get; set; }
         public Nullable<bool> IsMenu { get; set; }
         public string url { get; set; }
-        public Nullable<int> Cap { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }
