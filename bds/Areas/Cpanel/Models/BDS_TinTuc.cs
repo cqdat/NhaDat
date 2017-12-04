@@ -6,7 +6,7 @@ namespace bds.Areas.Cpanel.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class BDS_TinTuc
+    public partial class BDS_TINTUC
     {
         [Key]
         public int TinTucID { get; set; }

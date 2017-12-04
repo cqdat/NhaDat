@@ -20,7 +20,7 @@ namespace bds.Controllers
         public ActionResult ChoThue(int? id)
         {
             ChoThueViewModel model = new ChoThueViewModel();
-            model.ListChoThue = db.BDS_MuaBan.Where(q => q.IDMenu == id && q.Visible == true).ToList();
+            model.ListChoThue = db.BDS_MUABAN.Where(q => q.IDMenu == id && q.Visible == true).ToList();
             model.TinhThanh = db.TINHTHANHs.ToList();
             return View(model);
         }
@@ -29,8 +29,8 @@ namespace bds.Controllers
         {
             ChiTietChoThue model = new ChiTietChoThue();
             model.TinhThanh = db.TINHTHANHs.ToList();
-            model.ChiTiet = db.BDS_MuaBan.Find(id);
-            model.TinKhac = db.BDS_MuaBan.Where(q => q.Visible == true).ToList();
+            model.ChiTiet = db.BDS_MUABAN.Find(id);
+            model.TinKhac = db.BDS_MUABAN.Where(q => q.Visible == true).ToList();
             return View(model);
         }
 
@@ -38,7 +38,7 @@ namespace bds.Controllers
         {
             MuaBanViewModel model = new MuaBanViewModel();
             model.TinhThanh = db.TINHTHANHs.ToList();
-            model.ListMuaBan = db.BDS_MuaBan.Where(q => q.IDMenu == id && q.Visible == true).ToList();
+            model.ListMuaBan = db.BDS_MUABAN.Where(q => q.IDMenu == id && q.Visible == true).ToList();
             return View(model);
         }
 
@@ -46,8 +46,8 @@ namespace bds.Controllers
         {
             ChiTietMuaBan model = new ChiTietMuaBan();
             model.TinhThanh = db.TINHTHANHs.ToList();
-            model.ChiTiet = db.BDS_MuaBan.Find(id);
-            model.TinKhac = db.BDS_MuaBan.Where(q => q.Visible == true).ToList();
+            model.ChiTiet = db.BDS_MUABAN.Find(id);
+            model.TinKhac = db.BDS_MUABAN.Where(q => q.Visible == true).ToList();
             return View(model);
         }
     }

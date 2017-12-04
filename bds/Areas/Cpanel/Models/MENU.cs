@@ -12,8 +12,8 @@ namespace bds.Areas.Cpanel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MENU()
         {
-            BDS_MuaBan = new HashSet<BDS_MuaBan>();
-            BDS_TinTuc = new HashSet<BDS_TinTuc>();
+            BDS_MUABAN = new HashSet<BDS_MUABAN>();
+            BDS_TINTUC = new HashSet<BDS_TINTUC>();
         }
 
         [Key]
@@ -37,9 +37,9 @@ namespace bds.Areas.Cpanel.Models
         public int? Cap { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }
+        public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_TinTuc> BDS_TinTuc { get; set; }
+        public virtual ICollection<BDS_TINTUC> BDS_TINTUC { get; set; }
     }
 }

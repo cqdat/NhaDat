@@ -6,12 +6,12 @@ namespace bds.Areas.Cpanel.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class BDS_MuaBan
+    public partial class BDS_MUABAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BDS_MuaBan()
+        public BDS_MUABAN()
         {
-            ThuocTinhs = new HashSet<ThuocTinh>();
+            CHITIET_TT = new HashSet<CHITIET_TT>();
         }
 
         [Key]
@@ -86,6 +86,6 @@ namespace bds.Areas.Cpanel.Models
         public virtual TINHTHANH TINHTHANH { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuocTinh> ThuocTinhs { get; set; }
+        public virtual ICollection<CHITIET_TT> CHITIET_TT { get; set; }
     }
 }

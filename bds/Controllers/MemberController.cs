@@ -16,7 +16,7 @@ namespace bds.Controllers
             if(Session["username"] != null)
             {
                 int uid = Convert.ToInt32(Session["uid"]);
-                var model = db.BDS_MuaBan.Where(q => q.Visible == true && q.CreateBy == uid).OrderBy(o => o.Created);
+                var model = db.BDS_MUABAN.Where(q => q.Visible == true && q.CreateBy == uid).OrderBy(o => o.Created);
 
                 return View(model);
             }

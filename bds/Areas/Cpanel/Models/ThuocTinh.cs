@@ -6,17 +6,23 @@ namespace bds.Areas.Cpanel.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ThuocTinh")]
-    public partial class ThuocTinh
+    [Table("THUOCTINH")]
+    public partial class THUOCTINH
     {
-        [Key]
-        public int IDThuocTinh { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public THUOCTINH()
+        {
+            CHITIET_TT = new HashSet<CHITIET_TT>();
+        }
+
+        public int ThuocTinhID { get; set; }
 
         [StringLength(150)]
         public string ThuocTinhName { get; set; }
 
-        public int? IDMuaBan { get; set; }
+        public int? Type { get; set; }
 
-        public virtual BDS_MuaBan BDS_MuaBan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIET_TT> CHITIET_TT { get; set; }
     }
 }

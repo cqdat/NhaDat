@@ -12,15 +12,16 @@ namespace bds.Controllers
     public class HomeController : Controller
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
+        Helper h = new Helper();
         public ActionResult Index()
         {
             /// type == true => mua bán, type=false ==> cho thue
             IndexModel index = new IndexModel();
             index.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
-            index.BDSNoiBat = db.BDS_MuaBan.Where(q => q.NoiBat == true && q.Visible == true && q.Type == true).Take(15).ToList();
-            index.BDSMoi = db.BDS_MuaBan.Where(q => q.Visible == true && q.Type == true).OrderBy(o => o.Created).Take(15).ToList();
-            index.TinTucNoiBat = db.BDS_TinTuc.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
-            index.FirstNEWS = db.BDS_TinTuc.FirstOrDefault(q => q.NoiBat == true && q.Visible == true);
+            index.BDSNoiBat = db.BDS_MUABAN.Where(q => q.NoiBat == true && q.Visible == true && q.Type == true).Take(15).ToList();
+            index.BDSMoi = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == true).OrderBy(o => o.Created).Take(15).ToList();
+            index.TinTucNoiBat = db.BDS_TINTUC.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
+            index.FirstNEWS = db.BDS_TINTUC.FirstOrDefault(q => q.NoiBat == true && q.Visible == true);
             return View(index);
         }
 
@@ -200,7 +201,45 @@ namespace bds.Controllers
 
             if(this.IsCaptchaValid(CaptchaInputText))
             {
-                BDS_MuaBan bds = new BDS_MuaBan();
+                BDS_MUABAN bds = new BDS_MUABAN();
+                bds.Name = tieude;
+                bds.HinhAnh = "";
+                bds.MoTa = "";
+                bds.NoiDung = noidung;
+                bds.IDMenu = slLoaiBDS;
+                bds.NoiBat = false;
+                bds.CountView = 1;
+                bds.HotIcon = false;
+                
+                if(slTheoGia == 1)
+                {
+                    bds.Gia = txtGia + "";
+                }
+                else
+                {
+                    bds.Gia = txtGia + "triệu/m2";
+                }
+                bds.DienTich = txtDientich;
+                bds.DiaChi = txtDiachi;
+                bds.MapPoint = "";
+                bds.Type = false;
+                bds.Created = DateTime.Now;
+                bds.Updated = DateTime.Now;
+                bds.CreateBy = Convert.ToInt32(Session["uid"]);
+                bds.IsVip = false;
+                bds.Visible = false;
+                bds.Rating = 5;
+                bds.URL = Helper.ConvertToUpperLower(tieude);
+                bds.IDTinhThanh = slPhuongXa;
+                bds.LoaiTin = slLoaitin;
+                bds.IDDuongPho = 1;
+                bds.Duyet = false;
+
+                db.BDS_MUABAN.Add(bds);
+                db.SaveChanges();
+
+                THUOCTINH t = new THUOCTINH();
+
             }
             return View();
         }

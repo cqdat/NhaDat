@@ -8,9 +8,9 @@ namespace bds.Models
 {
     public class NewsDetailModel
     {
-        public BDS_TinTuc ChiTiet;
-        public List<BDS_TinTuc> TinKhac;
-        public List<BDS_TinTuc> TinNoiBat;
-        public List<BDS_TinTuc> NhieuNguoiDoc;
+        public BDS_TINTUC ChiTiet;
+        public List<BDS_TINTUC> TinKhac;
+        public List<BDS_TINTUC> TinNoiBat;
+        public List<BDS_TINTUC> NhieuNguoiDoc;
     }
 }
