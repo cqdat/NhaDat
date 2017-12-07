@@ -45,7 +45,7 @@ namespace bds.Areas.Cpanel.Models
 
         [StringLength(200)]
         public string URL { get; set; }
-
+    
         public virtual MENU MENU { get; set; }
 
         public virtual THANHVIEN THANHVIEN { get; set; }
