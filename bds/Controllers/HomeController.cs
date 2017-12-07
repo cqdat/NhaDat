@@ -18,8 +18,8 @@ namespace bds.Controllers
             /// type == true => mua bán, type=false ==> cho thue
             IndexModel index = new IndexModel();
             index.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
-            index.BDSNoiBat = db.BDS_MUABAN.Where(q => q.NoiBat == true && q.Visible == true && q.Type == true).Take(15).ToList();
-            index.BDSMoi = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == true).OrderBy(o => o.Created).Take(15).ToList();
+            index.BDSNoiBat = db.BDS_MUABAN.Where(q => q.NoiBat == true && q.Visible == true && q.Type == false).Take(15).ToList();
+            index.BDSMoi = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == false).OrderBy(o => o.Created).Take(15).ToList();
             index.TinTucNoiBat = db.BDS_TINTUC.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
             index.FirstNEWS = db.BDS_TINTUC.FirstOrDefault(q => q.NoiBat == true && q.Visible == true);
             return View(index);
@@ -56,8 +56,25 @@ namespace bds.Controllers
 
         public PartialViewResult getMenu()
         {
-            var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
+            //var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
+
+            MenuViewModel model = new MenuViewModel();
+            model.MuaBan = db.MENUs.Find(1);
+            model.CHoThue = db.MENUs.Find(2);
+            model.DuAn = db.MENUs.Find(3);
+            model.TinTuc = db.MENUs.Where(q => q.IdCha == 0 && q.HienThi == 1 && q.IdMenu != 1 && q.IdMenu != 2 && q.IdMenu != 3).OrderBy(o => o.ThuTu).ToList();
+
             return PartialView("_menubar", model);
+        }
+
+        public PartialViewResult getHeader()
+        {
+            return PartialView("_header");
+        }
+
+        public PartialViewResult getFooter()
+        {
+            return PartialView("_footer");
         }
 
         private static string GetSHA512(string text)
@@ -195,8 +212,8 @@ namespace bds.Controllers
         [HttpPost]
         public ActionResult NewThread(string tieude, string noidung, int slLoaitin, int slLoaiBDS, int slPhuongXa, int slDuongPho, string txtDiachi,
             int slDuAn, string txtDientich, string txtGia, int slTheoGia, string txtNgang, string txtDai, int slHuong, string txtDuongRong, int slPhapLy,
-            string txtSolau, string txtPhongngu, bool? ckChinhchu, bool? ckXehoi, bool? ckSanthuong, bool? ckPhongAn, bool? ckBep, int? hinhthuc, string CaptchaInputText,
-            int? slLoaiVipNgay, int? slSongay, int? slLoaiVipThang)
+            string txtSolau, string txtPhongngu, bool? ckChinhchu, bool? ckXehoi, bool? ckSanthuong, bool? ckPhongAn, bool? ckBep, /*int? hinhthuc,*/ string CaptchaInputText
+            /*int? slLoaiVipNgay, int? slSongay, int? slLoaiVipThang*/)
         {
 
             if(this.IsCaptchaValid(CaptchaInputText))

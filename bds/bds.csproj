@@ -190,6 +190,7 @@
     <Compile Include="Areas\Cpanel\Models\DUAN_LOAI.cs" />
     <Compile Include="Areas\Cpanel\Models\DUONGPHO.cs" />
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
+    <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
     <Compile Include="Areas\Cpanel\Models\MENU.cs" />
     <Compile Include="Areas\Cpanel\Models\sysdiagram.cs" />
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
@@ -205,11 +206,14 @@
     </Compile>
     <Compile Include="Models\ChiTietChoThue.cs" />
     <Compile Include="Models\ChiTietMuaBan.cs" />
+    <Compile Include="Models\ChiTietMuaBanChoThue.cs" />
     <Compile Include="Models\ChoThueViewModel.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\ImageBrowserItem.cs" />
     <Compile Include="Models\ImageResizer.cs" />
     <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\MuaBanChoThue.cs" />
     <Compile Include="Models\MuaBanViewModel.cs" />
     <Compile Include="Models\NewsDetailModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
@@ -1948,6 +1952,11 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\NewThread.cshtml" />
     <Content Include="Views\Home\UserControl.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\RaoVat\Detail.cshtml" />
+    <Content Include="Views\RaoVat\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

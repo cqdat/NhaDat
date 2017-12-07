@@ -13,5 +13,6 @@ namespace bds.Models
         public BDS_TINTUC FirstNEWS;
         public List<BDS_MUABAN> BDSNoiBat;
         public List<BDS_MUABAN> BDSMoi;
+        public List<DUAN> DuAn;
     }
 }

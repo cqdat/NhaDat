@@ -25,6 +25,7 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<DUAN_LOAI> DUAN_LOAI { get; set; }
         public virtual DbSet<DUONGPHO> DUONGPHOes { get; set; }
         public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
+        public virtual DbSet<INFORMATION> INFORMATION { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }

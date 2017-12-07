@@ -12,9 +12,37 @@ namespace bds.Controllers
     {
         DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
         // GET: RaoVat
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             return View();
+        }
+
+        public ActionResult Detail(int? id)
+        {
+            MuaBanChoThue model = new MuaBanChoThue();
+
+            if(id==1)
+            {
+                model.TinhThanh = db.TINHTHANHs.ToList();
+                model.ListMuaBan = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == false).ToList();
+                ////TYpe = false => Mua Bán
+            }
+            else
+            {
+                model.TinhThanh = db.TINHTHANHs.ToList();
+                model.ListMuaBan = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == true).ToList();
+                //// Type = true => Cho Thuê
+            }
+            return View(model);
+        }
+
+        public ActionResult ChiTiet(int? id)
+        {
+            ChiTietMuaBanChoThue model = new ChiTietMuaBanChoThue();
+            model.TinhThanh = db.TINHTHANHs.ToList();
+            model.ChiTiet = db.BDS_MUABAN.Find(id);
+            model.TinKhac = db.BDS_MUABAN.Where(q => q.Visible == true).ToList();
+            return View(model);
         }
 
         public ActionResult ChoThue(int? id)
