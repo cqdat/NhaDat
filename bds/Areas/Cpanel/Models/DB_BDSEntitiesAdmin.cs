@@ -66,6 +66,10 @@ namespace bds.Areas.Cpanel.Models
                 .Property(e => e.url)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<INFORMATION>()
+                .Property(e => e.Code)
+                .IsUnicode(false);
+
             modelBuilder.Entity<MENU>()
                 .Property(e => e.url)
                 .IsUnicode(false);

@@ -9,11 +9,12 @@ namespace bds.Areas.Cpanel.Models
     public partial class BDS_MUABAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BDS_MuaBan()
+        public BDS_MUABAN()
         {
-            this.ProMuaBans = new HashSet<ProMuaBan>();
+            CHITIET_TT = new HashSet<CHITIET_TT>();
         }
-    
+
+        [Key]
         public int IDMuaBan { get; set; }
 
         [StringLength(150)]
@@ -83,7 +84,8 @@ namespace bds.Areas.Cpanel.Models
         public virtual THANHVIEN THANHVIEN1 { get; set; }
 
         public virtual TINHTHANH TINHTHANH { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProMuaBan> ProMuaBans { get; set; }
+        public virtual ICollection<CHITIET_TT> CHITIET_TT { get; set; }
     }
 }

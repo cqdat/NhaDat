@@ -14,6 +14,7 @@ namespace bds.Areas.Cpanel.Models
         [StringLength(150)]
         public string InfoContent { get; set; }
 
+        [StringLength(10)]
         public string Code { get; set; }
     }
 }
