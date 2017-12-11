@@ -488,16 +488,6 @@
     <Content Include="Areas\Cpanel\assets\plugins\sparklines\jquery.sparklines.min.js" />
     <Content Include="Areas\Cpanel\Images\Check.png" />
     <Content Include="Areas\Cpanel\Images\disable.png" />
-    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
-      <LastGenOutput>DB_BDSEntitiesAdmin.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
-      <LastGenOutput>DB_BDSEntitiesAdmin.cs</LastGenOutput>
-    </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\bds.dll" />
