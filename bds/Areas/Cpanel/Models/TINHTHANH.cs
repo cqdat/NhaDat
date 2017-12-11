@@ -17,7 +17,8 @@ namespace bds.Areas.Cpanel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TINHTHANH()
         {
-            this.BDS_MuaBan = new HashSet<BDS_MuaBan>();
+            this.BDS_MUABAN = new HashSet<BDS_MUABAN>();
+            this.DUONGPHOes = new HashSet<DUONGPHO>();
         }
     
         public int IdTT { get; set; }
@@ -26,11 +27,12 @@ namespace bds.Areas.Cpanel.Models
         public Nullable<int> Cap { get; set; }
         public Nullable<int> DemChoThue { get; set; }
         public Nullable<int> DemMuaban { get; set; }
-        public Nullable<int> HienThi { get; set; }
         public Nullable<int> ThuTu { get; set; }
         public string url { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MuaBan> BDS_MuaBan { get; set; }
+        public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DUONGPHO> DUONGPHOes { get; set; }
     }
 }

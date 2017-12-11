@@ -176,26 +176,75 @@
     <Compile Include="Areas\Cpanel\Controllers\TINHTHANHController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\UtilitiesController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_DM_GIAODICH.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_GIA.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_HUONGNHA.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_LOAIBDS.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_MUABAN.cs" />
-    <Compile Include="Areas\Cpanel\Models\BDS_TINTUC.cs" />
-    <Compile Include="Areas\Cpanel\Models\CHITIET_TT.cs" />
-    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.cs" />
-    <Compile Include="Areas\Cpanel\Models\DUAN.cs" />
-    <Compile Include="Areas\Cpanel\Models\DUAN_HINH.cs" />
-    <Compile Include="Areas\Cpanel\Models\DUAN_LOAI.cs" />
-    <Compile Include="Areas\Cpanel\Models\DUONGPHO.cs" />
-    <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
-    <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
-    <Compile Include="Areas\Cpanel\Models\MENU.cs" />
-    <Compile Include="Areas\Cpanel\Models\sysdiagram.cs" />
-    <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
-    <Compile Include="Areas\Cpanel\Models\THUOCTINH.cs" />
-    <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />
+    <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_DM_GIAODICH.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_GIA.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_HUONGNHA.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_LOAIBDS.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_MUABAN.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\BDS_TINTUC.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\CHITIET_TT.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DUAN.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DUAN_HINH.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DUAN_LOAI.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\DUONGPHO.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\INFORMATION.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\MENU.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\THUOCTINH.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs">
+      <DependentUpon>DB_BDSEntitiesAdmin.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -1862,13 +1911,6 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <EntityDeploy Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_BDSEntitiesAdmin.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx.diagram">
-      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Cpanel\Views\TINHTHANH\Create.cshtml" />
     <Content Include="Areas\Cpanel\Views\TINHTHANH\Delete.cshtml" />
     <Content Include="Areas\Cpanel\Views\TINHTHANH\Details.cshtml" />
@@ -1896,6 +1938,13 @@
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Index.cshtml" />
     <Content Include="Areas\Cpanel\Views\TINHTHANH\_PartialViewChildTinhThanh.cshtml" />
+    <EntityDeploy Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_BDSEntitiesAdmin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Cpanel\Models\DB_BDSEntitiesAdmin.edmx.diagram">
+      <DependentUpon>DB_BDSEntitiesAdmin.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
