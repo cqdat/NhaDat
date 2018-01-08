@@ -34,8 +34,6 @@ namespace bds.Areas.Cpanel.Models
         [StringLength(50)]
         public string url { get; set; }
 
-        public int? Cap { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
 

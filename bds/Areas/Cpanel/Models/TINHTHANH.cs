@@ -30,9 +30,11 @@ namespace bds.Areas.Cpanel.Models
 
         public int? DemMuaban { get; set; }
 
+        public int? HienThi { get; set; }
+
         public int? ThuTu { get; set; }
 
-        [StringLength(200)]
+        [StringLength(150)]
         public string url { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
