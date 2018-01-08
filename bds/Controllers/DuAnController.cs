@@ -13,5 +13,10 @@ namespace bds.Controllers
         {
             return View();
         }
+
+        public ActionResult XemDuAn(int? id)
+        {
+            return View();
+        }
     }
 }

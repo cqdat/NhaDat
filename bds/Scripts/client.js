@@ -1,5 +1,8 @@
 ﻿
 $(document).ready(function () {
+
+    setHeight();
+
     $('.carousel').carousel({
         interval: 5000
     });
@@ -33,25 +36,32 @@ $(document).ready(function () {
 
 
     $("#btnlogin").click(function () {
+        $("#full-opacity").show();
         $(".loginbox").show();
     });
 
     $("#btnExit").click(function () {
+
         $(".loginbox").hide();
+        $("#full-opacity").hide();
     });
 
     $(".dktv").click(function () {
 
         $(".boxregister").show();
 
+        $("#full-opacity").show();
+
     });
 
     $(".boxregister .close").click(function () {
         $(".boxregister").hide();
+        $("#full-opacity").hide();
     });
 
     $(".loginbox .close").click(function () {
         $(".loginbox").hide();
+        $("#full-opacity").hide();
     });
 
     $('.flexslider').flexslider({
@@ -298,3 +308,13 @@ $(document).ready(function () {
     
 
 });
+
+function setHeight() {
+    windowHeight = $('body').height() + 70;
+    //alert(windowHeight);
+    $('#full-opacity').css('min-height', windowHeight);
+
+    //$('.noscript').css('min-height', windowHeight);
+
+    //$('.checkbrowser').css('min-height', windowHeight);
+};

@@ -8,8 +8,17 @@
     <div class="col-md-8">
         <div class="direction">
             <a href="#">Trang Chủ</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
-            <a href="#">Mua bán</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
-            <a href="#">Đồng Nai</a>
+            @if (ViewBag.Type == 1)
+            {
+                <a href="#">Mua bán</a>
+            }
+            else
+            {
+                <a href="#">Cho thuê</a>
+            }
+
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <a href="#">Bình Dương</a>
         </div>
     </div>
     <div class="col-md-4">
@@ -26,7 +35,7 @@
                     <li class="row">
                         <div class="col-md-3">
                             <a href="/Raovat/chitiet/@q.IDMuaBan/@q.URL">
-                                <img alt="@q.Name" src="@q.HinhAnh" />
+                                <img alt="@q.Name" src="~/@q.HinhAnh" />
                             </a>
                         </div>
                         <div class="col-md-9">

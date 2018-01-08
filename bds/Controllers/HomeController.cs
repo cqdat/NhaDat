@@ -17,7 +17,7 @@ namespace bds.Controllers
         {
             /// type == true => mua bán, type=false ==> cho thue
             IndexModel index = new IndexModel();
-            index.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
+            index.TinhThanh = db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();//db.TINHTHANHs.Where(q => q.IDCha == 0).ToList();
             index.BDSNoiBat = db.BDS_MUABAN.Where(q => q.NoiBat == true && q.Visible == true && q.Type == false).Take(15).ToList();
             index.BDSMoi = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == false).OrderBy(o => o.Created).Take(15).ToList();
             index.TinTucNoiBat = db.BDS_TINTUC.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
@@ -173,7 +173,7 @@ namespace bds.Controllers
             if(this.IsCaptchaValid(CaptchaInputText))
             {
                 THANHVIEN t = new THANHVIEN();
-                t.idTV = 3;
+                //t.idTV = 3;
                 t.TenTruyCap = txtUserName;
                 t.MatKhau = HashPasswordUser(txtPassword);
                 t.HoTen = txtFullName;
