@@ -30,6 +30,8 @@ namespace bds.Areas.Cpanel.Models
 
         public int? DemMuaban { get; set; }
 
+        public int? HienThi { get; set; } //HienThi
+
         public int? ThuTu { get; set; }
 
         [StringLength(200)]

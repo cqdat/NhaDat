@@ -60,11 +60,12 @@
 
 <div class="container" style="background-color:#ffffff; padding:5px 5px">
     <ol class="dd-list">
+        <li data-id="1" class="dd-item" style="background-color:#1194f6; color:white">
+            <div class="dd-handle" style="background-color:#1194f6;">Tên <span style="float:right; font-weight:bold">Hiện thị &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sửa | Xóa</span> </div>
+        </li>
         @foreach (var item in Model)
         {
-            <li data-id="1" class="dd-item" style="background-color:#1194f6; color:white">
-                <div class="dd-handle" style="background-color:#1194f6;">Tên <span style="float:right; font-weight:bold">Hiện thị &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sửa | Xóa</span> </div>
-            </li>
+            
             <li data-id="@item.IdTT" class="dd-item">
                 <div class="dd-handle">
                     @item.TenTT
