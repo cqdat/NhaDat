@@ -26,11 +26,13 @@ namespace bds.Controllers
                 model.TinhThanh = db.TINHTHANHs.ToList();
                 model.ListMuaBan = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == false).ToList();
                 ////TYpe = false => Mua Bán
+                ViewBag.Type = id;
             }
             else
             {
                 model.TinhThanh = db.TINHTHANHs.ToList();
                 model.ListMuaBan = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == true).ToList();
+                ViewBag.Type = id;
                 //// Type = true => Cho Thuê
             }
             return View(model);
@@ -47,6 +49,7 @@ namespace bds.Controllers
 
         public ActionResult ChoThue(int? id)
         {
+            ViewBag.xTitle = db.MENUs.Find(id).TenMenu;
             ChoThueViewModel model = new ChoThueViewModel();
             model.ListChoThue = db.BDS_MUABAN.Where(q => q.IDMenu == id && q.Visible == true).ToList();
             model.TinhThanh = db.TINHTHANHs.ToList();
@@ -64,6 +67,7 @@ namespace bds.Controllers
 
         public ActionResult MuaBan(int? id)
         {
+            ViewBag.xTitle = db.MENUs.Find(id).TenMenu;
             MuaBanViewModel model = new MuaBanViewModel();
             model.TinhThanh = db.TINHTHANHs.ToList();
             model.ListMuaBan = db.BDS_MUABAN.Where(q => q.IDMenu == id && q.Visible == true).ToList();

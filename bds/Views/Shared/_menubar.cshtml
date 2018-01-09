@@ -52,7 +52,7 @@
                 @foreach (var x in h.getChildMenu(Model.DuAn.IdMenu))
                 {
                     <li>
-                        <a href="~/raovat/duan/@x.IdMenu/@x.url">
+                        <a href="~/duan/xemduan/@x.IdMenu/@x.url">
                             @x.TenMenu
                         </a>
                     </li>
@@ -62,7 +62,7 @@
         @foreach (var q in Model.TinTuc)
         {
             <li class="parent">
-                <a href="~/news">
+                <a href="~/news/viewsub/@q.IdMenu/@q.url">
                     @q.TenMenu
                     <i class="glyphicon glyphicon-triangle-bottom"></i>
                 </a>

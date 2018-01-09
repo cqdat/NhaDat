@@ -1954,6 +1954,8 @@
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\RaoVat\Detail.cshtml" />
     <Content Include="Views\RaoVat\ChiTiet.cshtml" />
+    <Content Include="Views\News\ViewSub.cshtml" />
+    <Content Include="Views\DuAn\XemDuAn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
