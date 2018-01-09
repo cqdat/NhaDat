@@ -192,7 +192,6 @@
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
     <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
     <Compile Include="Areas\Cpanel\Models\MENU.cs" />
-    <Compile Include="Areas\Cpanel\Models\sysdiagram.cs" />
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
     <Compile Include="Areas\Cpanel\Models\THUOCTINH.cs" />
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />

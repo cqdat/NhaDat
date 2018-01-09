@@ -19,6 +19,7 @@ namespace bds.Areas.Cpanel.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idTV { get; set; }
 
         [StringLength(20)]

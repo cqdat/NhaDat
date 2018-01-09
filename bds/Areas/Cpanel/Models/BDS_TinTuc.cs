@@ -21,7 +21,6 @@ namespace bds.Areas.Cpanel.Models
         [StringLength(400)]
         public string MoTa { get; set; }
 
-        [Column(TypeName = "ntext")]
         public string NoiDung { get; set; }
 
         public int? IDMenu { get; set; }
@@ -46,12 +45,6 @@ namespace bds.Areas.Cpanel.Models
 
         [StringLength(200)]
         public string URL { get; set; }
-
-        [StringLength(200)]
-        public string MetaKeyword { get; set; }
-
-        [StringLength(500)]
-        public string MetaDescrip { get; set; }
 
         public virtual MENU MENU { get; set; }
 
