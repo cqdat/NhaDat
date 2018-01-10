@@ -62,10 +62,12 @@ namespace bds.Areas.Cpanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TINTUC BDS_TINTUC)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC)
         {
             if (ModelState.IsValid)
             {
+
                 db.BDS_TINTUC.Add(BDS_TINTUC);
                 db.SaveChanges();
                 return RedirectToAction("Index");

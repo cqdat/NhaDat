@@ -88,7 +88,7 @@ namespace bds.Areas.Cpanel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             TINHTHANH tINHTHANH = db.TINHTHANHs.Find(id);
-            ViewBag.IDCha = new SelectList(db.TINHTHANHs.Where(m => m.IDCha == 0).OrderBy(b => b.ThuTu), "IdTT", "TenTT", tINHTHANH.IDCha);
+            ViewBag.IDCha = new SelectList(db.TINHTHANHs.OrderBy(b => b.ThuTu), "IdTT", "TenTT", tINHTHANH.IDCha);
             if (tINHTHANH == null)
             {
                 return HttpNotFound();

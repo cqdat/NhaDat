@@ -198,6 +198,7 @@
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RaoVatController.cs" />
     <Compile Include="Global.asax.cs">

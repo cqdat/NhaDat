@@ -18,6 +18,9 @@
                 <div class="uptime">
                     Cập nhật: @Convert.ToDateTime(Model.ChiTiet.Updated).ToString("HH:mm dd/MM/yyyy")
                 </div>
+                <div style="padding:10px">
+                    @Html.Raw(@Model.ChiTiet.NoiDung)
+                </div>
             </div>
 
             @Html.Partial("_tinkhac", Model.TinKhac)
