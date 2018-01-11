@@ -440,6 +440,11 @@
     <Content Include="Areas\Cpanel\assets\plugins\sparklines\jquery.sparklines.min.js" />
     <Content Include="Areas\Cpanel\Images\Check.png" />
     <Content Include="Areas\Cpanel\Images\disable.png" />
+    <Content Include="Areas\Cpanel\Images\TinTuc\1.JPG" />
+    <Content Include="Areas\Cpanel\Images\TinTuc\11.jpg" />
+    <Content Include="Areas\Cpanel\Images\TinTuc\20180106082529-27c4_382.jpg" />
+    <Content Include="Areas\Cpanel\Images\TinTuc\20180106082529-27c4_62.jpg" />
+    <Content Include="Areas\Cpanel\Images\TinTuc\22.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\bds.dll" />

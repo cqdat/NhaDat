@@ -12,15 +12,16 @@
 </p>
 <table class="table">
     <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.TintucName)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </th>*@
-        <th>
             @Html.DisplayNameFor(model => model.MoTa)
-        </th>
+        </th>*@
         
         <th>
             @Html.DisplayNameFor(model => model.NoiBat)
@@ -53,15 +54,16 @@
 
 @foreach (var item in Model) {
     <tr>
+        
+        <td>
+            <img alt="@item.TintucName" style="height:50px" src='~/Areas/Cpanel/Images/TinTuc/@item.HinhAnh' />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.TintucName)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.HinhAnh)
-        </td>*@
-        <td>
             @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
+        </td>*@
         
         <td>
             @Html.DisplayFor(modelItem => item.NoiBat)

@@ -73,7 +73,7 @@
         });
     });
 </script>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "BDS_TinTuc", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
 

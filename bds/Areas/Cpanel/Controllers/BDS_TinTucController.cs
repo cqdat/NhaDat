@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
+using System.IO;
 
 namespace bds.Areas.Cpanel.Controllers
 {
@@ -63,11 +64,34 @@ namespace bds.Areas.Cpanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC)
+        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC, HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
+                var allowedExtensions = new[] {
+            ".Jpg", ".png", ".jpg", "jpeg"
+                };
+                var fileName = Path.GetFileName(HinhAnh.FileName);
+                var ext = Path.GetExtension(HinhAnh.FileName);
 
+                if (allowedExtensions.Contains(ext)) //check what type of extension  
+                {
+                    string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
+                    string myfile = name + "_" + DateTime.Now.Millisecond + ext; //appending the name with id  
+                                                                                 // store the file inside ~/project folder(Img)  
+
+                    var path = Path.Combine(Server.MapPath("~/Areas/Cpanel/Images/TinTuc"), myfile);
+                    //var dir = Directory.CreateDirectory(path);
+                    //HinhAnh.SaveAs(Path.Combine(path, myfile));
+                    
+                    BDS_TINTUC.HinhAnh = myfile;
+                    HinhAnh.SaveAs(path);
+                }
+                else
+                {
+                    ViewBag.message = "Please choose only Image file";
+                }
+                
                 db.BDS_TINTUC.Add(BDS_TINTUC);
                 db.SaveChanges();
                 return RedirectToAction("Index");
