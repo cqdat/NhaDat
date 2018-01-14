@@ -196,6 +196,7 @@
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
     <Compile Include="Areas\Cpanel\Models\THUOCTINH.cs" />
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\ChiTietChoThue.cs" />
     <Compile Include="Models\ChiTietMuaBan.cs" />
     <Compile Include="Models\ChiTietMuaBanChoThue.cs" />
@@ -326,6 +328,7 @@
     <Content Include="Areas\Cpanel\assets\js\jquery-1.10.2.min.js" />
     <Content Include="Areas\Cpanel\assets\js\jquery.cookie.js" />
     <Content Include="Areas\Cpanel\assets\js\jquery.nicescroll.min.js" />
+    <Content Include="Areas\Cpanel\assets\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Areas\Cpanel\assets\js\jqueryui-1.10.3.min.js" />
     <Content Include="Areas\Cpanel\assets\js\jqueryui.css" />
     <Content Include="Areas\Cpanel\assets\js\placeholdr.js" />
@@ -1885,6 +1888,8 @@
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_DIENTICH\Index.cshtml" />
     <Content Include="Areas\Cpanel\Views\TINHTHANH\_PartialViewChildTinhThanh.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BDS_TinTuc\_PartialIndex.cshtml" />
+    <Content Include="Areas\Cpanel\Views\Shared\_Alerts.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

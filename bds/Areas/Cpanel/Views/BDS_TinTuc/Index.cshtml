@@ -1,102 +1,178 @@
-﻿@model IEnumerable<bds.Areas.Cpanel.Models.BDS_TINTUC>
-
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<bds.Areas.Cpanel.Models.BDS_TINTUC>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<script src="~/Areas/Cpanel/assets/js/jquery-1.10.2.min.js"></script>
+<script src="~/Areas/Cpanel/assets/js/jquery.unobtrusive-ajax.min.js"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TintucName)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>*@
-        
-        <th>
-            @Html.DisplayNameFor(model => model.NoiBat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NhieuNguoiDoc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountView)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotIcon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Updated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Visible)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.MENU.TenMenu)
-        </th>
-        
-        <th></th>
-    </tr>
+<div id="page-heading">
+    <h1>Danh mục tin tức</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a class="btn btn-success" href="/Cpanel/BDS_TinTuc/Create"><i class="fa fa-plus-square-o"></i>Thêm mới</a>
 
-@foreach (var item in Model) {
-    <tr>
-        
-        <td>
-            <img alt="@item.TintucName" style="height:50px" src='~/Areas/Cpanel/Images/TinTuc/@item.HinhAnh' />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TintucName)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>*@
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.NoiBat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NhieuNguoiDoc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountView)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HotIcon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Updated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Visible)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.MENU.TenMenu)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TinTucID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TinTucID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TinTucID })
-        </td>
-    </tr>
-}
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:5px 5px">
 
-</table>
+    <ol class="breadcrumb page-breadcrumb">
+        <li>
+            Hiện thị<br />
+            <select name="sample_2_length" aria-controls="sample_2" class="form-control input-xsmall input-inline select2-offscreen" tabindex="-1" title="" id="ddlPageSize">
+                <option value="5">5 dòng</option>
+                <option value="10">10 dòng</option>
+                <option value="15" selected>15 dòng</option>
+                <option value="20">20 dòng</option>
+                <option value="-1">Tất cả</option>
+            </select>
+        </li>
+        <li>
+            Tiều đề <br /> @Html.TextBox("TieuDe", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Enter Tiều đề" })
+        </li>
+        <li>
+            Thuộc Menu<br />
+            
+            @Html.DropDownList("IDMenuCha", null, "-- tất cả --", new { @class = "form-control" })
+        </li>
+        <li>
+            Menu con<br />
+            <select class="form-control" data-val="true" id="IDMenu" name="IDMenu"></select>
+        </li>
+        <li>
+            Nổi bật<br />
+            <select class="form-control" id="NoiBat" name="NoiBat">
+                <option value="1">-- All --</option>
+                <option value="0">Không</option>
+                <option value="1">Nổi Bật</option>
+
+            </select>
+        </li>
+        <li>
+            <input type="submit" class="btn btn-primary" value="Lọc" />
+        </li>
+    </ol>
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            @{ Html.RenderPartial("_Alerts"); }
+            <div class="panel-body">
+
+                <div class="row" id="season-list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        filter();
+
+        $('body').on('change', '#ddlPageSize', function () {
+            filter();
+        });
+
+        //textbox name
+        $('#TieuDe').on('input', function () {
+            filter();
+        });
+        //Drop change Dept
+        $('#IDMenuCha').change(function () {
+            filter();
+        });
+
+        $('#IDMenu').change(function () {
+            filter();
+        });
+
+        //Drop change Dept 
+        $('#NoiBat').change(function () {
+            filter();
+        });
+    });
+
+    function filter() {
+
+        var TieuDe = $('#TieuDe').val();
+        var IDMenuCha = parseInt($('#IDMenuCha').val());
+        var NoiBat = $('#NoiBat').val();
+        var IDMenu = $('#IDMenu').val();
+
+        //alert(Cate);
+        //var DateFrom = $('#datefrom').val();
+        //var DateTo = $('#dateto').val();
+        //var Export = $('#Export').val();
+        $.ajax({
+            //url: '/BDS_TinTuc/_PartialIndex',
+            url: '@Url.Action("_PartialIndex", "BDS_TinTuc", new { area = "Cpanel" })',
+            data: {
+                pageSize: parseInt($('#ddlPageSize').val()),
+                TieuDe: $('#TieuDe').val(),
+                IDMenuCha: IDMenuCha,
+                IDMenu: IDMenu,
+                NoiBat: NoiBat
+            },
+            method: 'GET',
+            dataType: 'html',
+            success: function (data) {
+
+                $('#season-list').html(data);
+                $("#lbl_Message").html("");
+
+
+            }
+        });
+
+
+        //Menu
+        //$("#IDMenu").prop("disabled", true);
+        $(function () {
+            $('#IDMenuCha').change(function () {
+                $("#IDMenu").prop("disabled", false);
+                var idCha = $('#IDMenuCha').val();
+                //var selectedBrand = $('#IDBrand').val(); IDMenu
+                var clearmoldid = $("#IDMenu");
+                clearmoldid.empty();
+                if (idCha == null || idCha == "") {
+                    $('#IDMenu').prop('disabled', true);
+                }
+                else {
+                    $.ajax(
+                        {
+                            url: "/BDS_TINTUC/FillMenuL2",
+                            type: 'GET',
+                            cache: false,
+                            data: { idCha: idCha },
+                            //success: function (result) {
+                            //    var items = "<option>Select Model</option>";
+                            //    $.each(result, function (i, state) {
+                            //        items += "<option value='" + state.Text + "'>" + state.Text + "</option>";
+                            //    });
+                            //    $('#idModelCate').html(items);
+
+                            //}
+
+                            success: function (data) {
+                                $("#IDMenu").html('');
+                                var optionhtml1 = '<option value="">' + "--Tất cả --" + '</option>';
+                                $('#IDMenu').append(optionhtml1);
+
+                                $.each(data, function (i) {
+
+                                    var optionhtml = '<option value="' +
+                                        data[i].Value + '">' + data[i].Text + '</option>';
+                                    $('#IDMenu').append(optionhtml);
+                                });
+                            }
+                        });
+                }
+
+            });
+        });
+    }
+</script>

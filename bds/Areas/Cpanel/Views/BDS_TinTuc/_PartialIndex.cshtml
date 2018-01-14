@@ -1,0 +1,135 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<bds.Areas.Cpanel.Models.BDS_TINTUC>
+@{
+    int stt = ViewBag.STT;
+}
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Tiêu đề
+        </th>
+
+        <th>
+            Menu
+        </th>
+        <th>
+            Vị trí
+        </th>
+        <th>
+            Nổi bật
+        </th>
+
+
+        <th>
+            Tin hot
+        </th>
+
+        <th>
+            Ngày cập nhật
+        </th>
+        <th>
+            Ẩn hiện
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@ViewBag.STT</td>
+            <td>
+                <img alt="@item.TintucName" style="width:50px" src='~/Areas/Cpanel/Images/TinTuc/@item.HinhAnh' />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TintucName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MENU.TenMenu)
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Vitri)</td>
+            <td>
+
+                @{
+                    if (item.NoiBat == true)
+                    {
+                        <img src="/Areas/Cpanel/Images/NoiBat.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                    }
+                }
+            </td>
+
+            <td>
+
+                @if (item.HotIcon == true)
+                {
+                    <img src="/Areas/Cpanel/Images/NoiBat.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                }
+            </td>
+
+            <td>
+               
+                @Html.DisplayFor(modelItem => item.Updated)
+            </td>
+            <td>
+                @{
+                    if (item.Visible == true)
+                    {
+                        <img src="/Areas/Cpanel/Images/Check.png" style="cursor:pointer; width:15px;" title="Hiện thị">
+                    }
+                    else if (item.Visible == false)
+                    {
+                        <img src="/Areas/Cpanel/Images/disable.png" style="cursor:pointer; width:15px;" title="Ẩn">
+                    }
+                }
+                
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TinTucID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TinTucID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TinTucID })
+            </td>
+        </tr>
+                        ViewBag.STT++;
+                    }
+
+</table>
+
+<div class="row">
+
+
+    <div class="dataTables_paginate paging_bootstrap_full_number pull-right" id="sample_1_paginate">
+        @Html.PagedListPager(Model, pageNumber => Url.Action("_PartialIndex",
+           new
+           {
+               pageNumber,
+               pageSize = ViewBag.pageSize,
+               TieuDe = ViewBag.TieuDe,
+               //NoiBat = ViewBag.NoiBat
+           }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+            new PagedListRenderOptions()
+            {
+                Display = PagedListDisplayMode.IfNeeded,
+                DisplayItemSliceAndTotal = true
+            }, new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "season-list"
+            }))
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
+
+</div>

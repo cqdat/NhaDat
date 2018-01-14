@@ -29,7 +29,9 @@ namespace bds.Areas.Cpanel.Models
 
         public int? HienThi { get; set; }
 
-        public bool? IsMenu { get; set; }
+        public bool? IsMenu { get; set; } //IsTypeTT
+
+        public bool? IsTypeTT { get; set; }
 
         [StringLength(50)]
         public string url { get; set; }
