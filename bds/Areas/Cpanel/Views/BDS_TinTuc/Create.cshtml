@@ -27,11 +27,11 @@
 
 
     $(document).ready(function () {
-        $("#MenuL2").prop("disabled", true);
+        $("#IDMenu").prop("disabled", true);
         $(function () {
-            $('#MenuCha').change(function () {
+            $('#IDMenuCha').change(function () {
                 $("#IDMenu").prop("disabled", false);
-                var idCha = $('#MenuCha').val();
+                var idCha = $('#IDMenuCha').val();
                 //var selectedBrand = $('#IDBrand').val(); IDMenu
                 var clearmoldid = $("#IDMenu");
                 clearmoldid.empty();
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Menu</label>
                                 <div class="col-sm-10">
-                                    @Html.DropDownList("MenuCha", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.DropDownList("IDMenuCha", null, "--Chọn Menu cấp 1--", htmlAttributes: new { @class = "form-control" })
                                 </div>
                                 
                             </div>
@@ -153,7 +153,12 @@
                     <div class="panel panel-gray">
 
                         <div class="panel-body">
+                           
                             <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">Vị trí</label>
+                                <div class="col-sm-2">
+                                    <input class="form-control text-box single-line" data-val="true" data-val-number="The field Vitri must be a number." id="Vitri" name="Vitri" type="number" value="1">
+                                </div>
                                 <label for="selector1" class="col-sm-2 control-label">Nổi bật</label>
                                 <div class="col-sm-2">
                                     <select class="form-control list-box tri-state" id="NoiBat" name="NoiBat">
@@ -162,7 +167,7 @@
                                     </select>
 
                                 </div>
-                                <label for="selector1" class="col-sm-3 control-label">Hot</label>
+                                <label for="selector1" class="col-sm-2 control-label">Hot</label>
                                 <div class="col-sm-2">
                                     <select class="form-control list-box tri-state" id="HotIcon" name="HotIcon">
                                         <option selected value="true">Yes</option>
@@ -212,7 +217,12 @@
                         </div>
                     </div>
                 </div>
-                @Html.Label("Nội dung chi tiêt", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                
+                
+            </div>
+            <div class="row">
+                
+                <span style="padding-left:20px">Nội dung chi tiết</span>
                 <div class="col-md-12">
                     <textarea id="NoiDung" name="NoiDung"></textarea>
                     @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })

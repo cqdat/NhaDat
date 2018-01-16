@@ -8,18 +8,75 @@ using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
+using bds.Controllers;
+using bds.Models;
 
 namespace bds.Areas.Cpanel.Controllers
 {
-    public class BDS_TINTUCController : Controller
+    public class BDS_TINTUCController : BaseController
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
         // GET: Cpanel/BDS_TINTUC
         public ActionResult Index()
         {
-            var BDS_TINTUC = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1);
-            return View(BDS_TINTUC.ToList());
+            //var BDS_TINTUC = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1);
+            ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m => m.IdCha == 0 && m.IsTypeTT == true), "IdMenu", "TenMenu");
+            return View();
+        }
+
+        public ActionResult _PartialIndex(int? pageNumber, int? pageSize, string TieuDe, int? IDMenuCha, int? IDMenu)
+        {
+            TieuDe = TieuDe ?? "";
+            ViewBag.TieuDe = TieuDe;
+            pageNumber = pageNumber ?? 1;
+            pageSize = pageSize ?? 10;
+
+            if (pageSize == -1)
+            {
+                pageSize = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1).ToList().Count;
+            }
+            ViewBag.PageSize = pageSize;
+
+            var lstTintucs = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1).ToList();
+
+            if (!string.IsNullOrEmpty(TieuDe))
+            {
+                lstTintucs = lstTintucs.Where(s => s.TintucName.Contains(TieuDe)).ToList();
+            }
+            ViewBag.TieuDe = TieuDe;
+
+            if (!string.IsNullOrEmpty(IDMenuCha.ToString()))
+            {
+                lstTintucs = lstTintucs.Where(s => s.IDMenuCha == IDMenuCha).ToList();
+            }
+            ViewBag.IDMenuCha = IDMenuCha;
+
+            if (!string.IsNullOrEmpty(IDMenu.ToString()))
+            {
+                lstTintucs = lstTintucs.Where(s => s.IDMenu == IDMenu).ToList();
+            }
+            ViewBag.IDMenu = IDMenu;
+
+            //var nb = Convert.ToBoolean(NoiBat);
+            //if (!string.IsNullOrEmpty(NoiBat.ToString()))
+            //{
+            //    lstTintucs = lstTintucs.Where(s => s.NoiBat == nb).ToList();
+            //}
+            //ViewBag.NoiBat = NoiBat;
+
+            lstTintucs = lstTintucs.OrderBy(s => s.Vitri).ToList();
+            ViewBag.STT = pageNumber * pageSize - pageSize + 1;
+            int count = lstTintucs.ToList().Count();
+            ViewBag.TotalRow = count;
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("~/Areas/Cpanel/Views/BDS_TinTuc/_PartialIndex.cshtml", lstTintucs.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));
+
+            }
+            return View(lstTintucs.ToList().ToPagedList(pageNumber ?? 1, pageSize ?? 2));
         }
 
         // GET: Cpanel/BDS_TINTUC/Details/5
@@ -40,7 +97,7 @@ namespace bds.Areas.Cpanel.Controllers
         // GET: Cpanel/BDS_TINTUC/Create
         public ActionResult Create()
         {
-            ViewBag.MenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
+            ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
             ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap");
             ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap");
             return View();
@@ -64,7 +121,7 @@ namespace bds.Areas.Cpanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC, HttpPostedFileBase HinhAnh)
+        public ActionResult Create([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,Vitri,IDMenuCha,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC, HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +148,9 @@ namespace bds.Areas.Cpanel.Controllers
                 {
                     ViewBag.message = "Please choose only Image file";
                 }
-                
+                BDS_TINTUC.URL = Helper.ConvertToUpperLower(BDS_TINTUC.TintucName);
+                BDS_TINTUC.Created = DateTime.Now;
+                BDS_TINTUC.Updated = DateTime.Now;
                 db.BDS_TINTUC.Add(BDS_TINTUC);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -115,6 +174,7 @@ namespace bds.Areas.Cpanel.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m => m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m => m.ThuTu), "IdMenu", "TenMenu");
             ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
             ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
             ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.UpdateBy);
