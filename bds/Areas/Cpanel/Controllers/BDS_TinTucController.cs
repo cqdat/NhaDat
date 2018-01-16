@@ -174,6 +174,7 @@ namespace bds.Areas.Cpanel.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m => m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m => m.ThuTu), "IdMenu", "TenMenu");
             ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
             ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
             ViewBag.UpdateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.UpdateBy);
