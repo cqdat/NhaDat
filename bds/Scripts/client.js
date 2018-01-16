@@ -1,7 +1,28 @@
 ﻿
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage1')
+                .attr('src', e.target.result);
+                //.width(150)
+                //.height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 $(document).ready(function () {
 
     setHeight();
+
+    $("#uploadimage1").click(function () {
+        $("#File1").click();
+    });
+
+
 
     $('.carousel').carousel({
         interval: 5000

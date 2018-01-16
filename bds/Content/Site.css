@@ -1568,7 +1568,7 @@ ul.dropdown {
     color: #fff;
     padding: 6px 0px 6px 18px;
     font-weight: bold;
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
 }
 .newthreadcontent .hinhthucdangtin
 {
@@ -1698,4 +1698,23 @@ span.logout a:hover
     top: 0;
     left: 0;
     display: none;
+}
+.upload-data .row
+{
+    margin-left:0px;
+    margin-right:0px;
+}
+.upload-data .col-md-2
+{
+    border-right:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+.upload-data .col-md-2:last-child
+{
+    border-right:none;
+}
+.upload-data .col-md-2 img
+{
+    width:100%;
+    cursor:pointer;
 }

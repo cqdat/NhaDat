@@ -1691,6 +1691,7 @@
     <Content Include="images\home-hover.png" />
     <Content Include="images\home.png" />
     <Content Include="images\hot.gif" />
+    <Content Include="images\imageicon.png" />
     <Content Include="images\kitchen_adventurer_caramel.jpg" />
     <Content Include="images\kitchen_adventurer_cheesecake_brownie.jpg" />
     <Content Include="images\kitchen_adventurer_donut.jpg" />
@@ -1719,6 +1720,7 @@
     <Content Include="images\tpm.jpg" />
     <Content Include="images\tw.png" />
     <Content Include="images\up.png" />
+    <Content Include="images\upload-image.png" />
     <Content Include="images\vicom.jpg" />
     <Content Include="images\write.png" />
     <Content Include="images\xuhuong.png" />
