@@ -25,6 +25,54 @@
 
 
     });
+
+
+    $(document).ready(function () {
+        //$("#IDMenu").prop("disabled", true);
+        $(function () {
+            $('#IDMenuCha').change(function () {
+                $("#IDMenu").prop("disabled", false);
+                var idCha = $('#IDMenuCha').val();
+                //var selectedBrand = $('#IDBrand').val(); IDMenu
+                var clearmoldid = $("#IDMenu");
+                clearmoldid.empty();
+                if (idCha == null || idCha == "") {
+                    $('#IDMenu').prop('disabled', true);
+                }
+                else {
+                    $.ajax(
+                        {
+                            url: "/BDS_TINTUC/FillMenuL2",
+                            type: 'GET',
+                            cache: false,
+                            data: { idCha: idCha },
+                            //success: function (result) {
+                            //    var items = "<option>Select Model</option>";
+                            //    $.each(result, function (i, state) {
+                            //        items += "<option value='" + state.Text + "'>" + state.Text + "</option>";
+                            //    });
+                            //    $('#idModelCate').html(items);
+
+                            //}
+
+                            success: function (data) {
+                                var optionhtml1 = '<option value="' +
+                                    0 + '">' + "--Chọn Menu Cấp con--" + '</option>';
+                                $('#IDMenu').append(optionhtml1);
+
+                                $.each(data, function (i) {
+
+                                    var optionhtml = '<option value="' +
+                                        data[i].Value + '">' + data[i].Text + '</option>';
+                                    $('#IDMenu').append(optionhtml);
+                                });
+                            }
+                        });
+                }
+
+            });
+        });
+    });
     </script>
 
 @using (Html.BeginForm())
@@ -87,7 +135,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Menu Con</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control col-md-2" data-val="true" id="IDMenu" name="IDMenu"></select>
+                                    @Html.DropDownList("IDMenu", null, "--Chọn Menu cấp 2--", htmlAttributes: new { @class = "form-control" })
+                                    @*<select class="form-control col-md-2" data-val="true" id="IDMenu" name="IDMenu"></select>*@
                                 </div>
 
                             </div>
