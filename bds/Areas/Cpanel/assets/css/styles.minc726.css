@@ -8920,7 +8920,7 @@ footer #back-to-top {
 }
 .focusedform .brand {
   display: block;
-  padding-bottom: 40px;
+  padding-bottom: 1px;
   margin: 0 auto;
   width: 224px;
 }

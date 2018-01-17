@@ -63,6 +63,7 @@ namespace bds.Controllers
             model.CHoThue = db.MENUs.Find(2);
             model.DuAn = db.MENUs.Find(3);
             model.TinTuc = db.MENUs.Where(q => q.IdCha == 0 && q.HienThi == 1 && q.IdMenu != 1 && q.IdMenu != 2 && q.IdMenu != 3).OrderBy(o => o.ThuTu).ToList();
+            model.DichVuVIP = db.GIOITHIEUx.Where(g => g.HIENTHIMENU == 1 && g.HIENTHI == 1).OrderBy(g=>g.THUTU).ToList();
 
             return PartialView("_menubar", model);
         }

@@ -23,6 +23,10 @@ namespace bds.Areas.Cpanel.Models
 
         public string NoiDung { get; set; }
 
+        public int? Vitri { get; set; }
+
+        public int? IDMenuCha { get; set; }
+
         public int? IDMenu { get; set; }
 
         public bool? NoiBat { get; set; }

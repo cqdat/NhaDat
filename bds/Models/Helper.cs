@@ -16,6 +16,13 @@ namespace bds.Models
             return db.MENUs.Where(q => q.IdCha == idMenu).OrderBy(q=>q.ThuTu).ToList();
         }
 
+        ////Get Menu Con
+        //public List<GIOITHIEU> getChildDichVuVIP()
+        //{
+        //    return db.GIOITHIEUx.OrderBy(g => g.THUTU).ToList();
+        //    //.Where(g => g.HIENTHIMENU == 1 && g.HIENTHI == 1)
+        //}
+
         public List<TINHTHANH> getTinhThanh()
         {
             return db.TINHTHANHs.ToList();

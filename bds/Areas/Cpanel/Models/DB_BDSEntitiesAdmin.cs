@@ -27,10 +27,10 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
         public virtual DbSet<INFORMATION> INFORMATION { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
-        public virtual DbSet<TABDUAN> TABDUANs { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<THUOCTINH> THUOCTINHs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
+        public virtual DbSet<USER> USERs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

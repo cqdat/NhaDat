@@ -174,6 +174,7 @@
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\MENUController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\TINHTHANHController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\USERController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\UtilitiesController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs" />
@@ -192,12 +193,13 @@
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
     <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
     <Compile Include="Areas\Cpanel\Models\MENU.cs" />
-    <Compile Include="Areas\Cpanel\Models\TABDUAN.cs" />
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
     <Compile Include="Areas\Cpanel\Models\THUOCTINH.cs" />
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />
+    <Compile Include="Areas\Cpanel\Models\USER.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DuAnController.cs" />
+    <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -1892,6 +1894,10 @@
     <Content Include="Areas\Cpanel\Views\TINHTHANH\_PartialViewChildTinhThanh.cshtml" />
     <Content Include="Areas\Cpanel\Views\BDS_TinTuc\_PartialIndex.cshtml" />
     <Content Include="Areas\Cpanel\Views\Shared\_Alerts.cshtml" />
+    <Content Include="Areas\Cpanel\Views\Default\LoginAdmin.cshtml" />
+    <Content Include="Areas\Cpanel\Views\USER\LoginAdmin.cshtml" />
+    <Content Include="Areas\Cpanel\Views\USER\CreateUserAdmin.cshtml" />
+    <Content Include="Areas\Cpanel\Views\Shared\_LoginPartial.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -1970,6 +1976,7 @@
     <Content Include="Views\RaoVat\ChiTiet.cshtml" />
     <Content Include="Views\News\ViewSub.cshtml" />
     <Content Include="Views\DuAn\XemDuAn.cshtml" />
+    <Content Include="Views\GioiThieu\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

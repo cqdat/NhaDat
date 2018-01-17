@@ -24,6 +24,8 @@ namespace bds.Areas.Cpanel.Models
 
         public bool? IsMenu { get; set; }
 
+        public bool? IsTypeTT { get; set; }
+
         [StringLength(50)]
         public string url { get; set; }
 
