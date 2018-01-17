@@ -80,7 +80,23 @@
 
             </li>
         }
+        <li class="parent">
+            <a href="#">
+                DỊCH VỤ VIP
+                <i class="glyphicon glyphicon-triangle-bottom"></i>
+            </a>
+            <ul class="sub_menu">
+                @foreach (var v in Model.DichVuVIP)
+                {
+                    <li>
+                        <a href="/GioiThieu/Detail/@v.IDTT">
+                            @v.TIEUDE
+                        </a>
+                    </li>
+                }
+            </ul>
 
+        </li>
         <li class="parent">
             <a href="#">
                 Liên hệ - góp ý

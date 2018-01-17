@@ -198,6 +198,7 @@
     <Compile Include="Areas\Cpanel\Models\TINHTHANH.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DuAnController.cs" />
+    <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -1970,6 +1971,7 @@
     <Content Include="Views\RaoVat\ChiTiet.cshtml" />
     <Content Include="Views\News\ViewSub.cshtml" />
     <Content Include="Views\DuAn\XemDuAn.cshtml" />
+    <Content Include="Views\GioiThieu\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
