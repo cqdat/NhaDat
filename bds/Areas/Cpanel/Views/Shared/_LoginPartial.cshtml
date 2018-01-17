@@ -1,0 +1,102 @@
+﻿@*@using Microsoft.AspNet.Identity*@
+@using bds.Areas.Cpanel.Models;
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+            //var user =
+            DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
+            
+            var user = db.USERs.SingleOrDefault(u => u.UserName.ToUpper() == User.Identity.Name.ToUpper());
+        
+        <ul class="nav navbar-nav pull-right toolbar">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs" style="font-weight:bold">@user.FullName <i class="fa fa-caret-down"></i></span>
+                @*<img src="http://lean.wanek.com/Account/DislpayImage?EMPID=@user.EMPID" alt="Dangerfield" />*@</a>
+                <ul class="dropdown-menu userinfo arrow">
+                    <li class="username">
+                        <a href="#">
+                            <div class="pull-left">@*<img src="http://lean.wanek.com/Account/DislpayImage?EMPID=@user.EMPID" alt="Jeff Dangerfield" />*@</div>
+                            <div class="pull-right"><h5 style="font-weight:bold">@user.FullName</h5><small>Logged in as <span>john275</span></small></div>
+                        </a>
+                    </li>
+                    <li class="userlinks">
+                        <ul class="dropdown-menu">
+                            <li><a href="/Account/Details?username=@User.Identity.Name">Edit Profile <i class="pull-right fa fa-pencil"></i></a></li>
+                            <li><a href="#">Account <i class="pull-right fa fa-cog"></i></a></li>
+                            <li><a href="#">Help <i class="pull-right fa fa-question-circle"></i></a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            @*NGON NGU VI*@
+            <li class="dropdown">
+                <a href="#" class="hasnotifications dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge">1</span></a>
+                <ul class="dropdown-menu messages arrow">
+                    <li class="dd-header">
+                        <span>You have 1 new message(s)</span>
+                        <span><a href="#">Mark all Read</a></span>
+                    </li>
+                    <div class="scrollthis" tabindex="5003" style="overflow-y: hidden; outline: none;">
+                        <li>
+                            <a href="#" class="active">
+                                <span class="time">6 mins</span>
+                                <img src="assets/demo/avatar/doyle.png" alt="avatar">
+                                <div><span class="name">Alan Doyle</span><span class="msg">Please mail me the files by tonight.</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="time">12 mins</span>
+                                <img src="assets/demo/avatar/paton.png" alt="avatar">
+                                <div><span class="name">Polly Paton</span><span class="msg">Uploaded all the files to server. Take a look.</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="time">9 hrs</span>
+                                <img src="assets/demo/avatar/corbett.png" alt="avatar">
+                                <div><span class="name">Simon Corbett</span><span class="msg">I am signing off for today.</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="time">2 days</span>
+                                <img src="assets/demo/avatar/tennant.png" alt="avatar">
+                                <div><span class="name">David Tennant</span><span class="msg">How are you doing?</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="time">6 mins</span>
+                                <img src="assets/demo/avatar/doyle.png" alt="avatar">
+                                <div><span class="name">Alan Doyle</span><span class="msg">Please mail me the files by tonight.</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="time">12 mins</span>
+                                <img src="assets/demo/avatar/paton.png" alt="avatar">
+                                <div><span class="name">Polly Paton</span><span class="msg">Uploaded all the files to server. Take a look.</span></div>
+                            </a>
+                        </li>
+                    </div>
+                    <li class="dd-footer"><a href="#">View All Messages</a></li>
+                </ul>
+            </li>
+
+            @*NGonNGU EN*@
+            
+
+        </ul>
+    }
+}
+else
+{
+    Response.Redirect("~/Account/Login");
+}
+

@@ -22,9 +22,11 @@ namespace bds.Areas.Cpanel.Models
         public string MoTa { get; set; }
 
         public string NoiDung { get; set; }
+
         public int? Vitri { get; set; }
 
         public int? IDMenuCha { get; set; }
+
         public int? IDMenu { get; set; }
 
         public bool? NoiBat { get; set; }
@@ -39,7 +41,6 @@ namespace bds.Areas.Cpanel.Models
 
         public int? CreateBy { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Updated { get; set; }
 
         public int? UpdateBy { get; set; }

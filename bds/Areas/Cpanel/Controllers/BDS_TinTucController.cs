@@ -20,6 +20,7 @@ namespace bds.Areas.Cpanel.Controllers
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
         // GET: Cpanel/BDS_TINTUC
+        [Authorize]
         public ActionResult Index()
         {
             //var BDS_TINTUC = db.BDS_TINTUC.Include(b => b.MENU).Include(b => b.THANHVIEN).Include(b => b.THANHVIEN1);
@@ -95,6 +96,7 @@ namespace bds.Areas.Cpanel.Controllers
         }
 
         // GET: Cpanel/BDS_TINTUC/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
