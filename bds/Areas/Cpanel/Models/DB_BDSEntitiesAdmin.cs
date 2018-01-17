@@ -78,39 +78,9 @@ namespace bds.Areas.Cpanel.Models
                 .Property(e => e.TenTruyCap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<THANHVIEN>()
-                .HasMany(e => e.BDS_MUABAN)
-                .WithOptional(e => e.THANHVIEN)
-                .HasForeignKey(e => e.UpdateBy);
-
-            modelBuilder.Entity<THANHVIEN>()
-                .HasMany(e => e.BDS_MUABAN1)
-                .WithOptional(e => e.THANHVIEN1)
-                .HasForeignKey(e => e.CreateBy);
-
-            modelBuilder.Entity<THANHVIEN>()
-                .HasMany(e => e.BDS_TINTUC)
-                .WithOptional(e => e.THANHVIEN)
-                .HasForeignKey(e => e.CreateBy);
-
-            modelBuilder.Entity<THANHVIEN>()
-                .HasMany(e => e.BDS_TINTUC1)
-                .WithOptional(e => e.THANHVIEN1)
-                .HasForeignKey(e => e.UpdateBy);
-
-            modelBuilder.Entity<THUOCTINH>()
-                .HasMany(e => e.CHITIET_TT)
-                .WithOptional(e => e.THUOCTINH)
-                .HasForeignKey(e => e.IDThuocTinh);
-
             modelBuilder.Entity<TINHTHANH>()
                 .Property(e => e.url)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<TINHTHANH>()
-                .HasMany(e => e.BDS_MUABAN)
-                .WithOptional(e => e.TINHTHANH)
-                .HasForeignKey(e => e.IDTinhThanh);
         }
     }
 }

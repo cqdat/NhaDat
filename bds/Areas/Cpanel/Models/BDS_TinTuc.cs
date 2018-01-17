@@ -22,9 +22,7 @@ namespace bds.Areas.Cpanel.Models
         public string MoTa { get; set; }
 
         public string NoiDung { get; set; }
-        public int? Vitri { get; set; }
 
-        public int? IDMenuCha { get; set; }
         public int? IDMenu { get; set; }
 
         public bool? NoiBat { get; set; }
@@ -39,7 +37,6 @@ namespace bds.Areas.Cpanel.Models
 
         public int? CreateBy { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Updated { get; set; }
 
         public int? UpdateBy { get; set; }
@@ -48,17 +45,5 @@ namespace bds.Areas.Cpanel.Models
 
         [StringLength(200)]
         public string URL { get; set; }
-
-        [StringLength(200)]
-        public string MetaKeyword { get; set; }
-
-        [StringLength(500)]
-        public string MetaDescrip { get; set; }
-
-        public virtual MENU MENU { get; set; }
-
-        public virtual THANHVIEN THANHVIEN { get; set; }
-
-        public virtual THANHVIEN THANHVIEN1 { get; set; }
     }
 }
