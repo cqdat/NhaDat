@@ -173,6 +173,7 @@
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\MENUController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\THANHVIENsController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\TINHTHANHController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\USERController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\UtilitiesController.cs" />
@@ -1898,6 +1899,12 @@
     <Content Include="Areas\Cpanel\Views\USER\LoginAdmin.cshtml" />
     <Content Include="Areas\Cpanel\Views\USER\CreateUserAdmin.cshtml" />
     <Content Include="Areas\Cpanel\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\THANHVIENs\_PartialThanhVien.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

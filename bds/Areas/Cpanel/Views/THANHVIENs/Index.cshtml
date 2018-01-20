@@ -1,0 +1,137 @@
+﻿@model IEnumerable<bds.Areas.Cpanel.Models.THANHVIEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Areas/Cpanel/assets/js/jquery-1.10.2.min.js"></script>
+<script src="~/Areas/Cpanel/assets/js/jquery.unobtrusive-ajax.min.js"></script>
+
+<div id="page-heading">
+    <h1>Quản lý thành viên</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a class="btn btn-success" href="/Cpanel/BDS_TinTuc/Create"><i class="fa fa-plus-square-o"></i>Export to Excel</a>
+            
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:5px 5px">
+
+    <ol class="breadcrumb page-breadcrumb">
+        <li>
+            Hiện thị<br />
+            <select name="sample_2_length" aria-controls="sample_2" class="form-control input-xsmall input-inline select2-offscreen" tabindex="-1" title="" id="ddlPageSize">
+                <option value="5">5 dòng</option>
+                <option value="10">10 dòng</option>
+                <option value="15" selected>15 dòng</option>
+                <option value="20">20 dòng</option>
+                <option value="-1">Tất cả</option>
+            </select>
+        </li>
+        <li>
+            Tiều đề <br /> 
+            @Html.TextBox("TieuDe", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Enter Tiều đề" })
+        </li>
+        <li>
+            Thuộc Menu<br />
+
+            @*@Html.DropDownList("IDMenuCha", null, "-- tất cả --", new { @class = "form-control" })*@
+        </li>
+        <li>
+            Menu con<br />
+            <select class="form-control" data-val="true" id="IDMenu" name="IDMenu"></select>
+        </li>
+        <li>
+            Nổi bật<br />
+            <select class="form-control" id="NoiBat" name="NoiBat">
+                <option value="1">-- All --</option>
+                <option value="0">Không</option>
+                <option value="1">Nổi Bật</option>
+
+            </select>
+        </li>
+        <li>
+            <input type="submit" class="btn btn-primary" value="Lọc" />
+        </li>
+    </ol>
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            @{ Html.RenderPartial("_Alerts"); }
+            <div class="panel-body">
+
+                <div class="row" id="season-list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        filter();
+
+        $('body').on('change', '#ddlPageSize', function () {
+            filter();
+        });
+
+        //textbox name
+        $('#TieuDe').on('input', function () {
+            filter();
+        });
+        //Drop change Dept
+        $('#IDMenuCha').change(function () {
+            filter();
+        });
+
+        $('#IDMenu').change(function () {
+            filter();
+        });
+
+        //Drop change Dept
+        $('#NoiBat').change(function () {
+            filter();
+        });
+    });
+
+    function filter() {
+
+        var TieuDe = $('#TieuDe').val();
+        var IDMenuCha = parseInt($('#IDMenuCha').val());
+        var NoiBat = $('#NoiBat').val();
+        var IDMenu = $('#IDMenu').val();
+
+        //alert(Cate);
+        //var DateFrom = $('#datefrom').val();
+        //var DateTo = $('#dateto').val();
+        //var Export = $('#Export').val();
+        $.ajax({
+            //url: '/BDS_TinTuc/_PartialIndex',
+            url: '@Url.Action("_PartialThanhVien", "THANHVIENs", new { area = "Cpanel" })',
+            data: {
+                pageSize: parseInt($('#ddlPageSize').val()),
+                TieuDe: $('#TieuDe').val(),
+                IDMenuCha: IDMenuCha,
+                IDMenu: IDMenu,
+                NoiBat: NoiBat
+            },
+            method: 'GET',
+            dataType: 'html',
+            success: function (data) {
+
+                $('#season-list').html(data);
+                $("#lbl_Message").html("");
+
+
+            }
+        });
+
+        
+    }
+</script>
+
+

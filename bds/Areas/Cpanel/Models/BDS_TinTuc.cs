@@ -41,6 +41,7 @@ namespace bds.Areas.Cpanel.Models
 
         public int? CreateBy { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? Updated { get; set; }
 
         public int? UpdateBy { get; set; }

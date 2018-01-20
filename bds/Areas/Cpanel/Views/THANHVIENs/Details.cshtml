@@ -1,0 +1,99 @@
+﻿@model bds.Areas.Cpanel.Models.THANHVIEN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>THANHVIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTruyCap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTruyCap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoDiDong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDiDong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailLH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailLH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanDangNhapCuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanDangNhapCuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIPMoney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIPMoney)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

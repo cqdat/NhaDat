@@ -42,6 +42,7 @@ namespace bds.Areas.Cpanel.Models
 
         public int? VIP { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? LanDangNhapCuoi { get; set; }
 
         public int? VIPMoney { get; set; }
