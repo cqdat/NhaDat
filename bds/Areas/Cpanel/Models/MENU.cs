@@ -9,13 +9,6 @@ namespace bds.Areas.Cpanel.Models
     [Table("MENU")]
     public partial class MENU
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MENU()
-        {
-            BDS_MUABAN = new HashSet<BDS_MUABAN>();
-            BDS_TINTUC = new HashSet<BDS_TINTUC>();
-        }
-
         [Key]
         public int IdMenu { get; set; }
 
@@ -37,11 +30,5 @@ namespace bds.Areas.Cpanel.Models
         public string url { get; set; }
 
         public int? Cap { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_TINTUC> BDS_TINTUC { get; set; }
     }
 }

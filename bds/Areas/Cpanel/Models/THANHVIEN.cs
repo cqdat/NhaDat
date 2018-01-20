@@ -9,15 +9,6 @@ namespace bds.Areas.Cpanel.Models
     [Table("THANHVIEN")]
     public partial class THANHVIEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public THANHVIEN()
-        {
-            BDS_MUABAN = new HashSet<BDS_MUABAN>();
-            BDS_MUABAN1 = new HashSet<BDS_MUABAN>();
-            BDS_TINTUC = new HashSet<BDS_TINTUC>();
-            BDS_TINTUC1 = new HashSet<BDS_TINTUC>();
-        }
-
         [Key]
         public int idTV { get; set; }
 
@@ -46,17 +37,5 @@ namespace bds.Areas.Cpanel.Models
         public DateTime? LanDangNhapCuoi { get; set; }
 
         public int? VIPMoney { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_MUABAN> BDS_MUABAN1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_TINTUC> BDS_TINTUC { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BDS_TINTUC> BDS_TINTUC1 { get; set; }
     }
 }

@@ -27,7 +27,5 @@ namespace bds.Areas.Cpanel.Models
 
         [StringLength(200)]
         public string url { get; set; }
-
-        public virtual TINHTHANH TINHTHANH { get; set; }
     }
 }
