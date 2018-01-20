@@ -12,5 +12,6 @@ namespace bds.Models
         public MENU CHoThue;
         public MENU DuAn;
         public List<MENU> TinTuc;
+        public List<GIOITHIEU> DichVuVIP;
     }
 }

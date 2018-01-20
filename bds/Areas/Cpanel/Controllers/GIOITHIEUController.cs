@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
+using bds.Models;
 
 namespace bds.Areas.Cpanel.Controllers
 {
@@ -46,10 +47,16 @@ namespace bds.Areas.Cpanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3")] GIOITHIEU gIOITHIEU)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
         {
             if (ModelState.IsValid)
             {
+                gIOITHIEU.HINHANH = "";
+                gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
+                gIOITHIEU.TINNOIBAT = 0;
+                gIOITHIEU.HIEULUC = 1;
+                gIOITHIEU.TUKHOA1= Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
                 db.GIOITHIEUx.Add(gIOITHIEU);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,25 +87,25 @@ namespace bds.Areas.Cpanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3")] GIOITHIEU gIOITHIEU)
+        public ActionResult Edit([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
         {
             if (ModelState.IsValid)
             {
-                gIOITHIEU.IDTT = 1;
-                gIOITHIEU.THUTU = 1;
-                gIOITHIEU.TIEUDE = gIOITHIEU.TIEUDE;
-                gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
-                gIOITHIEU.NOIDUNG = gIOITHIEU.NOIDUNG;
-                gIOITHIEU.HINHANH = gIOITHIEU.HINHANH;
+                //gIOITHIEU.IDTT = gIOITHIEU.IDTT;
+                //gIOITHIEU.THUTU = 1;
+                //gIOITHIEU.TIEUDE = gIOITHIEU.TIEUDE;
+                //gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
+                //gIOITHIEU.NOIDUNG = gIOITHIEU.NOIDUNG;
+                //gIOITHIEU.HINHANH = gIOITHIEU.HINHANH;
                 gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
-                gIOITHIEU.TINNOIBAT = 1;
-                gIOITHIEU.HIENTHI = 1;
-                gIOITHIEU.HIEULUC = 1;
-                gIOITHIEU.SOLANXEM = gIOITHIEU.SOLANXEM;
-                gIOITHIEU.TUKHOA1 = gIOITHIEU.TIEUDE;
-                gIOITHIEU.TUKHOA2 = gIOITHIEU.TUKHOA2;
-                gIOITHIEU.TUKHOA3 = gIOITHIEU.TUKHOA3;
-
+                //gIOITHIEU.TINNOIBAT = 1;
+                //gIOITHIEU.HIENTHI = 1;
+                //gIOITHIEU.HIEULUC = 1;
+                //gIOITHIEU.SOLANXEM = gIOITHIEU.SOLANXEM;
+                //gIOITHIEU.TUKHOA1 = gIOITHIEU.TIEUDE;
+                //gIOITHIEU.TUKHOA2 = gIOITHIEU.TUKHOA2;
+                //gIOITHIEU.TUKHOA3 = gIOITHIEU.TUKHOA3;
+                //gIOITHIEU.HIENTHIMENU = gIOITHIEU.HIENTHIMENU;
 
                 db.Entry(gIOITHIEU).State = EntityState.Modified;
                 db.SaveChanges();

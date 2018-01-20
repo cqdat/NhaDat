@@ -44,5 +44,7 @@ namespace bds.Areas.Cpanel.Models
 
         [Column(TypeName = "ntext")]
         public string TUKHOA3 { get; set; }
+
+        public int? HIENTHIMENU { get; set; }
     }
 }

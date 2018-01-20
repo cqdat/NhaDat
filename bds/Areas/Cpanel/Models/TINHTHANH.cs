@@ -9,13 +9,6 @@ namespace bds.Areas.Cpanel.Models
     [Table("TINHTHANH")]
     public partial class TINHTHANH
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TINHTHANH()
-        {
-            BDS_MUABAN = new HashSet<BDS_MUABAN>();
-            DUONGPHOes = new HashSet<DUONGPHO>();
-        }
-
         [Key]
         public int IdTT { get; set; }
 
@@ -30,12 +23,12 @@ namespace bds.Areas.Cpanel.Models
 
         public int? DemMuaban { get; set; }
 
+        public int? HienThi { get; set; }
+
         public int? ThuTu { get; set; }
 
         [StringLength(200)]
         public string url { get; set; }
-
-        public int? HienThi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BDS_MUABAN> BDS_MUABAN { get; set; }
