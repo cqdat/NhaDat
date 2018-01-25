@@ -1984,6 +1984,7 @@
     <Content Include="Views\News\ViewSub.cshtml" />
     <Content Include="Views\DuAn\XemDuAn.cshtml" />
     <Content Include="Views\GioiThieu\Detail.cshtml" />
+    <Content Include="Views\DuAn\Chitiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
