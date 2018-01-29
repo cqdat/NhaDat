@@ -8,6 +8,12 @@ namespace bds.Areas.Cpanel.Models
 
     public partial class BDS_MUABAN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BDS_MUABAN()
+        {
+            CHITIET_TT = new HashSet<CHITIET_TT>();
+        }
+
         [Key]
         public int IDMuaBan { get; set; }
 
@@ -70,5 +76,29 @@ namespace bds.Areas.Cpanel.Models
         public int? IDDuongPho { get; set; }
 
         public bool? Duyet { get; set; }
+
+        public string Ngang { get; set; }
+        public string Dai { get; set; }
+        public int? Huong { get; set; }
+        public string DuongRong { get; set; }
+        public int? PhapLy { get; set; }
+        public string SoLau { get; set; }
+        public string PhongNgu { get; set; }
+        public bool? NhaBep { get; set; }
+        public bool? PhongAn { get; set; }
+        public bool? SanThuong { get; set; }
+        public bool? XeHoi { get; set; }
+        public bool? ChinhChu { get; set; }
+
+        public virtual THANHVIEN THANHVIEN { get; set; }
+
+        public virtual MENU MENU { get; set; }
+
+        public virtual THANHVIEN THANHVIEN1 { get; set; }
+
+        public virtual TINHTHANH TINHTHANH { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIET_TT> CHITIET_TT { get; set; }
     }
 }

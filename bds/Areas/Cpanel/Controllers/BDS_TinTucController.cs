@@ -176,6 +176,8 @@ namespace bds.Areas.Cpanel.Controllers
             {
                 return HttpNotFound();
             }
+
+
             ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m => m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m => m.ThuTu), "IdMenu", "TenMenu", BDS_TINTUC.IDMenuCha);
             ViewBag.IDMenu = new SelectList(db.MENUs.Where(m=>m.IdCha == BDS_TINTUC.IDMenuCha), "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);
             ViewBag.CreateBy = new SelectList(db.THANHVIENs, "idTV", "TenTruyCap", BDS_TINTUC.CreateBy);
@@ -188,10 +190,46 @@ namespace bds.Areas.Cpanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL")] BDS_TINTUC BDS_TINTUC)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "TinTucID,TintucName,HinhAnh,MoTa,NoiDung,Vitri,IDMenuCha,IDMenu,NoiBat,NhieuNguoiDoc,CountView,HotIcon,Created,CreateBy,Updated,UpdateBy,Visible,URL,MetaKeyword,MetaDescrip")] BDS_TINTUC BDS_TINTUC, HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
+                var allowedExtensions = new[] {
+            ".Jpg", ".png", ".jpg", "jpeg"
+                };
+                
+                if(HinhAnh.FileName == "" || HinhAnh.FileName == null)
+                {
+                    BDS_TINTUC.HinhAnh = BDS_TINTUC.HinhAnh;
+                }
+                else
+                {
+                    var fileName = Path.GetFileName(HinhAnh.FileName);
+                    var ext = Path.GetExtension(HinhAnh.FileName);
+                    if (allowedExtensions.Contains(ext)) //check what type of extension  
+                    {
+                        string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
+                        string myfile = name + "_" + DateTime.Now.Millisecond + ext; //appending the name with id  
+                                                                                     // store the file inside ~/project folder(Img)  
+
+                        var path = Path.Combine(Server.MapPath("~/Areas/Cpanel/Images/TinTuc"), myfile);
+                        //var dir = Directory.CreateDirectory(path);
+                        //HinhAnh.SaveAs(Path.Combine(path, myfile));
+
+                        BDS_TINTUC.HinhAnh = myfile;
+                        HinhAnh.SaveAs(path);
+                    }
+                    else
+                    {
+                        ViewBag.message = "Please choose only Image file";
+                    }
+                }
+
+                
+                BDS_TINTUC.URL = Helper.ConvertToUpperLower(BDS_TINTUC.TintucName);
+                BDS_TINTUC.Updated = DateTime.Now;
+
                 db.Entry(BDS_TINTUC).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

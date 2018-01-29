@@ -5,9 +5,83 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#uploadimage1')
-                .attr('src', e.target.result);
-                //.width(150)
-                //.height(200);
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURL2(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage2')
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL3(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage3')
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURL4(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage4')
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURL5(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage5')
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function readURL6(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#uploadimage6')
+                .attr('src', e.target.result)
+                .width(110)
+                .height(110);
         };
 
         reader.readAsDataURL(input.files[0]);
@@ -22,7 +96,25 @@ $(document).ready(function () {
         $("#File1").click();
     });
 
+    $("#uploadimage2").click(function () {
+        $("#File2").click();
+    });
 
+    $("#uploadimage3").click(function () {
+        $("#File3").click();
+    });
+
+    $("#uploadimage4").click(function () {
+        $("#File4").click();
+    });
+
+    $("#uploadimage5").click(function () {
+        $("#File5").click();
+    });
+
+    $("#uploadimage6").click(function () {
+        $("#File6").click();
+    });
 
     $('.carousel').carousel({
         interval: 5000

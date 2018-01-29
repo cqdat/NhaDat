@@ -41,7 +41,7 @@ namespace bds.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact() 
         {
             ViewBag.Message = "Your contact page.";
 
@@ -252,11 +252,23 @@ namespace bds.Controllers
                 bds.LoaiTin = slLoaitin;
                 bds.IDDuongPho = 1;
                 bds.Duyet = false;
+                bds.Ngang = txtNgang;
+                bds.Dai = txtDai;
+                bds.Huong = slHuong;
+                bds.DuongRong = txtDuongRong;
+                bds.PhapLy = slPhapLy;
+                bds.SoLau = txtSolau;
+                bds.PhongNgu = txtPhongngu;
+                bds.NhaBep = ckBep;
+                bds.PhongAn = ckPhongAn;
+                bds.SanThuong = ckSanthuong;
+                bds.XeHoi = ckXehoi;
+                bds.ChinhChu = ckChinhchu;
+
 
                 db.BDS_MUABAN.Add(bds);
                 db.SaveChanges();
 
-                THUOCTINH t = new THUOCTINH();
 
             }
             return View();

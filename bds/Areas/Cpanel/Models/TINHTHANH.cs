@@ -9,6 +9,13 @@ namespace bds.Areas.Cpanel.Models
     [Table("TINHTHANH")]
     public partial class TINHTHANH
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TINHTHANH()
+        {
+            BDS_MUABAN = new HashSet<BDS_MUABAN>();
+            DUONGPHOes = new HashSet<DUONGPHO>();
+        }
+
         [Key]
         public int IdTT { get; set; }
 

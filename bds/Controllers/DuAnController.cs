@@ -18,5 +18,10 @@ namespace bds.Controllers
         {
             return View();
         }
+
+        public ActionResult Chitiet(int? id)
+        {
+            return View();
+        }
     }
 }

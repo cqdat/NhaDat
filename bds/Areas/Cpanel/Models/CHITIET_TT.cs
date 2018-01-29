@@ -14,5 +14,9 @@ namespace bds.Areas.Cpanel.Models
         public int? IDMuaBan { get; set; }
 
         public int? IDThuocTinh { get; set; }
+
+        public virtual BDS_MUABAN BDS_MUABAN { get; set; }
+
+        public virtual THUOCTINH THUOCTINH { get; set; }
     }
 }

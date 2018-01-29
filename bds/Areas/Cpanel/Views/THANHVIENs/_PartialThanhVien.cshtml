@@ -1,0 +1,114 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<bds.Areas.Cpanel.Models.THANHVIEN>
+@{
+    int stt = ViewBag.STT;
+}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                TenTruyCap
+            </th>
+
+            <th>
+                HoTen
+            </th>
+            <th>
+                DiaChi
+            </th>
+            <th>
+                SoDiDong
+            </th>
+            <th>
+                EmailLH
+            </th>
+            <th>
+                TinhTrang
+            </th>
+            <th>
+                VIP
+            </th>
+            <th>
+                LanDangNhapCuoi
+            </th>
+            <th>
+                VIPMoney
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTruyCap)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDiDong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailLH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanDangNhapCuoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIPMoney)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idTV }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idTV }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idTV })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="row">
+
+
+    <div class="dataTables_paginate paging_bootstrap_full_number pull-right" id="sample_1_paginate">
+        @Html.PagedListPager(Model, pageNumber => Url.Action("_PartialThanhVien",
+           new
+           {
+               pageNumber,
+               pageSize = ViewBag.pageSize,
+               TieuDe = ViewBag.TieuDe,
+               //NoiBat = ViewBag.NoiBat
+           }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+            new PagedListRenderOptions()
+            {
+                Display = PagedListDisplayMode.IfNeeded,
+                DisplayItemSliceAndTotal = true
+            }, new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "season-list"
+            }))
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite"></div>
+
+</div>
