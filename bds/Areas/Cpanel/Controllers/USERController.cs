@@ -158,6 +158,21 @@ namespace bds.Areas.Cpanel.Controllers
         #endregion
 
         //================================================================================
+        // LOGIN FUNCTION
+        //================================================================================
+        #region LOGOUT
+        [Authorize]
+        [HttpPost]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.RemoveAll();
+            return RedirectToAction("LoginAdmin", "USER", new { area = "Cpanel" }); ;
+        }
+
+        #endregion
+
+        //================================================================================
         //Encryption for password
         //================================================================================
         #region Encryption for password

@@ -96,7 +96,7 @@ namespace bds.Areas.Cpanel.Controllers
         }
 
         // GET: Cpanel/BDS_TINTUC/Create
-        [Authorize]
+        //[Authorize]
         public ActionResult Create()
         {
             ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");
@@ -154,6 +154,7 @@ namespace bds.Areas.Cpanel.Controllers
                 BDS_TINTUC.Created = DateTime.Now;
                 BDS_TINTUC.Updated = DateTime.Now;
                 db.BDS_TINTUC.Add(BDS_TINTUC);
+                Success(string.Format("Lưu thành công"), true);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -232,6 +233,7 @@ namespace bds.Areas.Cpanel.Controllers
 
                 db.Entry(BDS_TINTUC).State = EntityState.Modified;
                 db.SaveChanges();
+                Success(string.Format("Lưu thành công"), true);
                 return RedirectToAction("Index");
             }
             ViewBag.IDMenu = new SelectList(db.MENUs, "IdMenu", "TenMenu", BDS_TINTUC.IDMenu);

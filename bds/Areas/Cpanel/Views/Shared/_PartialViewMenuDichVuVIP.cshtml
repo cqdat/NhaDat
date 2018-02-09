@@ -1,0 +1,18 @@
+﻿@using bds.Areas.Cpanel.Models
+@model GIOITHIEU
+
+<li>
+    <a href="javascript:;"><i class="fa fa-tasks"></i> <span>Bài Viết</span> <span class="badge badge-info">12</span></a>
+    <ul class="acc-menu">
+        @foreach (var v in Model.DichVuVIP)
+        {
+            <li>
+                <a href="/Cpanel/GIOITHIEU/Edit/@v.IDTT">
+                    @v.TIEUDE
+                </a>
+            </li>
+        }
+        <li><a href="/Cpanel/GIOITHIEU/Create" style="color:#ff0000">Thêm mới</a></li>
+        <li><a href="/Cpanel/GIOITHIEU/Index" style="color:#ff0000">Tất cả</a></li>
+    </ul>
+</li>

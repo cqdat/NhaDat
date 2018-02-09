@@ -54,6 +54,7 @@
     <strong>Well done!</strong> @ViewBag.Message
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 </div>*@
+@{ Html.RenderPartial("_Alerts"); }
 @using (Html.BeginForm())
 {
     <div class="form-horizontal">

@@ -77,17 +77,33 @@ namespace bds.Areas.Cpanel.Models
 
         public bool? Duyet { get; set; }
 
+        [StringLength(10)]
         public string Ngang { get; set; }
+
+        [StringLength(10)]
         public string Dai { get; set; }
+
         public int? Huong { get; set; }
+
+        [StringLength(10)]
         public string DuongRong { get; set; }
+
         public int? PhapLy { get; set; }
+
+        [StringLength(10)]
         public string SoLau { get; set; }
+
+        [StringLength(10)]
         public string PhongNgu { get; set; }
+
         public bool? NhaBep { get; set; }
+
         public bool? PhongAn { get; set; }
+
         public bool? SanThuong { get; set; }
+
         public bool? XeHoi { get; set; }
+
         public bool? ChinhChu { get; set; }
 
         public virtual THANHVIEN THANHVIEN { get; set; }

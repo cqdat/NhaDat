@@ -2,23 +2,25 @@
 @using bds.Areas.Cpanel.Models;
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOut", "USER", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-            //var user =
-            DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
-            
-            var user = db.USERs.SingleOrDefault(u => u.UserName.ToUpper() == User.Identity.Name.ToUpper());
-        
+        //var user =
+        DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
+
+        var user = db.USERs.SingleOrDefault(u => u.UserName.ToUpper() == User.Identity.Name.ToUpper());
+
         <ul class="nav navbar-nav pull-right toolbar">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs" style="font-weight:bold">@*@user.FullName*@ <i class="fa fa-caret-down"></i></span>
-                @*<img src="http://lean.wanek.com/Account/DislpayImage?EMPID=@user.EMPID" alt="Dangerfield" />*@</a>
+                <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
+                    <span class="hidden-xs" style="font-weight:bold">Hello: @user.FullName <i class="fa fa-caret-down"></i></span>
+                    <img src="~/Areas/Cpanel/assets/demo/avatar/jackson.png" alt="Dangerfield" />
+                </a>
                 <ul class="dropdown-menu userinfo arrow">
                     <li class="username">
                         <a href="#">
                             <div class="pull-left">@*<img src="http://lean.wanek.com/Account/DislpayImage?EMPID=@user.EMPID" alt="Jeff Dangerfield" />*@</div>
-                            <div class="pull-right"><h5 style="font-weight:bold">@*@user.FullName*@</h5><small>Logged in as <span>john275</span></small></div>
+                            <div class="pull-right"><h5 style="font-weight:bold">@user.FullName</h5><small>Last Logged in <span>@user.Lastlogin.ToShortDateString()</span></small></div>
                         </a>
                     </li>
                     <li class="userlinks">
@@ -34,7 +36,7 @@
                 </ul>
             </li>
             @*NGON NGU VI*@
-            <li class="dropdown">
+            @*<li class="dropdown">
                 <a href="#" class="hasnotifications dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge">1</span></a>
                 <ul class="dropdown-menu messages arrow">
                     <li class="dd-header">
@@ -87,16 +89,16 @@
                     </div>
                     <li class="dd-footer"><a href="#">View All Messages</a></li>
                 </ul>
-            </li>
+            </li>*@
 
             @*NGonNGU EN*@
-            
+
 
         </ul>
     }
 }
 else
 {
-    Response.Redirect("~/Account/Login");
+    Response.Redirect("~/Cpanel/USER/LoginAdmin");
 }
 

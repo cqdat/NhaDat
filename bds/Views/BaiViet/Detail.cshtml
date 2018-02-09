@@ -1,0 +1,37 @@
+﻿@using bds.Models
+@model bds.Areas.Cpanel.Models.GIOITHIEU
+
+@{
+    ViewBag.Title = Model.TIEUDE;
+}
+<div>
+    <div class="row">
+        <div class="col-md-8 detailnews">
+            <div class="contentnews">
+                <div class="title">
+                    <h3>
+                        @Model.TIEUDE
+                    </h3>
+                </div>
+                <div class="uptime">
+                    Cập nhật: @Convert.ToDateTime(Model.NGAYCAPNHAT).ToString("HH:mm dd/MM/yyyy")
+                </div>
+                <div style="padding:10px">
+                    @Html.Raw(@Model.NOIDUNG)
+                </div>
+            </div>
+
+            @*@Html.Partial("_tinkhac", Model.TinKhac)*@
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="leftdetail">
+                @*@Html.Partial("_tinnoibat", Model.TinNoiBat)
+                    @Html.Partial("_nhieunguoixem", Model.NhieuNguoiDoc)*@
+            </div>
+
+            @Html.Partial("_bannerleft")
+        </div>
+    </div>
+</div>

@@ -14,6 +14,8 @@ namespace bds.Areas.Cpanel.Models
         {
             BDS_MUABAN = new HashSet<BDS_MUABAN>();
             BDS_TINTUC = new HashSet<BDS_TINTUC>();
+            BDS_TINTUC1 = new HashSet<BDS_TINTUC>();
+            DUANs = new HashSet<DUAN>();
         }
 
         [Key]
@@ -44,6 +46,10 @@ namespace bds.Areas.Cpanel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BDS_TINTUC> BDS_TINTUC { get; set; }
 
-        public virtual BDS_TINTUC BDS_TINTUC1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BDS_TINTUC> BDS_TINTUC1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DUAN> DUANs { get; set; }
     }
 }

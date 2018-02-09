@@ -8,10 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
 using bds.Models;
+using bds.Controllers;
 
 namespace bds.Areas.Cpanel.Controllers
 {
-    public class GIOITHIEUController : Controller
+    public class GIOITHIEUController : BaseController
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
@@ -97,6 +98,7 @@ namespace bds.Areas.Cpanel.Controllers
                 //gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
                 //gIOITHIEU.NOIDUNG = gIOITHIEU.NOIDUNG;
                 //gIOITHIEU.HINHANH = gIOITHIEU.HINHANH;
+                gIOITHIEU.TUKHOA1 = Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
                 gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
                 //gIOITHIEU.TINNOIBAT = 1;
                 //gIOITHIEU.HIENTHI = 1;

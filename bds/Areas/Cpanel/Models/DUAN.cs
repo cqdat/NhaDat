@@ -9,38 +9,44 @@ namespace bds.Areas.Cpanel.Models
     [Table("DUAN")]
     public partial class DUAN
     {
-        public int? IDLOAI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DUAN()
+        {
+            TABDUANs = new HashSet<TABDUAN>();
+        }
 
-        public int? THUTU { get; set; }
+        public int DUANID { get; set; }
 
-        [Key]
-        [Column(TypeName = "numeric")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal IDTT { get; set; }
+        [StringLength(200)]
+        public string DUANNAME { get; set; }
 
-        [StringLength(1000)]
-        public string TIEUDE { get; set; }
+        [StringLength(200)]
+        public string HINHANH { get; set; }
 
-        [StringLength(4000)]
-        public string TOMTAT { get; set; }
+        public string MOTA { get; set; }
 
-        [Column(TypeName = "ntext")]
-        public string NOIDUNG { get; set; }
-
-        [StringLength(1000)]
-        public string HINHNHO { get; set; }
-
-        [StringLength(1000)]
-        public string HINHLON { get; set; }
-
-        public DateTime? NGAY { get; set; }
-
-        public int? TINNOIBAT { get; set; }
-
-        public int? HIENTHI { get; set; }
-
-        public int? HIEULUC { get; set; }
+        public int? IDTINHTHANH { get; set; }
 
         public int? SOLANXEM { get; set; }
+
+        public int? RATING { get; set; }
+
+        public bool? DUYET { get; set; }
+
+        [StringLength(200)]
+        public string DIACHI { get; set; }
+
+        public int? IDMENU { get; set; }
+
+        [StringLength(50)]
+        public string DIENTICH { get; set; }
+
+        [StringLength(50)]
+        public string MUCGIA { get; set; }
+
+        public virtual MENU MENU { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TABDUAN> TABDUANs { get; set; }
     }
 }

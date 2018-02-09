@@ -46,5 +46,7 @@ namespace bds.Areas.Cpanel.Models
         public string TUKHOA3 { get; set; }
 
         public int? HIENTHIMENU { get; set; }
+
+        public List<GIOITHIEU> DichVuVIP;
     }
 }

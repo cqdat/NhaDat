@@ -25,8 +25,10 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<DUAN_LOAI> DUAN_LOAI { get; set; }
         public virtual DbSet<DUONGPHO> DUONGPHOes { get; set; }
         public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
+        public virtual DbSet<HINHANH> HINHANHs { get; set; }
         public virtual DbSet<INFORMATION> INFORMATION { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
+        public virtual DbSet<TABDUAN> TABDUANs { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
         public virtual DbSet<THUOCTINH> THUOCTINHs { get; set; }
         public virtual DbSet<TINHTHANH> TINHTHANHs { get; set; }
@@ -46,6 +48,26 @@ namespace bds.Areas.Cpanel.Models
                 .Property(e => e.URL)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<BDS_MUABAN>()
+                .Property(e => e.Ngang)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<BDS_MUABAN>()
+                .Property(e => e.Dai)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<BDS_MUABAN>()
+                .Property(e => e.DuongRong)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<BDS_MUABAN>()
+                .Property(e => e.SoLau)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<BDS_MUABAN>()
+                .Property(e => e.PhongNgu)
+                .IsUnicode(false);
+
             modelBuilder.Entity<BDS_TINTUC>()
                 .Property(e => e.HinhAnh)
                 .IsUnicode(false);
@@ -55,8 +77,21 @@ namespace bds.Areas.Cpanel.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DUAN>()
-                .Property(e => e.IDTT)
-                .HasPrecision(18, 0);
+                .Property(e => e.HINHANH)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DUAN>()
+                .Property(e => e.DIENTICH)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DUAN>()
+                .Property(e => e.MUCGIA)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DUAN>()
+                .HasMany(e => e.TABDUANs)
+                .WithOptional(e => e.DUAN)
+                .HasForeignKey(e => e.IDDUAN);
 
             modelBuilder.Entity<DUAN_HINH>()
                 .Property(e => e.IDTT)
@@ -64,6 +99,14 @@ namespace bds.Areas.Cpanel.Models
 
             modelBuilder.Entity<DUONGPHO>()
                 .Property(e => e.url)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HINHANH>()
+                .Property(e => e.THUMBNAIL)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HINHANH>()
+                .Property(e => e.IMAGEURL)
                 .IsUnicode(false);
 
             modelBuilder.Entity<INFORMATION>()
@@ -80,8 +123,9 @@ namespace bds.Areas.Cpanel.Models
                 .HasForeignKey(e => e.IDMenu);
 
             modelBuilder.Entity<MENU>()
-                .HasOptional(e => e.BDS_TINTUC1)
-                .WithRequired(e => e.MENU1);
+                .HasMany(e => e.BDS_TINTUC1)
+                .WithOptional(e => e.MENU1)
+                .HasForeignKey(e => e.IDMenuCha);
 
             modelBuilder.Entity<THANHVIEN>()
                 .Property(e => e.TenTruyCap)

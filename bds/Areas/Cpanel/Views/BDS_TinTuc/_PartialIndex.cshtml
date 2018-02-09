@@ -13,7 +13,9 @@
         <th>
             Tiêu đề
         </th>
-
+        <th>
+            Menu Cha
+        </th>
         <th>
             Menu
         </th>
@@ -46,10 +48,13 @@
             <td>
                 <img alt="@item.TintucName" style="width:50px" src='~/Areas/Cpanel/Images/TinTuc/@item.HinhAnh' />
             </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.TintucName)
             </td>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.MENU1.TenMenu)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MENU.TenMenu)
             </td>

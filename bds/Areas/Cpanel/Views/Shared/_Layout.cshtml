@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,7 +28,7 @@
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
-        <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
+        @*<a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>*@
         <a class="navbar-brand" href="index.html">Nha Dat Binh Duong 247</a>
         @*<span style="margin-top:10px; font-weight:bold;color:#ffffff">NHA ĐẤT BÌNH DƯƠNG 247</span>*@ 
         @Html.Partial("_LoginPartial")
@@ -53,17 +54,11 @@
                         <li><a href="/Cpanel/BDS_LOAIBDS/">DM Loại BDS</a></li>
                         <li><a href="/Cpanel/BDS_HUONGNHA/">DM Hướng nhà</a></li>
                         <li><a href="/Cpanel/BDS_DIENTICH/">DM Diện tích</a></li>
-                        <li><a href="/Cpanel/TINHTHANH/">DM Tỉnh Thành</a></li>
+                        <li><a href="/Cpanel/TINHTHANH/">DM Quận/Huyện</a></li>
                     </ul>
                 </li>
                
-                <li>
-                    <a href="javascript:;"><i class="fa fa-tasks"></i> <span>Bài Viết</span> <span class="badge badge-info">12</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="/Cpanel/GIOITHIEU/Edit/1">Giới thiệu</a></li>
-                        <li><a href="/Cpanel/GIOITHIEU/Footer_ContactInfo/2">Thông tin liên hệ</a></li>
-                    </ul>
-                </li>
+               @{Html.RenderAction("getDichVuVIP", "Default", new { area = "Cpanel" });} 
                 <li>
                     <a href="javascript:;"><i class="fa fa-table"></i> <span>Tin Tức</span></a>
                     <ul class="acc-menu">
@@ -150,26 +145,7 @@
             <!-- END SIDEBAR MENU -->
         </nav>
         <!-- BEGIN RIGHTBAR -->
-        <div id="page-rightbar">
-
-            <div id="widgetarea">
-
-
-                <div id="chatbar" class="widget">
-                    <div class="widget-heading">
-                        <a href="javascript:;" data-toggle="collapse" data-target="#chatbody"><h4>Select Site <small>(2)</small></h4></a>
-                    </div>
-                    <div class="widget-body collapse in">
-                        <ul class="chat-users">
-                            <li><a href="/Wanek/Dashboard/Index" style="text-align:center"><img src="~/assets/demo/avatar/wanek.jpg" alt=""></a></li>
-                            <li><a href="/Ashton/Testing" style="text-align:center"><img src="~/assets/demo/avatar/Ashton.jpg" alt=""></a></li>
-
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- END RIGHTBAR -->
         <div id="page-content">
             <div id="wrap">
