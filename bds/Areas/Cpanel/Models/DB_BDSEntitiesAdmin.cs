@@ -27,6 +27,7 @@ namespace bds.Areas.Cpanel.Models
         public virtual DbSet<GIOITHIEU> GIOITHIEUx { get; set; }
         public virtual DbSet<HINHANH> HINHANHs { get; set; }
         public virtual DbSet<INFORMATION> INFORMATION { get; set; }
+        public virtual DbSet<LIENHE_GOPY> LIENHE_GOPY { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<TABDUAN> TABDUANs { get; set; }
         public virtual DbSet<THANHVIEN> THANHVIENs { get; set; }
@@ -111,6 +112,10 @@ namespace bds.Areas.Cpanel.Models
 
             modelBuilder.Entity<INFORMATION>()
                 .Property(e => e.Code)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<LIENHE_GOPY>()
+                .Property(e => e.UsernameLH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<MENU>()

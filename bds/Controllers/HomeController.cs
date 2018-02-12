@@ -139,6 +139,7 @@ namespace bds.Controllers
                 Session["username"] = model.TenTruyCap;
                 Session["uid"] = model.idTV;
                 Session["VIPMoney"] = model.VIPMoney;
+                Session["userlogin"] = model;
                 if (ckRemember != null)
                 {
                     HttpCookie cookie = new HttpCookie("Login");
@@ -333,6 +334,12 @@ namespace bds.Controllers
             });
             return Json(model, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult BanDo()
+        {
+            return View();
+        }
+
 
     }
 }

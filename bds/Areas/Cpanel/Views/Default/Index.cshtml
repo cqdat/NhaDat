@@ -1,29 +1,4 @@
-﻿<script src="~/Scripts/jquery-3.2.1.min.js"></script>
-<script src="~/Content/ckeditor/ckeditor.js"></script>
-<script src="~/Content/ckfinder/ckfinder.js"></script>
-<script type="text/javascript">
-    $(function () {
-
-        $('#Brows').click(function () {
-            var ckfinder = new CKFinder();
-            ckfinder.selectActionFunction = function (Images) {
-                $('#hinhanh').val(Images);
-
-            };
-            ckfinder.popup();
-        });
-    })
-
-</script>
-<script type="text/javascript">
-
-    $(function () {
-        CKEDITOR.replace("mota",
-            { height: '500px',},
-            { customConfig: "/Content/ckeditor/config.js" });
-    })
-</script>
-
+﻿
 <div id="page-heading">
     <h1>Trang chủ</h1>
     <div class="options">
@@ -32,6 +7,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="container" style="background-color:#ffffff; padding:5px 5px">
     <div class="row">
         <div class="col-md-12">
@@ -59,7 +36,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-6">
-                    <a class="info-tiles tiles-orange" href="#">
+                    <a class="info-tiles tiles-orange" href="/Cpanel/THANHVIENs/">
                         <div class="tiles-heading">Thành viên</div>
                         <div class="tiles-body-alt">
                             <i class="fa fa-group"></i>
@@ -70,10 +47,10 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-6">
-                    <a class="info-tiles tiles-alizarin" href="#">
+                    <a class="info-tiles tiles-alizarin" href="/Cpanel/LIENHE_GOPY/">
                         <div class="tiles-heading">Góp ý - Liên hệ</div>
                         <div class="tiles-body-alt">
-                            <i class="fa fa-shopping-cart"></i>
+                            <i class="fa fa-comments-o"></i>
                             <div class="text-center">57</div>
                             <small></small>
                         </div>

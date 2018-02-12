@@ -172,6 +172,7 @@
     <Compile Include="Areas\Cpanel\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEU1Controller.cs" />
     <Compile Include="Areas\Cpanel\Controllers\GIOITHIEUController.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\LIENHE_GOPYController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\MENUController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\THANHVIENsController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\TINHTHANHController.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
     <Compile Include="Areas\Cpanel\Models\HINHANH.cs" />
     <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
+    <Compile Include="Areas\Cpanel\Models\LIENHE_GOPY.cs" />
     <Compile Include="Areas\Cpanel\Models\MENU.cs" />
     <Compile Include="Areas\Cpanel\Models\TABDUAN.cs" />
     <Compile Include="Areas\Cpanel\Models\THANHVIEN.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Controllers\DuAnController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RaoVatController.cs" />
@@ -1909,6 +1912,11 @@
     <Content Include="Areas\Cpanel\Views\THANHVIENs\Index.cshtml" />
     <Content Include="Areas\Cpanel\Views\THANHVIENs\_PartialThanhVien.cshtml" />
     <Content Include="Areas\Cpanel\Views\Shared\_PartialViewMenuDichVuVIP.cshtml" />
+    <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Create.cshtml" />
+    <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Delete.cshtml" />
+    <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Details.cshtml" />
+    <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Edit.cshtml" />
+    <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Index.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -1990,6 +1998,8 @@
     <Content Include="Views\GioiThieu\Detail.cshtml" />
     <Content Include="Views\DuAn\Chitiet.cshtml" />
     <Content Include="Views\BaiViet\Detail.cshtml" />
+    <Content Include="Views\Home\BanDo.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

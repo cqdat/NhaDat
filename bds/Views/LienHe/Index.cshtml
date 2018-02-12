@@ -1,0 +1,246 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<style>
+    #CaptchaImage{
+        height:35px;
+        margin-top:-20px;
+    }
+    #CaptchaInputText {
+        float: right;
+        margin-top: -80px;
+        display: block;
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #Submitf .error {
+        color: #ff0000 !important;
+        font-weight: normal !important;
+        font-style: italic !important;
+    }
+</style>
+<div>
+    <div class="row">
+        <div class="col-md-8 detailnews">
+            <div class="contentnews">
+                @{ Html.RenderPartial("_Alerts"); }
+                <div style="padding:10px">
+                    @using (Html.BeginForm("SaveContact", "LienHe", FormMethod.Post, new { id = "Submitf", name = "Submitf", @class = "form-horizontal" }))
+                    {
+                    
+                        <fieldset title="Step 1" id="basicwizard-step-0" class="stepy-step">
+                            <h4>Thông tin góp ý - phản hồi của bạn sẽ giúp chúng tôi phục vụ bạn ngày càng tốt hơn</h4>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Tên liên hệ</label>
+                                <div class="col-md-5">
+                                    <input type="text" placeholder="username" id="TenLienHe" value="@ViewBag.TenLH" name="TenLienHe" class="form-control">
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="help-block"><span style="color:#ff0000" id="lbl_TenLienHe"></span></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Email - SDT</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="emailLH" name="emailLH" placeholder="Email (bắt buộc)" value="@ViewBag.emailLH" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Số điện thoại" value="@ViewBag.SDT" class="form-control">
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Tiêu đề</label>
+                                <div class="col-md-9">
+                                    <input type="text" placeholder="Nhập tiêu đề" style="max-width:100%" id="tieude" name="tieude" class="form-control">
+                                    <span style="color:#ff0000" id="lbl_tieude"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Nội dung</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" rows="8" id="NoiDung" name="NoiDung" style="max-width:100%"></textarea>
+                                    <span style="color:#ff0000" id="lbl_NoiDung"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Mã an toàn</label>
+                                <div class="col-md-6">
+                                    @Html.Captcha("Làm mới", "", 5, null)
+                                    @ViewBag.ErrorMessage
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-9">
+                                    <input type="submit" class="btn btn-primary" value="Gửi" />
+                                    <input type="submit" class="btn btn-default" value="Làm Lại" />
+                                </div>
+                            </div>
+                            
+                        </fieldset>
+                       
+                    }
+                </div>
+            </div>
+
+            @*@Html.Partial("_tinkhac", Model.TinKhac)*@
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="leftdetail">
+                @*@Html.Partial("_tinnoibat", Model.TinNoiBat)
+                @Html.Partial("_nhieunguoixem", Model.NhieuNguoiDoc)*@
+            </div>
+
+            @Html.Partial("_bannerleft")
+        </div>
+    </div>
+</div>
+<script>
+    //Check validation before submit NoiDung
+    //function validateForm() {
+
+    //    var TenLienHe = $("#TenLienHe").val();
+    //    if (jQuery.trim(TenLienHe).length <= 0) {
+    //        $("#lbl_TenLienHe").html("(*) Required");
+    //        $("#TenLienHe").focus();
+    //        return false;
+    //    }
+    //    else {
+    //        $("#lbl_TenLienHe").html("");
+    //    }
+
+    //    var phonenumber = $("#phonenumber").val();
+    //    if (jQuery.trim(phonenumber).length <= 0) {
+    //        $("#lbl_phonenumber").html("(*) Required");
+    //        $("#phonenumber").focus();
+    //        return false;
+    //    }
+    //    else {
+    //        $("#lbl_phonenumber").html("");
+    //    }
+
+    //    var tieude = $("#tieude").val();
+    //    if (jQuery.trim(tieude).length <= 0) {
+    //        $("#lbl_tieude").html("(*) Required");
+    //        $("#tieude").focus();
+    //        return false;
+    //    }
+    //    else {
+    //        $("#lbl_tieude").html("");
+    //    }
+
+
+    //    var NoiDung = $("#NoiDung").val();
+    //    if (jQuery.trim(NoiDung).length <= 0) {
+    //        $("#lbl_NoiDung").html("(*) Vui lòng nhập nội dung");
+    //        $("#NoiDung").focus();
+    //        return false;
+    //    }
+    //    else {
+    //        $("#lbl_NoiDung").html("");
+    //    }
+    //CaptchaInputText 
+    //}
+    $(document).ready(function () {
+
+    $("#Submitf").validate({
+        rules: {
+            TenLienHe: {
+                required: true,
+                minlength: 5,
+                maxlength: 20,
+                
+            },
+            emailLH: {
+                required: true,
+                minlength: 6,
+                maxlength: 50,
+                email: true,
+
+            },
+            phonenumber: {
+                required: true,
+                minlength: 10,
+                maxlength: 11,
+                number: true,
+                
+            },
+            tieude: {
+                required: true,
+                minlength: 5,
+                maxlength: 100,
+
+            },
+            CaptchaInputText: {
+                required: true,
+                minlength: 5,
+                maxlength: 5,
+
+            },
+            NoiDung: {
+                required: true,
+                minlength: 30,
+                maxlength: 400,
+
+            },
+        },
+        messages: {
+            TenLienHe: {
+                required: "Tên người dùng không được để trống",
+                minlength: "Vui lóng nhập hơn 5 ký tự",
+                maxlength: "Vui lòng nhập nhỏ 20 ký tự",
+                remote: "Tài khoản này đã được sử dụng"
+            },
+            emailLH: {
+                required: "Email là bắt buộc",
+                minlength: "Email không chính xác",
+                maxlength: "Email không chính xác",
+                email: "Email không chính xác"
+            },
+            phonenumber: {
+                required: "Vui lòng nhập số điện thoại",
+                minlength: "Số điện thoại không chính xác",
+                maxlength: "Số điện thoại không chính xác",
+                number: "Số điện thoại không chính xác",
+            },
+
+            tieude: {
+                required: "Vui lòng nhập tiêu đề",
+                minlength: "Số lượng từ chưa đủ",
+                maxlength: "Đã nhập quá giới hạn cho phép",
+                
+            },
+            CaptchaInputText: {
+                required: "Vui lòng nhập Mã bảo vệ",
+                minlength: "Số lượng từ chưa đủ",
+                maxlength: "Đã nhập quá giới hạn cho phép",
+
+            },
+            NoiDung: {
+                required: "Vui lòng nhập Nội Dung",
+                minlength: "Số lượng từ chưa đủ",
+                maxlength: "Đã nhập quá giới hạn cho phép",
+
+            }
+        }
+        });
+
+    });
+</script>
+
