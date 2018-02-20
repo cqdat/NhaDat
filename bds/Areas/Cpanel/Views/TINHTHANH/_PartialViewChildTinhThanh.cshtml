@@ -40,7 +40,8 @@
                     | <a href="/Cpanel/TINHTHANH/Delete/@item.IdTT">Xóa</a>
                 </span>
                 </div>
-            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT })
+            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT}) @*, txtSearch = @ViewBag.txtSearch*@
+            
         </li>
 
     }

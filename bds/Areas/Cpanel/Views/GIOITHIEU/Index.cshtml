@@ -4,67 +4,76 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
 }
+<div id="page-heading">
+    <h1>Danh sách bài viết</h1>
+    <div class="options">
+        <div class="btn-toolbar">
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.THUTU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TIEUDE)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.NGAYCAPNHAT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TINNOIBAT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HIENTHI)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.SOLANXEM)
-        </th>
-        
-        <th></th>
-    </tr>
+            <a class="btn btn-success" href="/Cpanel/GIOITHIEU/Create">Thêm mới</a>
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:2px">
+    @{ Html.RenderPartial("_Alerts"); }
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.THUTU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TIEUDE)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.THUTU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TIEUDE)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TINNOIBAT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HIENTHI)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.SOLANXEM)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDTT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDTT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDTT })
-        </td>
-    </tr>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.NGAYCAPNHAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TINNOIBAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HIENTHI)
+            </th>
 
-</table>
+            <th>
+                @Html.DisplayNameFor(model => model.SOLANXEM)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THUTU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TIEUDE)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TINNOIBAT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HIENTHI)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SOLANXEM)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IDTT }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IDTT }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDTT })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

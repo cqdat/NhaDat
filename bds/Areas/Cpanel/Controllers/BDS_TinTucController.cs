@@ -81,6 +81,7 @@ namespace bds.Areas.Cpanel.Controllers
         }
 
         // GET: Cpanel/BDS_TINTUC/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -96,7 +97,7 @@ namespace bds.Areas.Cpanel.Controllers
         }
 
         // GET: Cpanel/BDS_TINTUC/Create
-        //[Authorize]
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.IDMenuCha = new SelectList(db.MENUs.Where(m=>m.IdCha == 0 && m.IsTypeTT == true).OrderBy(m=>m.ThuTu), "IdMenu", "TenMenu");

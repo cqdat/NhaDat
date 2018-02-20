@@ -10,26 +10,57 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <div class="banner-left">
+        <div id="ban_left" class="ban_scroll" style="display: block;top: 0px;position: fixed;left: 1px;">
+            <div class="adPosition" positioncode="BANNER_POSITION_LEFT" style="margin-bottom: 0px;">
+                <div class="adshared">
+                    <div class="adshareditem aditem" time="15" style="display: none;" src="https://file4.batdongsan.com.vn/2017/11/17/vou5EgPQ/20171117111550-77cb.jpg" altsrc="https://file4.batdongsan.com.vn/2017/11/17/vou5EgPQ/20171117111550-77cb.jpg" link="https://banxehoi.com/" bid="4273" tip="" tp="7" w="100" h="300" k="">
+                        <a href="/click.aspx?bannerid=4273" target="_blank" title="" rel="nofollow">
+                            <img src="https://file4.batdongsan.com.vn/2017/11/17/vou5EgPQ/20171117111550-77cb.jpg" style="max-width: 100%; height:300px;">
+                        </a>
+                    </div>
+                    <div class="adshareditem aditem" time="15" style="display: block;" src="https://file4.batdongsan.com.vn/2018/01/11/vou5EgPQ/20180111135042-0eac.jpg" altsrc="https://file4.batdongsan.com.vn/2018/01/11/vou5EgPQ/20180111135042-0eac.jpg" link="https://batdongsan.com.vn/tin-thi-truong/lam-the-nao-de-nguoi-mua-nha-tim-den-voi-bat-dong-san-cua-ban-ar90426" bid="6292" tip="" tp="7" w="100" h="300" k="">
+                        <a href="/click.aspx?bannerid=6292" target="_blank" title="" rel="nofollow"><img src="https://file4.batdongsan.com.vn/2018/01/11/vou5EgPQ/20180111135042-0eac.jpg" style="max-width: 100%; height:300px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container wrapper">
-        
-         @{Html.RenderAction("getHeader", "Home");}         
+
+        @{Html.RenderAction("getHeader", "Home");}
 
 
-         @{Html.RenderAction("getMenu", "Home");}         
-        
+        @{Html.RenderAction("getMenu", "Home");}
+
 
         @Html.Partial("_social")
 
     </div>
     <div class="container body-content">
         @RenderBody()
-        
+
 
         @{Html.RenderAction("getFooter", "Home");}
-        
 
-        
+
+
     </div>
+
+    <div class="banner-right">
+        <div id="ban_right" class="ban_scroll" style="display: block; top: 0px; position: fixed; right: 1px;">
+            <div class="adPosition" positioncode="BANNER_POSITION_RIGHT" style="margin-bottom: 0px;">
+                <div class="adshared">
+                    <div class="aditem" time="15" style="display: block;" src="https://file4.batdongsan.com.vn/2017/11/14/vou5EgPQ/20171114165334-fefe.jpg" altsrc="https://file4.batdongsan.com.vn/2017/11/14/vou5EgPQ/20171114165334-fefe.jpg" link="http://interaktivestory.batdongsan.com.vn/bao-cao-nghien-cuu-thi-truong/index.aspx" bid="6039" tip="" tp="7" w="100" h="300" k="">
+                        <a href="/click.aspx?bannerid=6039" target="_blank" title="" rel="nofollow">
+                            <img src="https://file4.batdongsan.com.vn/2017/11/14/vou5EgPQ/20171114165334-fefe.jpg" style="max-width: 100%; height:300px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="full-opacity">&nbsp;</div>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     @Scripts.Render("~/bundles/jquery")
@@ -38,3 +69,16 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+    window.$zopim || (function (d, s) {
+        var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+        $.src = "https://v2.zopim.com/?5U5F6b1u0ZZOhoUkdg1ZZSViXxmqY68l"; z.t = +new Date; $.
+            type = "text/javascript"; e.parentNode.insertBefore($, e)
+    })(document, "script");
+</script>
+<!--End of Zendesk Chat Script-->

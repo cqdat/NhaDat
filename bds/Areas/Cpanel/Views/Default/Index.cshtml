@@ -1,4 +1,6 @@
-﻿
+﻿@using bds.Areas.Cpanel.Models
+@model IndexAdminModel
+<script src="~/Areas/Cpanel/assets/js/jquery-1.10.2.min.js"></script>
 <div id="page-heading">
     <h1>Trang chủ</h1>
     <div class="options">
@@ -40,7 +42,7 @@
                         <div class="tiles-heading">Thành viên</div>
                         <div class="tiles-body-alt">
                             <i class="fa fa-group"></i>
-                            <div class="text-center">109</div>
+                            <div class="text-center"><label id="lbl_TV"></label></div>
                             <small>@*new users registered*@</small>
                         </div>
                         <div class="tiles-footer">manage members</div>
@@ -51,7 +53,7 @@
                         <div class="tiles-heading">Góp ý - Liên hệ</div>
                         <div class="tiles-body-alt">
                             <i class="fa fa-comments-o"></i>
-                            <div class="text-center">57</div>
+                            <div class="text-center"><label id="lblLH_Gopy"></label></div>
                             <small></small>
                         </div>
                         <div class="tiles-footer">Quản lý</div>
@@ -60,4 +62,129 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="panel panel-midnightblue">
+                <div class="panel-heading">
+                    <h4>
+                        <ul class="nav nav-tabs">
+                            
+                            <li class="active"><a href="#comments" data-toggle="tab">
+                                <i class="fa fa-comments visible-xs icon-scale"></i>
+                                <span class="hidden-xs">Liên hệ <sup style="font-weight:bold; color:#ff0000; font-size:8.5pt">Mới</sup></span></a>
+                            </li>
+                            <li><a href="#users" data-toggle="tab"><i class="fa fa-group visible-xs icon-scale"></i><span class="hidden-xs">Thành viên <sup style="font-weight:bold; color:#ff0000; font-size:8.5pt">Mới</sup></span></a></li>
+                        </ul>
+                    </h4>
+                    <!-- <div class="options">
+                      <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                      <a href="javascript:;"><i class="fa fa-wrench"></i></a>
+                    </div> -->
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane active" id="comments" tabindex="5001" style="overflow-y: hidden; outline: none;">
+                            @Html.Partial("_PartialLienHe_Gopy", Model.LienHeGopy)
+                            
+                        </div>
+                        <div class="tab-pane" id="users" tabindex="5002" style="overflow-y: hidden; outline: none;">
+                            @Html.Partial("_PartialThanhVien", Model.ThanhVien)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-indigo">
+                <div class="panel-heading">
+                    <h4>Tin rao vặt <sup style="font-weight:bold; color:#ff0000; font-size:8.5pt">Mới</sup></h4>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <ul class="panel-threads">
+                            <li>
+                                <img src="/images/content/f.jpg" alt="Aniss">
+                                <div class="content">
+                                    <span class="time">2/11/2018 2:42:35 PM</span>
+                                    <a href="#" class="title">Nhà chính chủ phường Tam Hiệp hẻm hai mặt tiền cách bi tít 300m</a>
+                                    <span class="thread">Đăng bởi <a href="#" style="font-weight:bold">Quốc Đạt</a> Ở Danh mục <a href="#">Cho thuê</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="/images/content/f.jpg" alt="Aniss">
+                                <div class="content">
+                                    <span class="time" style="padding-left:10px">2/11/2018 2:42:35 PM</span>
+                                    <a href="#" class="title">Nhà chính chủ phường Tam Hiệp hẻm hai mặt tiền cách bi tít 300m</a>
+                                    <span class="thread">Đăng bởi <a href="#" style="font-weight:bold">Quốc Đạt</a> Ở Danh mục <a href="#">Cho thuê</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="/images/content/f.jpg" alt="Aniss">
+                                <div class="content">
+                                    <span class="time" style="padding-left:10px">2/11/2018 2:42:35 PM</span>
+                                    <a href="#" class="title">Nhà chính chủ phường Tam Hiệp hẻm hai mặt tiền cách bi tít 300m</a>
+                                    <span class="thread">Đăng bởi <a href="#" style="font-weight:bold">Quốc Đạt</a> Ở Danh mục <a href="#">Cho thuê</a></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-default-alt btn-sm pull-right">Load More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            cache: false
+        });
+
+        CountLH_GOPY();
+        CountTV();
+    });
+
+
+    //Dem THANH VIEN
+    function CountTV() {
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("CountTV", "Default")",
+
+            dataType: 'Json',
+            success: function (data) {
+                $("#lbl_TV").html(data);
+
+            },
+            error: function (xhr, ajaxOptions, error) {
+                alert(error);
+                alert(xhr);
+            }
+        });
+
+    };
+
+    //Dem Lien He Gop Y
+    function CountLH_GOPY() {
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("CountLH_GOPY", "Default")",
+
+            dataType: 'Json',
+            success: function (data) {
+                $("#lblLH_Gopy").html(data);
+
+            },
+            error: function (xhr, ajaxOptions, error) {
+                alert(error);
+                alert(xhr);
+            }
+        });
+
+    };
+</script>

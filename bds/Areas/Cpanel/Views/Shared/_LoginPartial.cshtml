@@ -11,6 +11,11 @@
         var user = db.USERs.SingleOrDefault(u => u.UserName.ToUpper() == User.Identity.Name.ToUpper());
 
         <ul class="nav navbar-nav pull-right toolbar">
+            <li>
+                <a href="/Home/Index/" style="font-weight:bold" target="_blank" class="dropdown-toggle username">
+                    Xem website
+                </a>
+            </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
                     <span class="hidden-xs" style="font-weight:bold">Hello: @user.FullName <i class="fa fa-caret-down"></i></span>

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using bds.Models;
 using bds.Areas.Cpanel.Models;
 using System.Net;
-
+using System.Data.Entity;
 
 namespace bds.Controllers
 {
@@ -30,6 +30,9 @@ namespace bds.Controllers
             {
                 return HttpNotFound();
             }
+            model.SOLANXEM = model.SOLANXEM + 1;
+            db.Entry(model).State = EntityState.Modified;
+            db.SaveChanges();
             return View(model);
 
         }

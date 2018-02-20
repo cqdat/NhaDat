@@ -1,0 +1,27 @@
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<LIENHE_GOPY>
+
+<ul class="panel-comments">
+    @foreach (var q in Model)
+    {
+        <li>
+            <img src="/Areas/Cpanel/assets/demo/avatar/no-avatar.jpg" alt="Aniss">
+            <div class="content">
+                <span class="actions">
+                    <div class="options">
+                        <div class="btn-group">
+                            
+                            <a class="btn btn-default btn-xs" title="Xem Chi Tiết" href="/Cpanel/LIENHE_GOPY/Details/@q.Id">
+                            <i class="fa fa-folder-open-o"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </span>
+                <span class="commented"><a href="#" style="font-weight:bold">@q.TenLH</a> viết vào lúc <a href="#">@q.ThoiGianGui</a></span>
+                @q.NoiDung
+        </div>
+    </li>
+    }
+</ul>
+<a href="/Cpanel/LIENHE_GOPY/" class="btn btn-default-alt btn-sm pull-right">Xem tất cả</a>

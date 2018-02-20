@@ -50,7 +50,7 @@
     position:relative;
 }
 body {
-    padding-top: 39px;
+    /*padding-top: 39px;*/
     /*padding-bottom: 20px;*/
     background-color: #ededed;
     font-size: 14px;
@@ -232,8 +232,8 @@ img.gifbanner {
 }
 
 .menusocial {
-    margin-top: 22px;
-    margin-bottom: 16px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
     .menusocial ul {
@@ -268,7 +268,8 @@ img.gifbanner {
 
 .boxsearch {
     /* border: 1px solid #ccc; */
-    background: url("/images/bg-search.jpg") repeat left bottom;
+    background: url("/images/bg-search.jpg") repeat left top;
+    /*background-size: 680px 280px;*/
 }
 
     .boxsearch .searchcontent {
@@ -1719,4 +1720,16 @@ span.logout a:hover
 {
     width:100%;
     cursor:pointer;
+}
+
+/*Danny CSS*/
+.banner-left {
+    width: 0;
+    height: 0;
+    float: left;
+}
+
+.banner-right {
+    height: 0;
+    float: right;
 }

@@ -36,6 +36,9 @@ namespace bds.Areas.Cpanel.Models
 
         public int? SOLANXEM { get; set; }
 
+        [StringLength(4000)]
+        public string URLRewrite { get; set; }
+
         [Column(TypeName = "ntext")]
         public string TUKHOA1 { get; set; }
 

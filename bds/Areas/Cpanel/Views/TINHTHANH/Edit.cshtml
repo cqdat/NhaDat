@@ -13,75 +13,101 @@
         </div>
     </div>
 </div>
+<div class="container" style="background-color:#ffffff; padding:2px">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+        <div class="form-horizontal">
 
-    <div class="form-horizontal">
-        <h4>TINHTHANH</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdTT)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdTT)
 
-        <div class="form-group">
-            @Html.Label("Tên", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenTT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenTT, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Tên danh mục", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenTT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenTT, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                @Html.Label("Cấp/Level", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    <select class="form-control" id="Cap" name="Cap">
 
-        <div class="form-group">
-            @Html.Label("Danh mục cha", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IDCha", null, "-- Đặt làm Menu Cha --", new { @class = "form-control", })
-                @Html.ValidationMessageFor(model => model.IDCha, "", new { @class = "text-danger" })
+                        @{ if (Model.Cap == 1)
+                            {
+                                <option selected value="1">&nbsp;&nbsp;Cấp 1</option>
+                                <option value="2">&nbsp;&nbsp;Cấp 2</option>
+                                <option value="3">&nbsp;&nbsp;Cấp 3</option>
+                            }
+                            if (Model.Cap == 2)
+                            {
+                                <option value="1">&nbsp;&nbsp;Cấp 1</option>
+                                <option selected value="2">&nbsp;&nbsp;Cấp 2</option>
+                                <option value="3">&nbsp;&nbsp;Cấp 3</option>
+                            }
+                            if (Model.Cap == 3)
+                            {
+                                <option value="1">&nbsp;&nbsp;Cấp 1</option>
+                                <option value="2">&nbsp;&nbsp;Cấp 2</option>
+                                <option selected value="3">&nbsp;&nbsp;Cấp 3</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <span style="color:#ff0000">Cấp 1: Quận/Huyện/Thành Phố</span> | <span style="color:#0026ff">Cấp 2: Phường/Xã</span> | <span style="color:#0e7e10">Cấp 3: Tên Đường</span>
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                @Html.Label("Danh mục cha", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IDCha", null, "-- Đặt làm Menu Cha --", new { @class = "form-control", })
+                    @Html.ValidationMessageFor(model => model.IDCha, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
-        <div class="form-group">
-            @Html.Label("Thứ tự", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.ThuTu, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Thứ tự", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.ThuTu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-8">
+                    <label style="font-style:italic; text-align:left" class="control-label col-md-8">Nhập số 1, 2, 3,... theo thứ tự tăng dần</label>
+                </div>
             </div>
-            <div class="col-md-8">
-                <label style="font-style:italic; text-align:left" class="control-label col-md-8">Nhập số 1, 2, 3,... theo thứ tự tăng dần</label>
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.HienThi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                @*@Html.EditorFor(model => model.HienThi, new { htmlAttributes = new { @class = "form-control" } })*@
-                <select class="form-control" id="HienThi" name="HienThi">
-                    @{ if (Model.HienThi == 1)
-                        {
-                            <option selected value="1">Hiện thị</option>
+            <div class="form-group">
+                @Html.LabelFor(model => model.HienThi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @*@Html.EditorFor(model => model.HienThi, new { htmlAttributes = new { @class = "form-control" } })*@
+                    <select class="form-control" id="HienThi" name="HienThi">
+                        @{ if (Model.HienThi == 1)
+                            {
+                                <option selected value="1">Hiện thị</option>
                                 <option value="0">Ẩn</option>
-                        }
-                        else
-                        {
-                            <option value="1">Hiện thị</option>
+                            }
+                            else
+                            {
+                                <option value="1">Hiện thị</option>
                                 <option selected value="0">Ẩn</option>
+                            }
                         }
-                    }
 
 
-                </select>
-                @Html.ValidationMessageFor(model => model.HienThi, "", new { @class = "text-danger" })
+                    </select>
+                    @Html.ValidationMessageFor(model => model.HienThi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
+                            }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

@@ -8,27 +8,58 @@ using System.Web;
 using System.Web.Mvc;
 using bds.Areas.Cpanel.Models;
 using bds.Models;
+using bds.Controllers;
 
 namespace bds.Areas.Cpanel.Controllers
 {
-    public class TINHTHANHController : Controller
+    public class TINHTHANHController : BaseController
     {
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
 
         // GET: Cpanel/TINHTHANH
-        public ActionResult Index()
+        public ActionResult Index(string txtSearch)
         {
-            var model = db.TINHTHANHs.Where(t=>t.IDCha == 0).OrderBy(t=>t.ThuTu).ToList();
+            //var IDParent = 0;
+            //var model = db.TINHTHANHs.ToList();
+
+            //if (txtSearch == "" || txtSearch == null)
+            //{
+
+            //    model = model.Where(t => t.IDCha == 0).OrderBy(t => t.ThuTu).ToList();
+
+            //}
+            //else
+            //{
+            //    IDParent = Convert.ToInt32(txtSearch);
+            //    model = model.Where(t => t.IDCha == IDParent).OrderBy(t => t.ThuTu).ToList();
+            //    ViewBag.txtSearch = txtSearch;
+            //}
+            //ViewBag.txtSearch = new SelectList(db.TINHTHANHs.OrderBy(b => b.TenTT), "IdTT", "TenTT");
+            ////var tt = from s in db.TINHTHANHs
+            ////         select s;
+            var model = db.TINHTHANHs.Where(t => t.IDCha == 0).ToList();
+            if (!String.IsNullOrEmpty(txtSearch))
+            {
+                model = model.Where(s => s.TenTT.ToUpper().Contains(txtSearch.ToUpper())).ToList();
+                ViewBag.txtSearch = txtSearch;
+
+            }
             return View(model);
         }
         [ChildActionOnly]
-        public PartialViewResult _PartialViewChildTinhThanh(int ParentID)
+        public PartialViewResult _PartialViewChildTinhThanh(int ParentID
+                                                            //, string txtSearch
+                                                            )
         {
 
             var _loca = from tt in db.TINHTHANHs
                         where tt.IDCha == ParentID
                         select tt;
-
+            //if (!String.IsNullOrEmpty(txtSearch))
+            //{
+            //    _loca = _loca.Where(s => s.TenTT.ToUpper().Contains(txtSearch.ToUpper()));
+                
+            //}
             return PartialView(_loca.ToList());
 
         }
@@ -50,7 +81,7 @@ namespace bds.Areas.Cpanel.Controllers
         // GET: Cpanel/TINHTHANH/Create
         public ActionResult Create()
         {
-            ViewBag.IDCha = new SelectList(db.TINHTHANHs.Where(l => l.IDCha == 0), "IdTT", "TenTT");
+            ViewBag.IDCha = new SelectList(db.TINHTHANHs.Where(l => l.Cap == 1 || l.Cap == 2), "IdTT", "TenTT");
             return View();
         }
 
@@ -68,12 +99,14 @@ namespace bds.Areas.Cpanel.Controllers
                     tINHTHANH.IDCha = 0;
                 }
                 tINHTHANH.url = Helper.ConvertToUpperLower(tINHTHANH.TenTT);
-                tINHTHANH.Cap = 1;
+                //tINHTHANH.Cap = 1;
                 tINHTHANH.DemChoThue = 0;
                 tINHTHANH.DemMuaban = 0;
 
                 db.TINHTHANHs.Add(tINHTHANH);
                 db.SaveChanges();
+                Success(string.Format("Thêm mới thành công"), true);
+                
                 return RedirectToAction("Index");
             }
 

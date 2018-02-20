@@ -1,7 +1,7 @@
 ﻿@using bds.Areas.Cpanel.Models
 @model IEnumerable<bds.Areas.Cpanel.Models.TINHTHANH>
 @using bds.Models
-@{ Helper h = new Helper();}
+@*@{ Helper h = new Helper();}*@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
@@ -49,7 +49,7 @@
 </style>
 
 <div id="page-heading">
-    <h1>Danh mục Tỉnh thành</h1>
+    <h1>Danh mục Quận/Huyện</h1>
     <div class="options">
         <div class="btn-toolbar">
             <a class="btn btn-success" href="/Cpanel/TINHTHANH/Create"><i class="fa fa-plus-square-o"></i>Thêm mới</a>
@@ -59,7 +59,22 @@
 </div>
 
 <div class="container" style="background-color:#ffffff; padding:5px 5px">
+    @{ Html.RenderPartial("_Alerts"); }
+    <div class="row" style="padding-left:40px">
+        @using (Html.BeginForm("Index", "TINHTHANH", FormMethod.Get))
+        {
+            <div class="col-lg-10">
+                <input type="text" id="txtSearch" value="@ViewBag.txtSearch" placeholder="Vui lòng nhập tên Quận/Huyện" name="txtSearch" class="form-control" />
+                @*@Html.DropDownList("txtSearch", null, "-- Tất cả --", new { @class = "form-control" })*@
+            </div>
+            <div class="col-lg-2">
+                <input type="submit" value="Tìm" class="btn btn-green" />
+            </div>
+        }
+        
+    </div>
     <ol class="dd-list">
+        
         <li data-id="1" class="dd-item" style="background-color:#1194f6; color:white">
             <div class="dd-handle" style="background-color:#1194f6;">Tên <span style="float:right; font-weight:bold">Hiện thị &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sửa | Xóa</span> </div>
         </li>
@@ -86,7 +101,8 @@
                     | <a href="/Cpanel/TINHTHANH/Delete/@item.IdTT">Xóa</a>
                 </span>
             </div>
-            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT })
+            @Html.Action("_PartialViewChildTinhThanh", "TINHTHANH", new { ParentID = @item.IdTT}) @*, txtSearch = @ViewBag.txtSearch*@
+            
         </li>
 
         }

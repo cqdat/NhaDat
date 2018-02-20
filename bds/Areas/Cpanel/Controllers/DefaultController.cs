@@ -14,9 +14,13 @@ namespace bds.Areas.Cpanel.Controllers
         private DB_BDSEntitiesAdmin db = new DB_BDSEntitiesAdmin();
         Helper h = new Helper();
         // GET: Cpanel/Default
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            IndexAdminModel index = new IndexAdminModel();
+            index.LienHeGopy = db.LIENHE_GOPY.Where(l => l.TrangThai == 1).Take(10).OrderByDescending(l=>l.Id).ToList();
+            index.ThanhVien = db.THANHVIENs.Take(10).OrderByDescending(t => t.idTV).ToList();
+            return View(index);
         }
         public PartialViewResult getDichVuVIP()
         {
@@ -31,5 +35,33 @@ namespace bds.Areas.Cpanel.Controllers
 
             return PartialView("_PartialViewMenuDichVuVIP", model);
         }
+
+        #region Đếm số lien he - Gop y
+        public JsonResult CountLH_GOPY()
+        {
+
+            var lh = db.LIENHE_GOPY.ToList();
+            //var Datelst = db.AL_Details.Where(p => p.Year == 2017 && p.IsDelete == false).OrderByDescending(p => p.DateAL);
+
+
+            double total = lh.Count();
+
+            return Json(total, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region Đếm số Số Thành Viên
+        public JsonResult CountTV()
+        {
+
+            var lh = db.THANHVIENs.ToList();
+            //var Datelst = db.AL_Details.Where(p => p.Year == 2017 && p.IsDelete == false).OrderByDescending(p => p.DateAL);
+
+
+            double total = lh.Count();
+
+            return Json(total, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

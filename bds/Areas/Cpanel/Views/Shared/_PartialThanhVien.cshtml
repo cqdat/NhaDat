@@ -1,0 +1,33 @@
+﻿@using bds.Areas.Cpanel.Models
+@model IEnumerable<THANHVIEN>
+<div class="table-responsive">
+    <table class="table" style="margin-bottom: 0px;">
+        <thead>
+            <tr>
+                
+                <th class="col-xs-9 col-sm-3">User</th>
+                <th class="col-sm-6 hidden-xs">Email</th>
+                <th class="col-xs-2 col-sm-2">Số DT</th>
+            </tr>
+        </thead>
+        <tbody class="selects">
+            @foreach (var q in Model)
+            {
+            <tr>
+                
+                <td style="font-weight:bold">@q.TenTruyCap</td>
+                <td class="hidden-xs">@q.EmailLH</td>
+                <td>@q.SoDiDong</td>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="active">
+                <td colspan="4" class="text-left">
+                    <a href="#" class="btn btn-default-alt btn-sm pull-right">Xem tất cả</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+

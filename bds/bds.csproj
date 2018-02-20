@@ -194,6 +194,7 @@
     <Compile Include="Areas\Cpanel\Models\DUONGPHO.cs" />
     <Compile Include="Areas\Cpanel\Models\GIOITHIEU.cs" />
     <Compile Include="Areas\Cpanel\Models\HINHANH.cs" />
+    <Compile Include="Areas\Cpanel\Models\IndexAdminModel.cs" />
     <Compile Include="Areas\Cpanel\Models\INFORMATION.cs" />
     <Compile Include="Areas\Cpanel\Models\LIENHE_GOPY.cs" />
     <Compile Include="Areas\Cpanel\Models\MENU.cs" />
@@ -1917,6 +1918,8 @@
     <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Details.cshtml" />
     <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Edit.cshtml" />
     <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Index.cshtml" />
+    <Content Include="Areas\Cpanel\Views\Shared\_PartialLienHe_Gopy.cshtml" />
+    <Content Include="Areas\Cpanel\Views\Shared\_PartialThanhVien.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -2000,6 +2003,7 @@
     <Content Include="Views\BaiViet\Detail.cshtml" />
     <Content Include="Views\Home\BanDo.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

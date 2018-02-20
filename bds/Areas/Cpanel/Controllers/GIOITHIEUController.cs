@@ -49,17 +49,16 @@ namespace bds.Areas.Cpanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
+        public ActionResult Create([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,URLRewrite,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
         {
             if (ModelState.IsValid)
             {
                 gIOITHIEU.HINHANH = "";
                 gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
-                gIOITHIEU.TINNOIBAT = 0;
-                gIOITHIEU.HIEULUC = 1;
-                gIOITHIEU.TUKHOA1= Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
+                gIOITHIEU.URLRewrite = Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
                 db.GIOITHIEUx.Add(gIOITHIEU);
                 db.SaveChanges();
+                Success(string.Format("Thêm mới thành công"), true);
                 return RedirectToAction("Index");
             }
 
@@ -88,7 +87,7 @@ namespace bds.Areas.Cpanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
+        public ActionResult Edit([Bind(Include = "IDTT,THUTU,TIEUDE,TOMTAT,NOIDUNG,HINHANH,NGAYCAPNHAT,TINNOIBAT,HIENTHI,HIEULUC,SOLANXEM,URLRewrite,TUKHOA1,TUKHOA2,TUKHOA3,HIENTHIMENU")] GIOITHIEU gIOITHIEU)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +97,7 @@ namespace bds.Areas.Cpanel.Controllers
                 //gIOITHIEU.TOMTAT = gIOITHIEU.TOMTAT;
                 //gIOITHIEU.NOIDUNG = gIOITHIEU.NOIDUNG;
                 //gIOITHIEU.HINHANH = gIOITHIEU.HINHANH;
-                gIOITHIEU.TUKHOA1 = Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
+                gIOITHIEU.URLRewrite = Helper.ConvertToUpperLower(gIOITHIEU.TIEUDE);
                 gIOITHIEU.NGAYCAPNHAT = DateTime.Now;
                 //gIOITHIEU.TINNOIBAT = 1;
                 //gIOITHIEU.HIENTHI = 1;
@@ -111,7 +110,7 @@ namespace bds.Areas.Cpanel.Controllers
 
                 db.Entry(gIOITHIEU).State = EntityState.Modified;
                 db.SaveChanges();
-                ViewBag.Message = "Cập nhật thành công";
+                Success(string.Format("Cập nhật thành công"), true);
                 return RedirectToAction("Edit", "GIOITHIEU", new { id = gIOITHIEU.IDTT });
             }
             return View(gIOITHIEU);

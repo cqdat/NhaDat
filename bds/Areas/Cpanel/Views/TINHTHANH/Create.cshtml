@@ -6,10 +6,10 @@
 }
 
 <div id="page-heading">
-    <h1>Thêm mới DM Tỉnh Thành</h1>
+    <h1>Thêm mới DM Quận/Huyện</h1>
     <div class="options">
         <div class="btn-toolbar">
-            <a class="btn btn-success" href="/Cpanel/Menu/">Quay lại DM Menu</a>
+            <a class="btn btn-success" href="/Cpanel/TINHTHANH/">Quay lại DM Tỉnh thành</a>
 
         </div>
     </div>
@@ -23,13 +23,43 @@
           
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.Label("Tên", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Tên danh mục", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TenTT, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TenTT, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            @*<div class="form-group">
+                @Html.Label("text", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option value="nha-dat">--- Chọn loại Danh mục cha ---</option>
+                        <option value="nha">TP Thủ Dầu Một</option>
+                        <option value="nha-mat-tien">&nbsp;&nbsp; - Phường Hòa Phú</option>
+                        <option value="nha-trong-hem">&nbsp;&nbsp; - Phường Phú Hòa</option>
+                        <option value="biet-thu-nha-lien-ke">Thị xã Thuận An</option>
+                        <option value="can-ho-chung-cu">&nbsp;&nbsp; - Phường Lái Thiêu</option>
+                        <option value="phong-tro-nha-tro">&nbsp;&nbsp; - Phường An Bình</option>
+                        <option value="van-phong">Thị xã Dĩ An</option>
+                        
+                    </select>
+                </div>
+                
+            </div>*@
+            <div class="form-group">
+                @Html.Label("Cấp/Level", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    <select class="form-control" id="Cap" name="Cap">
+                        <option value="1">&nbsp;&nbsp;Cấp 1</option>
+                        <option value="2">&nbsp;&nbsp;Cấp 2</option>
+                        <option value="3">&nbsp;&nbsp;Cấp 3</option>
+                        
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <span style="color:#ff0000">Cấp 1: Quận/Huyện/Thành Phố</span> | <span style="color:#0026ff">Cấp 2: Phường/Xã</span> | <span style="color:#0e7e10">Cấp 3: Tên Đường</span> 
+                </div>
+            </div>
             <div class="form-group">
                 @Html.Label("Danh mục cha", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
