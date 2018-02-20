@@ -200,13 +200,11 @@ namespace bds.Areas.Cpanel.Controllers
                 var allowedExtensions = new[] {
             ".Jpg", ".png", ".jpg", "jpeg"
                 };
-                
-                if(HinhAnh.FileName == "" || HinhAnh.FileName == null)
+                //if (ImageURL != null && ImageURL.ContentLength > 0)
+                if (HinhAnh != null && HinhAnh.ContentLength > 0)
                 {
-                    BDS_TINTUC.HinhAnh = BDS_TINTUC.HinhAnh;
-                }
-                else
-                {
+                    
+
                     var fileName = Path.GetFileName(HinhAnh.FileName);
                     var ext = Path.GetExtension(HinhAnh.FileName);
                     if (allowedExtensions.Contains(ext)) //check what type of extension  
@@ -226,6 +224,10 @@ namespace bds.Areas.Cpanel.Controllers
                     {
                         ViewBag.message = "Please choose only Image file";
                     }
+                }
+                else
+                {
+                    BDS_TINTUC.HinhAnh = BDS_TINTUC.HinhAnh;
                 }
 
                 

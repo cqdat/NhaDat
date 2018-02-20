@@ -12,6 +12,7 @@ namespace bds.Areas.Cpanel.Models
         {
         }
 
+        public virtual DbSet<BANNER> BANNERS { get; set; }
         public virtual DbSet<BDS_DIENTICH> BDS_DIENTICH { get; set; }
         public virtual DbSet<BDS_DM_GIAODICH> BDS_DM_GIAODICH { get; set; }
         public virtual DbSet<BDS_GIA> BDS_GIA { get; set; }
@@ -100,6 +101,10 @@ namespace bds.Areas.Cpanel.Models
 
             modelBuilder.Entity<DUONGPHO>()
                 .Property(e => e.url)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<GIOITHIEU>()
+                .Property(e => e.URLRewrite)
                 .IsUnicode(false);
 
             modelBuilder.Entity<HINHANH>()

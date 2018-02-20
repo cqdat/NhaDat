@@ -36,7 +36,7 @@ namespace bds.Areas.Cpanel.Models
 
         public int? SOLANXEM { get; set; }
 
-        [StringLength(4000)]
+        [StringLength(200)]
         public string URLRewrite { get; set; }
 
         [Column(TypeName = "ntext")]
@@ -49,7 +49,6 @@ namespace bds.Areas.Cpanel.Models
         public string TUKHOA3 { get; set; }
 
         public int? HIENTHIMENU { get; set; }
-
         public List<GIOITHIEU> DichVuVIP;
     }
 }

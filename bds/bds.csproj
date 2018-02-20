@@ -165,6 +165,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Cpanel\Controllers\BANNERSController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_DIENTICHController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_HUONGNHAController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\BDS_LOAIBDSController.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Areas\Cpanel\Controllers\USERController.cs" />
     <Compile Include="Areas\Cpanel\Controllers\UtilitiesController.cs" />
     <Compile Include="Areas\Cpanel\CpanelAreaRegistration.cs" />
+    <Compile Include="Areas\Cpanel\Models\BANNER.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DIENTICH.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_DM_GIAODICH.cs" />
     <Compile Include="Areas\Cpanel\Models\BDS_GIA.cs" />
@@ -453,6 +455,8 @@
     <Content Include="Areas\Cpanel\assets\plugins\sparklines\jquery.sparklines.min.js" />
     <Content Include="Areas\Cpanel\Images\Check.png" />
     <Content Include="Areas\Cpanel\Images\disable.png" />
+    <Content Include="Areas\Cpanel\Images\Logo\logo.png" />
+    <Content Include="Areas\Cpanel\Images\NoiBat.png" />
     <Content Include="Areas\Cpanel\Images\TinTuc\1.JPG" />
     <Content Include="Areas\Cpanel\Images\TinTuc\11.jpg" />
     <Content Include="Areas\Cpanel\Images\TinTuc\20180106082529-27c4_382.jpg" />
@@ -1920,6 +1924,8 @@
     <Content Include="Areas\Cpanel\Views\LIENHE_GOPY\Index.cshtml" />
     <Content Include="Areas\Cpanel\Views\Shared\_PartialLienHe_Gopy.cshtml" />
     <Content Include="Areas\Cpanel\Views\Shared\_PartialThanhVien.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BANNERS\UpdLogo.cshtml" />
+    <Content Include="Areas\Cpanel\Views\BANNERS\BannersLst.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\client.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -2007,6 +2013,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Cpanel\Images\Banners\" />
     <Folder Include="Areas\Cpanel\Views\Utilities\" />
     <Folder Include="ckfinder\Images\files\" />
     <Folder Include="ckfinder\Images\flash\" />

@@ -1,0 +1,103 @@
+﻿@model bds.Areas.Cpanel.Models.BANNER
+@{
+    ViewBag.Title = "UpdLogo";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+<div id="page-heading">
+    <h1>Cập nhật Logo</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color:#ffffff; padding:5px 5px">
+    <div class="row">
+        @{ Html.RenderPartial("_Alerts"); }
+        <div class="col-md-6">
+            @using (Html.BeginForm("SaveLogo", "BANNERS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                
+                <div class="table-responsive">
+                    <h3><strong style="color:#ff0000"> @Model.NameBanner </strong></h3>
+                    <table class="table table-condensed">
+
+                        <tbody>
+
+                            <tr>
+                                <td style="width:30%">Hình ảnh</td>
+                                <td><input type="file" id="ImageURL" name="ImageURL" /></td>
+                            </tr>
+                            <tr>
+                                <td style="width:30%">Link</td>
+                                <td><input type="text" id="LinkBanner" name="LinkBanner" class="form-control" value="@Model.LinkBanner" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kiểu điều hướng</td>
+                                <td>
+                                    <select class="form-control list-box tri-state" id="KieuChuyenHuong" name="KieuChuyenHuong">
+
+                                        @{
+                                            if (Model.KieuChuyenHuong == "_parent")
+                                            {
+                                                <option selected value="_parent">Mở trên trang hiện tại</option>
+                                                <option value="_blank">Mở cửa sổ mới</option>
+                                            }
+                                            if (Model.KieuChuyenHuong == "_blank")
+                                            {
+                                                <option value="_parent">Mở trên trang hiện tại</option>
+                                                <option selected value="_blank">Mở cửa sổ mới</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ẩn/Hiện</td>
+                                <td>
+                                    <select class="form-control list-box tri-state" id="HienThi" name="HienThi">
+
+                                        @{
+                                            if (Model.HienThi == 1)
+                                            {
+                                                <option selected value="1">Hiện thị</option>
+                                                <option value="0">Ẩn</option>
+                                            }
+                                            if (Model.HienThi == 0)
+                                            {
+                                                <option value="1">Hiện thị</option>
+                                                <option selected value="0">Ẩn</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Cập nhật cuối bởi</td>
+                                <td>@Model.UpdateBy</td>
+                            </tr>
+                            <tr>
+                                <td>Vào lúc</td>
+                                <td>@Model.NgayCapNhat</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="Lưu" class="btn btn-primary" /></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                                            }
+        </div>
+        <div class="col-md-6">
+            <h3>Hình ảnh</h3>
+
+            <p>
+                <img src="/Areas/Cpanel/Images/Logo/@Model.ImageURL" alt="" width="300px" class="pull-left" style="margin: 0 20px 20px 0">
+            </p>
+
+        </div>
+    </div>
+</div>

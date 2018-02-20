@@ -1,4 +1,5 @@
-﻿@*<div class="navbar navbar-inverse navbar-fixed-top">
+﻿@model bds.Areas.Cpanel.Models.BANNER
+@*<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -34,8 +35,8 @@
 <div class="container boxlogo">
     <div class="row">
         <div class="col-md-2" style="text-align:center; padding-right:0">
-            <a href="/">
-                <img alt="logo" src="~/images/logo.png" />
+            <a href="@Model.LinkBanner" target="@Model.KieuChuyenHuong">
+                <img alt="logo" src="/Areas/Cpanel/Images/Logo/@Model.ImageURL" />
             </a>
         </div>
         <div class="col-md-10">

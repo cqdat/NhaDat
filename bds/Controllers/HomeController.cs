@@ -70,7 +70,8 @@ namespace bds.Controllers
 
         public PartialViewResult getHeader()
         {
-            return PartialView("_header");
+            var logo = db.BANNERS.Where(b => b.TypeBanner == 1).SingleOrDefault();//Where = 1: Logo chỉ 1 dòng duy nhất
+            return PartialView("_header", logo);
         }
 
         public PartialViewResult getFooter()
@@ -335,6 +336,8 @@ namespace bds.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
+
+        //Danny's code
         public ActionResult BanDo()
         {
             return View();
