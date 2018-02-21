@@ -1,6 +1,12 @@
-﻿
-<div class="bannerleft">
-    <a href="#">
-        <img alt="banner left" src="~/images/banner_305x200px.gif" />
-    </a>
-</div>
+﻿@model bds.Models.IndexModel
+
+@foreach (var q in Model.BannerHomePage)
+{
+    <div class="bannerleft">
+
+        <a href="@q.LinkBanner" target="@q.KieuChuyenHuong" title="@q.NameBanner">
+            <img alt="banner left" src="~/Areas/Cpanel/Images/Banners/@q.ImageURL" />
+        </a>
+    </div>
+}
+

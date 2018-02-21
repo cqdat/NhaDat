@@ -1,0 +1,107 @@
+﻿@model bds.Areas.Cpanel.Models.DUAN_LOAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Cpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DUAN_LOAI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.THUTU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUTU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENLOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENLOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIENTHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIENTHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIEULUC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIEULUC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TINNOIBAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TINNOIBAT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDLOAI }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

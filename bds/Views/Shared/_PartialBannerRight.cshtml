@@ -1,0 +1,18 @@
+﻿@using bds.Models
+@model BannerViewModel
+
+<div id="ban_right" class="ban_scroll" style="display: block; top: 0px; position: fixed; right: 1px;">
+    <div class="adPosition" positioncode="BANNER_POSITION_RIGHT" style="margin-bottom: 0px;">
+@foreach (var q in Model.BannerRight)
+{
+        <div class="adshared"  style="margin-bottom:5px">
+            <div class="aditem" time="15" style="display: block;" src="~/Areas/Cpanel/Images/Banners/@q.ImageURL" altsrc="~/Areas/Cpanel/Images/Banners/@q.ImageURL" 
+                 link="@q.LinkBanner" bid="6039" tip="" tp="7" w="100" h="300" k="">
+                <a href="@q.LinkBanner" target="@q.KieuChuyenHuong" title="@q.NameBanner" rel="nofollow">
+                    <img src="~/Areas/Cpanel/Images/Banners/@q.ImageURL" style="max-width: 100%; height:300px;">
+                </a>
+            </div>
+        </div>
+}
+    </div>
+</div>

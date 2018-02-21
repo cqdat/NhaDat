@@ -14,5 +14,6 @@ namespace bds.Models
         public List<BDS_MUABAN> BDSNoiBat;
         public List<BDS_MUABAN> BDSMoi;
         public List<DUAN> DuAn;
+        public List<BANNER> BannerHomePage;
     }
 }

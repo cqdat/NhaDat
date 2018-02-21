@@ -22,6 +22,7 @@ namespace bds.Controllers
             index.BDSMoi = db.BDS_MUABAN.Where(q => q.Visible == true && q.Type == false).OrderBy(o => o.Created).Take(15).ToList();
             index.TinTucNoiBat = db.BDS_TINTUC.Where(q => q.Visible == true && q.NoiBat == true).Take(10).ToList();
             index.FirstNEWS = db.BDS_TINTUC.FirstOrDefault(q => q.NoiBat == true && q.Visible == true);
+            index.BannerHomePage = db.BANNERS.Where(b => b.ViTri == 5 && b.TypeBanner == 2 && b.HienThi == 1).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
             return View(index);
         }
 
@@ -70,8 +71,11 @@ namespace bds.Controllers
 
         public PartialViewResult getHeader()
         {
-            var logo = db.BANNERS.Where(b => b.TypeBanner == 1).SingleOrDefault();//Where = 1: Logo chỉ 1 dòng duy nhất
-            return PartialView("_header", logo);
+            BannerViewModel banners = new BannerViewModel();
+            banners.Logo = db.BANNERS.Where(b => b.TypeBanner == 1).SingleOrDefault();//Where = 1: Logo chỉ 1 dòng duy nhất
+            banners.BannerTop = db.BANNERS.Where(b => b.TypeBanner == 2).FirstOrDefault();//Where = 2: banner Top chỉ 1 dòng duy nhất
+            //banners.BannerLeft = db.BANNERS.Where(b => b.TypeBanner == 3).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
+            return PartialView("_header", banners);
         }
 
         public PartialViewResult getFooter()
@@ -343,6 +347,22 @@ namespace bds.Controllers
             return View();
         }
 
+        //Get banner Lề Trái
+        public PartialViewResult getBannerLeft()
+        {
+            BannerViewModel banners = new BannerViewModel();
+            
+            banners.BannerLeft = db.BANNERS.Where(b => b.ViTri == 3 && b.TypeBanner == 2 && b.HienThi == 1).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
+            return PartialView("_PartialBannerLeft", banners);
+        }
+
+        public PartialViewResult getBannerRight()
+        {
+            BannerViewModel banners = new BannerViewModel();
+
+            banners.BannerRight = db.BANNERS.Where(b => b.ViTri == 4 && b.TypeBanner == 2 && b.HienThi == 1).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
+            return PartialView("_PartialBannerRight", banners);
+        }
 
     }
 }

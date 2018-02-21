@@ -11,5 +11,6 @@ namespace bds.Models
         public List<BDS_TINTUC> TinTuc;
         public List<BDS_TINTUC> TinNoiBat;
         public List<BDS_TINTUC> NhieuNguoiDoc;
+        
     }
 }

@@ -24,6 +24,7 @@ namespace bds.Controllers
             model.TinTuc = db.BDS_TINTUC.Where(q => q.IDMenu == id && q.Visible == true).Take(15).OrderByDescending(o => o.CreateBy).ToList();
             model.TinNoiBat = db.BDS_TINTUC.Where(q => q.NoiBat == true && q.Visible == true).Take(15).OrderByDescending(o => o.CreateBy).ToList();
             model.NhieuNguoiDoc = db.BDS_TINTUC.Where(q => q.NhieuNguoiDoc == true && q.Visible == true).Take(15).OrderByDescending(o => o.CreateBy).ToList();
+            //model.BannerHomePage = db.BANNERS.Where(b => b.ViTri == 5 && b.TypeBanner == 2 && b.HienThi == 1).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
             return View(model);
         }
 
@@ -34,6 +35,7 @@ namespace bds.Controllers
             model.TinKhac = db.BDS_TINTUC.Where(q => q.Visible == true).ToList();
             model.TinNoiBat = db.BDS_TINTUC.Where(q => q.NoiBat == true && q.Visible == true).Take(15).OrderByDescending(o => o.CreateBy).ToList();
             model.NhieuNguoiDoc = db.BDS_TINTUC.Where(q => q.NhieuNguoiDoc == true && q.Visible == true).Take(15).OrderByDescending(o => o.CreateBy).ToList();
+            //model.BannerHomePage = db.BANNERS.Where(b => b.ViTri == 5 && b.TypeBanner == 2 && b.HienThi == 1).ToList();//Where = 2: banner Top chỉ 1 dòng duy nhất
             return View(model);
         }
 

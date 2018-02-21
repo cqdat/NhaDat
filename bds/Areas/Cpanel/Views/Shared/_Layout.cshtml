@@ -57,7 +57,14 @@
                         <li><a href="/Cpanel/TINHTHANH/">DM Quận/Huyện</a></li>
                     </ul>
                 </li>
-               
+                <li>
+                    <a href="javascript:;"><i class="fa fa-sitemap"></i>  <span>Dự Án</span> @*<span class="badge badge-indigo">4</span>*@</a>
+                    <ul class='acc-menu'>
+                        <li><a href="/Cpanel/DUAN_LOAI/">DM Loại Dự án</a></li>
+                        <li><a href="/Cpanel/DUAN_LOAI/">Danh sách Dự Án</a></li>
+                        <li><a href="/Cpanel/DUAN_LOAI/">Thêm mới Dự Án</a></li>
+                    </ul>
+                </li>
                @{Html.RenderAction("getDichVuVIP", "Default", new { area = "Cpanel" });} 
                 <li>
                     <a href="javascript:;"><i class="fa fa-table"></i> <span>Tin Tức</span></a>
